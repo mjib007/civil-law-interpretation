@@ -7,7 +7,7 @@
 ![AI](https://img.shields.io/badge/AI-Claude%20(Anthropic)-blueviolet)
 ![Platform](https://img.shields.io/badge/Platform-claude.ai-orange)
 ![Language](https://img.shields.io/badge/Language-繁體中文-red)
-[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey)](LICENSE)
+[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey)](LICENSE.md)
 ![Status](https://img.shields.io/badge/status-active-success)
 [![總覽頁](https://img.shields.io/badge/總覽頁-GitHub%20Pages-1a3a5c)](https://mjib007.github.io/civil-law-interpretation/)
 
@@ -143,7 +143,7 @@ civil-law-interpretation/
 │
 ├── README.md        # 你現在看的這份說明文件
 ├── SKILL.md          # 完整 Skill 內容，依 Claude Skill 格式安裝即可使用
-├── LICENSE            # CC BY-NC 4.0 授權條款
+├── LICENSE.md         # CC BY-NC 4.0 授權條款（中英對照）
 ├── index.html         # 講義總覽頁（分類覆蓋地圖＋搜尋篩選），GitHub Pages 入口
 └── 講義/               # 各講義 HTML 檔案存放處
     ├── 民法92-93-114條-意思表示不自由.html
@@ -154,7 +154,7 @@ civil-law-interpretation/
 
 ## 授權
 
-本專案以 [CC BY-NC 4.0](./LICENSE) 授權公開，僅限非商業用途，
+本專案以 [CC BY-NC 4.0](./LICENSE.md) 授權公開，僅限非商業用途，
 歡迎自由使用、修改與分享，請保留原作者資訊。
 
 ---
