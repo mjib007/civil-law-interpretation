@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>民法第6條至第11條——自然人之權利能力</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16233b;
+    --indigo: #2c4a76;
+    --indigo-soft: #3f5f8f;
+    --parchment: #f3ede0;
+    --paper: #fbf8f1;
+    --paper-panel: #fffdf8;
+    --seal: #9c2b3a;
+    --seal-soft: #c7566450;
+    --brass: #a9832f;
+    --line: #ddd3bf;
+    --ink-70: rgba(22,35,59,0.7);
+    --ink-45: rgba(22,35,59,0.45);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Noto Sans TC", sans-serif;
+    color: var(--ink);
+    line-height: 1.85;
+    background: var(--parchment);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .shell {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 780px);
+    justify-content: center;
+    gap: 0;
+    max-width: 1160px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  .rail {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 48px 20px 40px 8px;
+    display: flex;
+    flex-direction: column;
+  }
+  .rail-brand {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    color: var(--brass);
+    margin-bottom: 4px;
+  }
+  .rail-title {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .rail nav { display: flex; flex-direction: column; gap: 2px; }
+  .rail a {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink-70);
+    font-size: 0.9rem;
+    padding: 8px 10px;
+    border-radius: 3px;
+    border-left: 2px solid transparent;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .rail a .idx {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 700;
+    color: var(--brass);
+    font-size: 0.78rem;
+    width: 16px;
+  }
+  .rail a:hover { color: var(--ink); background: rgba(169,131,47,0.08); }
+  .rail a.active {
+    color: var(--ink);
+    font-weight: 700;
+    border-left-color: var(--seal);
+    background: rgba(156,43,58,0.06);
+  }
+  .rail a.pending { color: var(--ink-45); }
+  .rail a.pending .idx { color: var(--ink-45); }
+  .rail-foot {
+    margin-top: auto;
+    font-size: 0.72rem;
+    color: var(--ink-45);
+    line-height: 1.7;
+    padding: 10px;
+    border-top: 1px solid var(--line);
+  }
+
+  .main {
+    background: var(--paper);
+    min-height: 100vh;
+    padding: 56px 56px 100px;
+    box-shadow: -1px 0 0 var(--line);
+  }
+
+  .cover {
+    position: relative;
+    padding: 54px 8px 40px;
+    margin-bottom: 64px;
+    border-bottom: 1px solid var(--line);
+  }
+  .cover .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.74rem;
+    letter-spacing: 0.24em;
+    color: var(--brass);
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .cover .eyebrow::before {
+    content: "";
+    width: 22px; height: 1px;
+    background: var(--brass);
+  }
+  .cover h1 {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 900;
+    font-size: 2.6rem;
+    line-height: 1.3;
+    margin: 0 0 14px;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+  .cover .sub {
+    font-size: 1.05rem;
+    color: var(--indigo);
+    font-weight: 500;
+  }
+  .cover-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .ver-badge {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--seal);
+    border: 1px solid var(--seal);
+    border-radius: 20px;
+    padding: 3px 12px;
+    letter-spacing: 0.03em;
+  }
+  .meta-date {
+    font-size: 0.8rem;
+    color: var(--ink-45);
+  }
+  .cover .seal-mark {
+    position: absolute;
+    top: 40px;
+    right: 8px;
+    width: 92px;
+    height: 92px;
+    border: 2.5px solid var(--seal);
+    border-radius: 6px;
+    color: var(--seal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    writing-mode: vertical-rl;
+    opacity: 0.82;
+    transform: rotate(3deg);
+    background: rgba(156,43,58,0.03);
+  }
+
+  section { margin-bottom: 76px; scroll-margin-top: 32px; }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .sec-head .num {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    color: var(--seal);
+  }
+  .sec-head h2 {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 700;
+    font-size: 1.55rem;
+    color: var(--ink);
+    margin: 0;
+  }
+  .sec-head::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    align-self: center;
+  }
+
+  .article-box {
+    position: relative;
+    background: var(--paper-panel);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--indigo);
+    padding: 22px 28px 22px 26px;
+    border-radius: 3px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .article-box.related { border-left-color: var(--brass); }
+  .article-box .wm {
+    position: absolute;
+    right: 6px;
+    bottom: -22px;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 900;
+    font-size: 5.4rem;
+    color: var(--indigo);
+    opacity: 0.06;
+    line-height: 1;
+    user-select: none;
+  }
+  .article-box .num {
+    color: var(--indigo);
+    font-weight: 700;
+    font-family: "Noto Serif TC", serif;
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .article-box.related .num { color: var(--brass); }
+  .article-box .num .tagline {
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 500;
+    font-size: 0.76rem;
+    color: var(--ink-45);
+    margin-left: 8px;
+  }
+  .article-box p { margin: 4px 0; position: relative; z-index: 1; }
+
+  .link-note {
+    font-size: 0.88rem;
+    color: var(--ink-70);
+    background: rgba(44,74,118,0.05);
+    border: 1px dashed var(--indigo-soft);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+  }
+  .link-note a { color: var(--indigo-soft); text-decoration: none; border-bottom: 1px dotted var(--indigo-soft); font-weight: 500; }
+  .link-note a:hover { color: var(--seal); border-color: var(--seal); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 0.95rem;
+    background: var(--paper-panel);
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--ink);
+    color: #f3ede0;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+  }
+  tr:nth-child(even) td { background: #f6f1e6; }
+
+  h3 {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 600;
+    font-size: 1.12rem;
+    color: var(--indigo);
+    margin: 32px 0 14px;
+    padding-left: 12px;
+    border-left: 3px solid var(--brass);
+  }
+
+  .conclusion {
+    color: var(--ink);
+    font-weight: 700;
+    background: linear-gradient(transparent 60%, rgba(169,131,47,0.25) 60%);
+  }
+  .deny {
+    color: var(--seal);
+    font-weight: 700;
+  }
+
+  .case-card {
+    background: var(--paper-panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    box-shadow: 0 1px 2px rgba(22,35,59,0.04), 0 8px 20px -14px rgba(22,35,59,0.25);
+  }
+  .case-card .header {
+    background: var(--indigo);
+    color: #fdfaf3;
+    padding: 13px 20px;
+    font-weight: 700;
+    font-family: "Noto Serif TC", serif;
+    font-size: 0.98rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .case-card.exam .header { background: var(--ink); }
+  .case-card .header .tag {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    background: rgba(255,255,255,0.14);
+    padding: 3px 8px;
+    border-radius: 20px;
+  }
+  .case-card .body { padding: 20px 22px; }
+  .case-card .body p { margin: 6px 0; }
+
+  .source-tag {
+    font-size: 0.82rem;
+    color: var(--ink-45);
+    margin: -8px 0 24px 2px;
+    padding-left: 2px;
+  }
+  .source-tag a { color: var(--indigo-soft); text-decoration: none; border-bottom: 1px dotted var(--indigo-soft); }
+  .source-tag a:hover { color: var(--seal); border-color: var(--seal); }
+
+  .fiction-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: var(--brass);
+    background: rgba(169,131,47,0.1);
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .placeholder {
+    position: relative;
+    border: 1.5px dashed var(--line);
+    border-radius: 5px;
+    padding: 40px 24px;
+    text-align: center;
+    background: repeating-linear-gradient(
+      135deg,
+      rgba(169,131,47,0.03),
+      rgba(169,131,47,0.03) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+  .placeholder .ph-icon {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var(--brass);
+    margin-bottom: 10px;
+  }
+  .placeholder .ph-text {
+    color: var(--ink-45);
+    font-size: 0.92rem;
+  }
+  .placeholder .ph-badge {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--brass);
+    border: 1px solid var(--brass);
+    border-radius: 20px;
+    padding: 3px 12px;
+  }
+  .placeholder.small { padding: 22px 20px; }
+  .placeholder .ph-verify {
+    display: inline-block;
+    margin-top: 14px;
+    margin-left: 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--seal);
+    border: 1px solid var(--seal);
+    border-radius: 20px;
+    padding: 3px 12px;
+  }
+
+  .quickcard {
+    background: var(--ink);
+    color: #f3ede0;
+    border-radius: 6px;
+    padding: 34px 34px 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .quickcard::before {
+    content: "速";
+    position: absolute;
+    font-family: "Noto Serif TC", serif;
+    font-weight: 900;
+    font-size: 11rem;
+    right: -18px;
+    bottom: -40px;
+    color: rgba(243,237,224,0.04);
+    line-height: 1;
+  }
+  .quickcard h3 {
+    color: #f3ede0;
+    border-left-color: var(--seal);
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+  .quickcard table { background: transparent; }
+  .quickcard th { background: rgba(243,237,224,0.1); color: #f3ede0; }
+  .quickcard td { color: #e9e2d0; border-color: rgba(243,237,224,0.15); background: transparent !important; }
+  .mnemonic {
+    position: relative;
+    background: var(--seal);
+    color: #fdf1ee;
+    padding: 16px 20px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-family: "Noto Serif TC", serif;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+  }
+
+  .note {
+    font-size: 0.85rem;
+    color: var(--ink-45);
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    margin-top: 40px;
+    line-height: 1.8;
+  }
+
+  .mobile-nav {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 14px;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 8px;
+  }
+  .mobile-nav a {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--ink-70);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--line);
+    margin-right: 8px;
+  }
+  .mobile-nav a.pending { color: var(--ink-45); border-style: dashed; }
+  .mobile-nav a.active { background: var(--ink); color: #f3ede0; border-color: var(--ink); }
+
+  @media (max-width: 980px) {
+    .shell { grid-template-columns: 1fr; max-width: 100%; }
+    .rail { display: none; }
+    .mobile-nav { display: flex; }
+    .main { padding: 32px 20px 70px; box-shadow: none; }
+    .cover { padding: 30px 4px 28px; }
+    .cover h1 { font-size: 1.7rem; }
+    .cover .seal-mark { width: 68px; height: 68px; font-size: 1.1rem; top: 24px; }
+    .sec-head h2 { font-size: 1.28rem; }
+    th, td { padding: 9px 10px; font-size: 0.88rem; }
+    .article-box { padding: 18px 18px 18px 18px; }
+    .article-box .wm { font-size: 3.6rem; }
+    .placeholder { padding: 28px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#sec1" data-i="1">一、原文</a>
+  <a href="#sec2" data-i="2">二、結構</a>
+  <a href="#sec3" data-i="3">三、要件</a>
+  <a href="#sec4" data-i="4">四、學說</a>
+  <a href="#sec5" data-i="5">五、實務</a>
+  <a href="#sec6" data-i="6">六、案例</a>
+  <a href="#sec7" data-i="7">七、申論</a>
+  <a href="#sec8" data-i="8">八、速查</a>
+</div>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="rail-brand">civil-law-interpretation</div>
+    <div class="rail-title">民法第6條至第11條<br>自然人之權利能力</div>
+    <nav id="railNav">
+      <a href="#sec1" data-i="1"><span class="idx">一</span>條文原文</a>
+      <a href="#sec2" data-i="2"><span class="idx">二</span>條文結構</a>
+      <a href="#sec3" data-i="3"><span class="idx">三</span>要件逐項解析</a>
+      <a href="#sec4" data-i="4"><span class="idx">四</span>學說見解</a>
+      <a href="#sec5" data-i="5"><span class="idx">五</span>實務見解</a>
+      <a href="#sec6" data-i="6"><span class="idx">六</span>教學案例</a>
+      <a href="#sec7" data-i="7"><span class="idx">七</span>申論練習題</a>
+      <a href="#sec8" data-i="8"><span class="idx">八</span>速查卡</a>
+    </nav>
+    <div class="rail-foot">民法總則・第一編<br>第二章第一節・自然人</div>
+  </aside>
+
+  <main class="main">
+
+    <div class="cover">
+      <div class="eyebrow">民法總則．第一編．第二章．第一節．自然人</div>
+      <h1>民法第6條至第11條</h1>
+      <p class="sub">自然人之權利能力、胎兒保護與死亡宣告制度</p>
+      <div class="cover-meta">
+        <span class="ver-badge">v1.0</span>
+        <span class="meta-date">2026-08-18</span>
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=mjib007.civil-law-interpretation.6-11" alt="Visitors" style="opacity:0.85;vertical-align:middle;">
+      </div>
+      <div class="seal-mark">生死</div>
+    </div>
+
+    <section id="sec1">
+      <div class="sec-head"><span class="num">一</span><h2>條文原文</h2></div>
+
+      <div class="article-box">
+        <span class="wm">6</span>
+        <span class="num">第6條</span>
+        <p>人之權利能力，始於出生，終於死亡。</p>
+      </div>
+      <div class="article-box">
+        <span class="wm">7</span>
+        <span class="num">第7條</span>
+        <p>胎兒以將來非死產者為限，關於其個人利益之保護，視為既已出生。</p>
+      </div>
+      <div class="article-box">
+        <span class="wm">8</span>
+        <span class="num">第8條</span>
+        <p>Ⅰ　失蹤人失蹤滿七年後，法院得因利害關係人或檢察官之聲請，為死亡之宣告。</p>
+        <p>Ⅱ　失蹤人為八十歲以上者，得於失蹤滿三年後，為死亡之宣告。</p>
+        <p>Ⅲ　失蹤人為遭遇特別災難者，得於特別災難終了滿一年後，為死亡之宣告。</p>
+      </div>
+      <div class="article-box">
+        <span class="wm">9</span>
+        <span class="num">第9條</span>
+        <p>Ⅰ　受死亡宣告者，以判決內所確定死亡之時，推定其為死亡。</p>
+        <p>Ⅱ　前項死亡之時，應為前條各項所定期間最後日終止之時。但有反證者，不在此限。</p>
+      </div>
+      <div class="article-box">
+        <span class="wm">10</span>
+        <span class="num">第10條</span>
+        <p>失蹤人失蹤後，未受死亡宣告前，其財產之管理，除其他法律另有規定者外，依家事事件法之規定。</p>
+      </div>
+      <div class="article-box">
+        <span class="wm">11</span>
+        <span class="num">第11條</span>
+        <p>二人以上同時遇難，不能證明其死亡之先後時，推定其為同時死亡。</p>
+      </div>
+
+      <div class="article-box related">
+        <span class="wm">16</span>
+        <span class="num">第16條<span class="tagline">關聯條文・權利能力之強行性</span></span>
+        <p>權利能力及行為能力，不得拋棄。</p>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="sec-head"><span class="num">二</span><h2>條文結構</h2></div>
+      <table>
+        <tr><th>層次</th><th>條文</th><th>核心內容</th></tr>
+        <tr><td>權利能力之始終</td><td>第6條</td><td>始於出生，終於死亡（原則）</td></tr>
+        <tr><td>胎兒之例外保護</td><td>第7條</td><td>以將來非死產為停止條件，個人利益視為既已出生</td></tr>
+        <tr><td>死亡宣告之要件</td><td>第8條Ⅰ／Ⅱ／Ⅲ</td><td>一般失蹤7年／80歲以上3年／特別災難1年，由利害關係人或檢察官聲請</td></tr>
+        <tr><td>死亡宣告之效力</td><td>第9條</td><td>推定死亡（非擬制），得以反證推翻</td></tr>
+        <tr><td>失蹤中之財產管理</td><td>第10條</td><td>死亡宣告確定前，依家事事件法規定管理失蹤人財產</td></tr>
+        <tr><td>同時遇難之推定</td><td>第11條</td><td>不能證明死亡先後時，推定同時死亡</td></tr>
+        <tr><td>權利能力之強行性（關聯）</td><td>第16條</td><td>權利能力、行為能力不得拋棄</td></tr>
+      </table>
+    </section>
+
+    <section id="sec3">
+      <div class="sec-head"><span class="num">三</span><h2>要件逐項解析</h2></div>
+
+      <h3>（一）第6條——權利能力之始期與終期</h3>
+      <p>自然人之權利能力，<span class="conclusion">始於出生，終於死亡</span>，兩端點皆為法律事實，不待登記或宣示即發生效力。權利能力係「得享受權利、負擔義務之能力」，與「行為能力」（得以自己之意思表示發生法律效果之能力）為不同層次之概念，前者人人平等享有，後者則依年齡、精神狀態而有等級之分（第12條以下）。</p>
+
+      <h3>（二）第6條之補充——出生時點之認定</h3>
+      <p>「出生」為權利能力取得之要件事實，學說上就出生時點之認定有下列見解：</p>
+      <table>
+        <tr><th>學說</th><th>內容</th></tr>
+        <tr><td>分娩開始說（斷帶說、陣痛說）</td><td>自進行分娩過程開始，即屬民法上之自然人</td></tr>
+        <tr><td>一部露出說</td><td>胎兒身體之一部分經分娩露出母體之外，即為出生</td></tr>
+        <tr><td>全部露出說</td><td>須胎兒之全部離開母體，始為出生</td></tr>
+        <tr><td>獨立呼吸說（目前通說）</td><td>除全部離開母體外，尚須能獨立、不依賴母體而自行呼吸，始屬民法上之自然人</td></tr>
+      </table>
+      <p>採獨立呼吸說者認為，僅以「離開母體」為斷，未能反映胎兒是否已具備獨立之生理機能，故以「能否獨立呼吸」作為出生與否之判準，較能貼合權利能力制度所欲保護之生命主體性。</p>
+
+      <h3>（三）第7條——胎兒個人利益之概括保護</h3>
+      <p>依第6條，權利能力原則上始於出生，胎兒本不具權利能力；惟第7條為<span class="conclusion">例外規定</span>，以「將來非死產」為停止條件，就胎兒個人利益之保護，視為既已出生。學說上就此停止條件之效果有「法定停止條件說」與「法定解除條件說」之分，通說採法定解除條件說：胎兒於出生前即已取得權利能力，若日後為死產，始溯及喪失，如此對胎兒利益之保護較為周全。第7條保護範圍採概括主義，凡關於胎兒個人利益之事項（如侵權行為損害賠償請求權、繼承權、非婚生子女之認領請求權等）均有適用，但不及於義務之負擔。</p>
+
+      <h3>（四）第8條——死亡宣告之要件</h3>
+      <table>
+        <tr><th>項次</th><th>要件</th><th>失蹤期間</th></tr>
+        <tr><td>第Ⅰ項</td><td>一般失蹤</td><td>失蹤滿7年</td></tr>
+        <tr><td>第Ⅱ項</td><td>高齡失蹤（80歲以上）</td><td>失蹤滿3年</td></tr>
+        <tr><td>第Ⅲ項</td><td>特別災難失蹤</td><td>災難終了滿1年</td></tr>
+      </table>
+      <p>死亡宣告之聲請權人為<span class="conclusion">利害關係人或檢察官</span>，二者地位並列，非以利害關係人聲請為前提要件。死亡宣告制度之目的在於終結失蹤人以其原住所為中心之私法法律關係（財產管理、繼承開始、婚姻關係消滅等），避免法律關係長期陷於不確定狀態，兼有私益與公益之考量。</p>
+
+      <h3>（五）第9條——死亡宣告之效力</h3>
+      <p>受死亡宣告者，以判決內所確定死亡之時，<span class="conclusion">推定</span>其為死亡；此死亡時點原則上為前條各項所定失蹤期間最後日終止之時，但有反證者不在此限。「推定」之效果不同於「擬制」：推定得以反證推翻，毋須另行提起撤銷死亡宣告之訴即可於個案中主張；擬制則不得以反證推翻，須依法定程序撤銷方能改變效力。死亡宣告之效力範圍，僅以失蹤人原住所地為中心之法律關係為限，其權利能力本身並不因死亡宣告而消滅（若受宣告人事實上生存，其於他地所為之法律行為仍屬有效）。</p>
+
+      <h3>（六）第10條——失蹤人財產之管理</h3>
+      <p>失蹤人失蹤後、尚未受死亡宣告確定前，其財產處於「本人生死不明、無法自行管理」之過渡狀態，故明定<span class="conclusion">依家事事件法之規定</span>處理財產管理事宜（財產管理人之選定順序、職權等，規定於家事事件法第四編第八章）。此為死亡宣告確定前之過渡性配套規定，與死亡宣告本身之要件、效力有別。</p>
+
+      <h3>（七）第11條——同時死亡之推定</h3>
+      <p>二人以上同時遇難，不能證明其死亡先後時，<span class="conclusion">推定其為同時死亡</span>。此規定與繼承法上之「同時存在原則」密切相關：繼承人須於繼承開始時生存，始具繼承資格；若數人被推定同時死亡，因不符同時存在原則，彼此間<span class="deny">不發生</span>相互繼承之關係，僅得由各自之其他繼承人代位或依應繼分繼承。</p>
+
+      <h3>（八）第16條——權利能力之強行性（關聯條文）</h3>
+      <p>權利能力及行為能力，不得拋棄。此為強行規定，當事人縱以契約約定拋棄權利能力，該約定亦屬<span class="deny">無效</span>，呼應第6條所揭示權利能力始於出生、終於死亡之絕對性——權利能力非得由私人意思處分之對象。</p>
+    </section>
+
+    <section id="sec4">
+      <div class="sec-head"><span class="num">四</span><h2>學說見解</h2></div>
+
+      <h3>第9條——死亡宣告效力之性質（推定非擬制）</h3>
+      <p>學者指出，死亡宣告在我國法上之效果，並非完全消滅或剝奪失蹤人之權利能力，而係以住所為中心，使其於特定範圍內之法律關係視為終結；此效力性質上屬於「推定」，與日本法所採「擬制死亡」之效果不同，得由反證推翻，毋須撤銷死亡宣告即可於個案中主張。</p>
+      <div class="source-tag">📂 來源｜蔡華凱，死亡宣告，月旦法學教室，第193期，2018年11月，頁26</div>
+
+      <h3>第8條——檢察官聲請死亡宣告之地位</h3>
+      <div class="placeholder small">
+        <div class="ph-icon">§</div>
+        <div class="ph-text">獨立地位說：檢察官基於公益考量，即使利害關係人存在或反對死亡宣告之聲請，仍得獨立為之聲請。<br>輔助地位說：檢察官僅得於無利害關係人，或雖有利害關係人但未表示意見、或其意見不違反時，始得聲請。</div>
+        <span class="ph-badge">待驗證來源</span>
+      </div>
+      <div class="source-tag">⚠ 目前僅查得非具名來源（考生整理資料），尚未核實原始學者出處，使用時請注意；待補充具名學者出處後移除此標註</div>
+    </section>
+
+    <section id="sec5">
+      <div class="sec-head"><span class="num">五</span><h2>實務見解</h2></div>
+
+      <h3>第7條——胎兒個人利益之保護及於慰撫金請求權</h3>
+      <table>
+        <tr><th>項目</th><th>內容</th></tr>
+        <tr><td>裁判字號</td><td>最高法院66年台上字第2759號</td></tr>
+        <tr><td>裁判性質</td><td>民事判例</td></tr>
+        <tr><td>要旨</td><td>不法侵害他人致死者，被害人之子女得請求賠償相當數額之慰撫金，又胎兒以將來非死產者為限，關於其個人利益之保護，視為既已出生，民法第194條、第7條定有明文，慰撫金之數額如何始為相當，應酌量一切情形定之，但不得以子女為胎兒或年幼為不予賠償或減低賠償之依據。</td></tr>
+      </table>
+      <p>本則判例明確肯認：第7條所稱「個人利益之保護」，及於因父母一方遭不法侵害致死，依第194條所生之慰撫金請求權；縱請求權人於被害人死亡時尚為胎兒或年幼，亦不得以此為理由拒絕賠償或酌減金額，貫徹第7條概括保護主義之精神。</p>
+      <div class="source-tag">📂 來源｜多方來源交叉核對一致（碩豐法律事務所、法律諮詢知識庫等轉引），建議另以六法全書或法源法律網核對判例全文</div>
+    </section>
+
+    <section id="sec6">
+      <div class="sec-head"><span class="num">六</span><h2>教學案例</h2></div>
+      <div class="fiction-note">⚠ 教學虛構案例，非真實案例</div>
+
+      <div class="case-card">
+        <div class="header">案例一：遺腹女兒得否請求慰撫金（§7、§194）</div>
+        <div class="body">
+          <p><strong>事實</strong>：A男駕車行經路口遭闖紅燈之貨車撞擊，當場身亡。A男之妻甲女於事故發生時已懷胎6個月，事故後2個月順利產下女兒B。B出生後，甲女欲以B之名義，向肇事貨車駕駛請求慰撫金。</p>
+          <p><strong>爭點</strong>：B於父親A男死亡當時尚為胎兒，是否仍得依第194條請求慰撫金？其請求權基礎為何？</p>
+          <p><strong>分析</strong>：依第6條，權利能力原則上始於出生，B於A男死亡時尚未出生，形式上不具權利能力；惟依第7條，胎兒以將來非死產為限，關於其個人利益之保護，視為既已出生。B其後順利活產，非死產，故就其個人利益之保護（包括因父親死亡所生之慰撫金請求權），溯及視為於A男死亡時已出生，具有請求權能力。依第194條，不法侵害他人致死者，被害人之子女得請求相當數額之慰撫金；依前揭最高法院66年台上字第2759號判例意旨，不得以B於受侵害時尚為胎兒為由，拒絕賠償或減低賠償金額。</p>
+          <p class="conclusion">結論：B得依第7條、第194條，以其個人利益受保護為由，向肇事駕駛請求相當數額之慰撫金，不因其於父親死亡時尚為胎兒而受影響。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec7">
+      <div class="sec-head"><span class="num">七</span><h2>申論練習題</h2></div>
+
+      <div class="case-card exam">
+        <div class="header">練習題一 <span class="tag">25分</span></div>
+        <div class="body">
+          <p>甲原住居於A地，於民國90年3月間出外購物而失去行蹤已逾7年，迄今仍無音信，惟其配偶乙深信甲仍存在，不願向法院對之為死亡宣告之聲請，則檢察官得否不顧乙之反對，逕向法院聲請對甲為死亡之宣告？</p>
+          <p>若甲經法院為死亡之宣告，嗣發現甲仍存在而在B地生活，並在該地向丙借款新臺幣30萬元，則該借款行為是否不生效力？（25分）</p>
+          <p style="margin-top:16px;">💡 解題參考架構（待驗證）：本題第一問可援引§4學說見解中「檢察官聲請死亡宣告之地位」（獨立地位說／輔助地位說）展開；第二問須扣合§9「推定」而非「擬制」之效力性質，說明反證推翻死亡宣告後，原受宣告人於他地所為法律行為之效力歸屬。</p>
+          <div class="placeholder small">
+            <div class="ph-icon">解</div>
+            <div class="ph-text">模擬解答尚未提供</div>
+            <span class="ph-badge">待補充</span>
+          </div>
+        </div>
+      </div>
+      <div class="source-tag">📂 題目來源｜102年高等考試戶政（三等），民法總則、親屬與繼承編</div>
+
+      <div class="case-card exam">
+        <div class="header">練習題二 <span class="tag">25分</span></div>
+        <div class="body">
+          <p>甲女已懷孕8個月，民國90年10月8日因X百貨公司週年慶前去參觀、購物，豈知是日乙攜帶槍枝前去X公司尋找董事長丙討債、洩恨，甲為流彈擊中，雖經X公司警衛人員緊急送醫治療，但甲中槍之後一直處於昏迷狀態。一個月後甲情況惡化，醫院評估甲恐不治，乃緊急對甲施以剖腹，並在甲死亡後的半小時順利取出嬰兒A。惟A因甲遭受槍傷關係，出生時即罹患腦神經麻痺致一生弱智。問：</p>
+          <p>(一) 本案若X、乙、丙有應負損害賠償責任之理由，A可否以自己在胎兒時，即有身體及健康之受害而請求賠償？（12分）</p>
+          <p>(二) A對在其出生前已死之母親甲，得否以自己受有損害，依民法規定，對乙、甲及X公司請求損害賠償？（13分）</p>
+          <div class="placeholder small">
+            <div class="ph-icon">解</div>
+            <div class="ph-text">模擬解答尚未提供</div>
+            <span class="ph-badge">待補充</span>
+          </div>
+        </div>
+      </div>
+      <div class="source-tag">📂 題目來源｜99年三等特種考試地方政府公務人員考試，民法總則與刑法總則</div>
+    </section>
+
+    <section id="sec8">
+      <div class="sec-head"><span class="num">八</span><h2>速查卡</h2></div>
+      <div class="quickcard">
+        <h3>民法第6條至第11條</h3>
+        <table>
+          <tr><th>條號</th><th>關鍵字</th></tr>
+          <tr><td>6</td><td>權利能力：始於出生，終於死亡</td></tr>
+          <tr><td>7</td><td>胎兒＝個人利益保護視為既已出生（獨立呼吸說判斷出生）</td></tr>
+          <tr><td>8 Ⅰ/Ⅱ/Ⅲ</td><td>死亡宣告：一般7年／80歲以上3年／特別災難1年</td></tr>
+          <tr><td>9</td><td>死亡宣告效力＝推定死亡，得以反證推翻（非擬制）</td></tr>
+          <tr><td>10</td><td>失蹤未受死亡宣告前，財產管理依家事事件法</td></tr>
+          <tr><td>11</td><td>二人以上同時遇難，不能證明先後＝推定同時死亡</td></tr>
+          <tr><td>16（關聯）</td><td>權利能力、行為能力不得拋棄</td></tr>
+        </table>
+        <div class="mnemonic">「始生終死，胎視既生；七三一限，推定可翻」</div>
+      </div>
+    </section>
+
+    <div class="note">
+      <p>本講義依「民法條文解釋」skill 產生，條文原文照錄自使用者提供之全國法規資料庫截圖並經使用者比對確認。學說見解已補入蔡華凱教授對第9條推定效力性質之見解（月旦法學教室第193期）；第8條「檢察官聲請死亡宣告之地位」（獨立地位說／輔助地位說）因僅查得非具名來源，依使用者指示標註「待驗證來源」先行收錄，待補具名學者出處後更新。實務見解已補入最高法院66年台上字第2759號判例（第7條）。教學案例為AI虛構，已標明教學用途。申論練習題已收錄使用者提供之102年高考戶政、99年三等地特兩則題目全文，模擬解答尚待使用者提供，先以佔位樣式呈現。</p>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const railLinks = document.querySelectorAll('#railNav a');
+  const mobileLinks = document.querySelectorAll('#mobileNav a');
+
+  function setActive(id) {
+    railLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    mobileLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActive(entry.target.id);
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(sec => observer.observe(sec));
+
+  [...railLinks, ...mobileLinks].forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = a.getAttribute('href').slice(1);
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>
