@@ -1,9 +1,9 @@
-# 📖 法律學習歷程紀錄器｜Civil Law Interpretation
+# 📖 蒸餾skill／自動共享／協力共筆｜Civil Law Interpretation
 
 ![Profile views](https://komarev.com/ghpvc/?username=mjib007&label=Profile%20views&color=4c8eda&style=flat)
 [![Stars](https://img.shields.io/github/stars/mjib007/civil-law-interpretation?style=flat&color=yellow)](https://github.com/mjib007/civil-law-interpretation/stargazers)
 [![Forks](https://img.shields.io/github/forks/mjib007/civil-law-interpretation?style=flat&color=blue)](https://github.com/mjib007/civil-law-interpretation/network/members)
-![Concept](https://img.shields.io/badge/核心概念-記錄學習歷程%2C非產出講義-1a3a5c)
+![Concept](https://img.shields.io/badge/核心概念-蒸餾skill%20%C2%B7%20自動共享%20%C2%B7%20協力共筆-1a3a5c)
 ![AI](https://img.shields.io/badge/AI-Claude%20(Anthropic)-blueviolet)
 ![Platform](https://img.shields.io/badge/Platform-claude.ai-orange)
 ![Language](https://img.shields.io/badge/Language-繁體中文-red)
