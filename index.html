@@ -357,10 +357,34 @@
     text-align:center;
     font-size:.78rem;
     color:var(--ink-45);
-    padding:2.5rem 0 3rem;
-    border-top:1px solid var(--line);
+    padding:1.5rem 0 3rem;
     max-width:1000px;
     margin:0 auto;
+  }
+  .reading-note{
+    max-width:1000px;
+    margin:2.5rem auto 0;
+    padding:1rem 1.5rem;
+    border-top:1px solid var(--line);
+    text-align:center;
+    font-size:.85rem;
+    color:var(--ink-70);
+  }
+  .reading-note .reading-label{
+    display:block;
+    font-size:.74rem;
+    letter-spacing:.12em;
+    color:var(--brass);
+    font-weight:700;
+    margin-bottom:.4rem;
+  }
+  .reading-note a{
+    color:var(--indigo);
+    text-decoration:underline;
+    text-underline-offset:2px;
+  }
+  .reading-note a:hover{
+    color:var(--seal);
   }
 </style>
 </head>
@@ -400,6 +424,11 @@
   <div class="cards" id="cardGrid"></div>
   <div class="empty" id="emptyState" style="display:none;">沒有符合條件的講義</div>
 </main>
+
+<div class="reading-note">
+  <span class="reading-label">📄 延伸閱讀</span>
+  <a href="https://vocus.cc/article/6a851628fd897800014acea8" target="_blank" rel="noopener">從GEMA v. Suno看AI時代的合理使用邊界：從影印機到雲端資料池的著作權思考</a>
+</div>
 
 <footer>civil-law-interpretation · 民法總則．學習歷程紀錄 · CC BY-NC 4.0</footer>
 
