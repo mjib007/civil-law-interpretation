@@ -353,6 +353,31 @@
     background:rgba(156,43,58,0.05);
   }
 
+  .leaf-btn.merged-title{
+    font-size:.86rem;
+  }
+  .leaf-btn.chapter-merged{
+    font-family:"Noto Serif TC",serif;
+    font-size:.85rem;
+    font-weight:700;
+    color:var(--brass);
+    border-bottom:1px solid var(--line);
+    padding:.3rem .2rem .5rem;
+    margin-bottom:.6rem;
+    border-radius:0;
+  }
+  .leaf-btn.chapter-merged .badge{
+    background:rgba(169,131,47,0.16);
+    color:var(--brass);
+  }
+  .leaf-btn.chapter-merged.zero{
+    opacity:.7;
+  }
+  .leaf-btn.chapter-merged.active{
+    box-shadow:none;
+    border-bottom:2px solid var(--seal);
+  }
+
   footer{
     text-align:center;
     font-size:.78rem;
@@ -395,8 +420,8 @@
   <h1>蒸餾skill／自動共享／協力共筆</h1>
   <p class="sub">民法總則．第一編（§1–152）</p>
   <div class="cover-meta">
-    <span class="ver-badge">v1.0</span>
-    <span class="meta-date">2026-08-17</span>
+    <span class="ver-badge">v1.1</span>
+    <span class="meta-date">2026-08-23</span>
     <img src="https://visitor-badge.laobi.icu/badge?page_id=mjib007.civil-law-interpretation.index" alt="Visitors" style="opacity:0.85;vertical-align:middle;">
   </div>
   <p class="license-note">
@@ -589,23 +614,45 @@ function renderLeafList(leaves, depth){
   return ul;
 }
 
+function isMergeable(node){
+  return !!node.leaves && node.leaves.length === 1 && !node.groups;
+}
+
+function makeMergedButton(labelText, leaf, extraClass){
+  const activeKey = document.getElementById('categorySelect').value;
+  const n = countFor(leaf.key);
+  const stateClass = n === 0 ? 'zero' : 'has-count';
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'leaf-btn ' + stateClass + (activeKey === leaf.key ? ' active' : '') + (extraClass ? (' ' + extraClass) : '');
+  btn.disabled = (n === 0);
+  btn.innerHTML = `<span>${labelText}</span><span class="badge">${n === 0 ? '–' : n}</span>`;
+  btn.addEventListener('click', () => selectCategory(leaf.key));
+  return btn;
+}
+
 function renderGroup(node, container){
-  if (node.leaves){
-    container.appendChild(renderLeafList(node.leaves));
-  }
   if (node.groups){
     node.groups.forEach(g => {
       const sub = document.createElement('div');
       sub.style.marginBottom = '.4rem';
-      const label = document.createElement('div');
-      label.style.fontSize = '.78rem';
-      label.style.color = '#5a6b80';
-      label.style.margin = '.3rem 0 .1rem';
-      label.textContent = g.title;
-      sub.appendChild(label);
-      renderGroup(g, sub);
+      if (isMergeable(g)){
+        const leaf = g.leaves[0];
+        const btn = makeMergedButton(`${g.title}（${leaf.label}起）`, leaf, 'merged-title');
+        sub.appendChild(btn);
+      } else {
+        const label = document.createElement('div');
+        label.style.fontSize = '.78rem';
+        label.style.color = '#5a6b80';
+        label.style.margin = '.3rem 0 .1rem';
+        label.textContent = g.title;
+        sub.appendChild(label);
+        renderGroup(g, sub);
+      }
       container.appendChild(sub);
     });
+  } else if (node.leaves){
+    container.appendChild(renderLeafList(node.leaves));
   }
 }
 
@@ -615,11 +662,21 @@ function renderCoverageMap(){
   TREE.forEach(chapter => {
     const block = document.createElement('div');
     block.className = 'chapter-block';
-    const title = document.createElement('div');
-    title.className = 'chapter-title';
-    title.textContent = chapter.title;
-    block.appendChild(title);
-    renderGroup(chapter, block);
+
+    if (isMergeable(chapter)){
+      // 章節本身只有單一起始條號（如「第一章 法例」只對到 §1），
+      // 直接把章名、起始條號與篇數合併成一行，避免讓人誤以為分類僅限該條文本身
+      const leaf = chapter.leaves[0];
+      const btn = makeMergedButton(`${chapter.title}（${leaf.label}起）`, leaf, 'chapter-merged');
+      block.appendChild(btn);
+    } else {
+      const title = document.createElement('div');
+      title.className = 'chapter-title';
+      title.textContent = chapter.title;
+      block.appendChild(title);
+      renderGroup(chapter, block);
+    }
+
     grid.appendChild(block);
   });
 
