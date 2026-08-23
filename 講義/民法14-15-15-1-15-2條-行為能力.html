@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>民法第14、15、15-1、15-2條－行為能力（精神狀態篇）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233b;
+    --indigo:#2c4a76;
+    --paper-outer:#f3ede0;
+    --paper-inner:#fbf8f1;
+    --paper-card:#fffdf8;
+    --seal:#9c2b3a;
+    --brass:#a9832f;
+    --border:#ddd3bf;
+    --ink-45:rgba(22,35,59,.45);
+    --ink-70:rgba(22,35,59,.7);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper-outer);color:var(--ink);font-family:'Noto Sans TC',sans-serif;line-height:1.85;}
+  h1,h2,h3,h4,.serif{font-family:'Noto Serif TC',serif;}
+  a{color:var(--indigo);}
+
+  .app{display:flex;max-width:1200px;margin:0 auto;}
+  .sidebar{width:240px;flex:0 0 240px;position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;padding:32px 18px;border-right:1px solid var(--border);}
+  .sidebar-title{font-size:12px;letter-spacing:.15em;color:var(--ink-45);margin-bottom:14px;}
+  .sidebar nav a{display:block;padding:9px 10px;border-radius:6px;color:var(--ink-70);text-decoration:none;font-size:14.5px;border-left:3px solid transparent;margin-bottom:2px;}
+  .sidebar nav a.active{background:var(--paper-card);color:var(--ink);border-left-color:var(--indigo);font-weight:700;}
+  .main{flex:1;min-width:0;background:var(--paper-inner);box-shadow:-6px 0 18px rgba(22,35,59,.04);}
+  .mobile-nav{display:none;}
+
+  @media (max-width:980px){
+    .sidebar{display:none;}
+    .mobile-nav{display:flex;gap:8px;overflow-x:auto;position:sticky;top:0;z-index:20;background:var(--paper-outer);padding:10px 12px;border-bottom:1px solid var(--border);-webkit-overflow-scrolling:touch;}
+    .mobile-nav a{flex:0 0 auto;padding:7px 14px;border-radius:999px;background:var(--paper-card);border:1px solid var(--border);color:var(--ink-70);text-decoration:none;font-size:13px;white-space:nowrap;}
+    .mobile-nav a.active{background:var(--indigo);color:var(--paper-inner);border-color:var(--indigo);}
+  }
+
+  section{padding:44px 40px;border-bottom:1px dashed var(--border);}
+  @media (max-width:600px){section{padding:30px 18px;}}
+  section h2{font-size:22px;display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+  .sec-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--paper-inner);font-size:14px;flex:0 0 auto;}
+
+  .cover{padding:56px 44px 40px;position:relative;overflow:hidden;border-bottom:2px solid var(--ink);}
+  .eyebrow{display:inline-block;font-size:12px;letter-spacing:.2em;color:var(--brass);border:1px solid var(--brass);padding:3px 10px;border-radius:999px;margin-bottom:18px;}
+  .cover h1{font-size:32px;font-weight:900;color:var(--ink);margin:0 0 8px;line-height:1.4;}
+  .cover .sub{font-size:15px;color:var(--ink-70);margin-bottom:14px;}
+  .cover-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px;}
+  .ver-badge,.meta-date,.visitor-badge-wrap{font-size:12px;border:1px solid var(--indigo);color:var(--indigo);padding:3px 10px;border-radius:999px;background:var(--paper-card);}
+  .ver-badge{border-color:var(--seal);color:var(--seal);}
+  .visitor-badge-wrap img{vertical-align:middle;}
+  .seal-mark{position:absolute;top:38px;right:48px;width:96px;height:96px;border:3px solid var(--seal);border-radius:10px;transform:rotate(8deg);display:flex;align-items:center;justify-content:center;color:var(--seal);writing-mode:vertical-rl;font-family:'Noto Serif TC',serif;font-weight:900;font-size:22px;letter-spacing:.15em;opacity:.85;}
+  @media (max-width:600px){.seal-mark{display:none;}}
+
+  .article-box{position:relative;background:var(--paper-card);border-left:3px solid var(--indigo);border-radius:4px;padding:20px 24px;margin:16px 0;overflow:hidden;box-shadow:0 1px 3px rgba(22,35,59,.06);}
+  .article-box .wm{position:absolute;right:10px;bottom:-14px;font-family:'Noto Serif TC',serif;font-weight:900;font-size:76px;color:var(--ink);opacity:.06;line-height:1;pointer-events:none;}
+  .article-box h4{margin:0 0 10px;font-size:16px;color:var(--indigo);}
+  .article-box p{margin:6px 0;position:relative;z-index:1;}
+  .article-box .amend-note{margin-top:12px;font-size:13px;color:var(--ink-45);border-top:1px dashed var(--border);padding-top:10px;}
+
+  .index-list{background:var(--paper-card);border:1px solid var(--border);border-radius:6px;padding:16px 20px;font-size:14px;color:var(--ink-70);}
+  .index-list summary{cursor:pointer;font-weight:700;color:var(--ink);}
+  .index-list .scope-note{margin-top:10px;padding:10px 14px;background:#f6f1e6;border-left:3px solid var(--brass);font-size:13px;border-radius:4px;}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;}
+  th{background:var(--ink);color:var(--paper-inner);padding:10px 12px;text-align:left;font-family:'Noto Serif TC',serif;}
+  td{padding:10px 12px;border-bottom:1px solid var(--border);}
+  tr:nth-child(even) td{background:#f6f1e6;}
+  tr:nth-child(odd) td{background:var(--paper-card);}
+  .yes{color:var(--ink);font-weight:700;background-image:linear-gradient(transparent 65%, rgba(169,131,47,.35) 65%);background-repeat:no-repeat;}
+  .no{color:var(--seal);font-weight:700;}
+  .mid{color:var(--brass);font-weight:700;}
+
+  figure{margin:20px 0;text-align:center;}
+  figure img{max-width:100%;border:1px solid var(--border);border-radius:6px;background:#fff;}
+  figcaption{font-size:12.5px;color:var(--ink-45);margin-top:8px;}
+
+  .case-card,.exam-card{background:var(--paper-card);border-radius:8px;margin:18px 0;overflow:hidden;box-shadow:0 1px 2px rgba(22,35,59,.08), 0 6px 18px rgba(22,35,59,.06);}
+  .case-card .hd{background:var(--indigo);color:var(--paper-inner);padding:10px 18px;font-family:'Noto Serif TC',serif;font-weight:700;}
+  .exam-card .hd{background:var(--ink);color:var(--paper-inner);padding:10px 18px;font-family:'Noto Serif TC',serif;font-weight:700;}
+  .case-card .bd,.exam-card .bd{padding:18px 20px;}
+  .case-card .bd h5{margin:14px 0 6px;color:var(--indigo);font-size:14.5px;}
+
+  .placeholder{border:2px dashed var(--brass);border-radius:8px;padding:34px 20px;text-align:center;background:repeating-linear-gradient(135deg, rgba(169,131,47,.05) 0 10px, rgba(169,131,47,.09) 10px 20px);color:var(--ink-70);}
+  .placeholder .ic{font-size:26px;margin-bottom:8px;}
+  .placeholder .badge{display:inline-block;margin-top:10px;font-size:12px;padding:3px 12px;border-radius:999px;background:var(--seal);color:#fff;}
+  .sidebar nav a.unfinished{color:var(--ink-45);}
+
+  .src{display:inline-block;font-size:12px;margin:2px 6px 2px 0;padding:2px 10px;border-radius:999px;border:1px solid var(--border);color:var(--ink-70);background:var(--paper-inner);}
+  .verify-badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:#f6f1e6;color:var(--brass);border:1px solid var(--brass);margin-left:6px;}
+  .named-badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:#eef0f6;color:var(--indigo);border:1px solid var(--indigo);margin-left:6px;}
+  .verified-badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:#eef3ea;color:#3d6b3e;border:1px solid #3d6b3e;margin-left:6px;}
+  blockquote.quote{border-left:3px solid var(--brass);margin:10px 0;padding:14px 20px;background:#f6f1e6;font-size:16.5px;line-height:2;color:var(--ink-70);}
+  blockquote.quote .hl{font-weight:700;color:var(--seal);text-decoration:underline;text-decoration-color:var(--seal);text-underline-offset:3px;}
+
+  .quickcard{background:var(--ink);color:var(--paper-inner);border-radius:10px;padding:30px 28px;position:relative;overflow:hidden;}
+  .quickcard .wm{position:absolute;right:6px;bottom:-30px;font-size:130px;font-family:'Noto Serif TC',serif;color:rgba(255,255,255,.06);font-weight:900;}
+  .quickcard h4{color:#fff;margin-top:0;}
+  .mnemonic{background:var(--seal);color:#fff;padding:14px 18px;border-radius:6px;font-family:'Noto Serif TC',serif;font-size:17px;text-align:center;margin:16px 0;letter-spacing:.05em;}
+  .quickcard table td, .quickcard table th{background:transparent;color:#fff;border-color:rgba(255,255,255,.15);}
+
+  .related-box{border:1px solid var(--border);border-radius:8px;padding:18px 20px;background:var(--paper-card);}
+  .related-box h4{margin:0 0 10px;font-size:15px;color:var(--indigo);}
+  .related-box a{display:block;margin:4px 0;font-size:14px;}
+
+  footer{padding:24px 40px;font-size:12px;color:var(--ink-45);text-align:center;}
+</style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#s1">封面</a>
+  <a href="#s2">條文原文</a>
+  <a href="#s3">條文結構</a>
+  <a href="#s4">要件解析</a>
+  <a href="#s5">學說見解</a>
+  <a href="#s6">實務見解</a>
+  <a href="#s7">教學案例</a>
+  <a href="#s8" class="unfinished">申論題</a>
+  <a href="#s9">速查卡</a>
+</div>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-title">目　錄</div>
+    <nav id="deskNav">
+      <a href="#s1">封面</a>
+      <a href="#s2">一、條文原文</a>
+      <a href="#s3">二、條文結構</a>
+      <a href="#s4">三、要件逐項解析</a>
+      <a href="#s5">四、學說見解</a>
+      <a href="#s6">五、實務見解</a>
+      <a href="#s7">六、教學案例</a>
+      <a href="#s8" class="unfinished">七、申論練習題</a>
+      <a href="#s9">八、速查卡</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+
+    <section id="s1" class="cover">
+      <div class="seal-mark">輔助</div>
+      <div class="eyebrow">民法第一編 總則・第一章 法例／行為能力精神狀態篇</div>
+      <h1>民法第14條、第15條、第15-1條、第15-2條<br>行為能力──精神狀態篇</h1>
+      <p class="sub">監護宣告・受監護宣告之效果・輔助宣告・受輔助宣告之效果</p>
+      <div class="cover-meta">
+        <span class="ver-badge">v1.0</span>
+        <span class="meta-date">建立日期 2026-08-23</span>
+        <span class="visitor-badge-wrap">
+          <img src="https://visitor-badge.laobi.icu/badge?page_id=mjib007.civil-law-interpretation.14-15-1-2" alt="訪客計數">
+        </span>
+      </div>
+    </section>
+
+    <section id="s2">
+      <h2><span class="sec-num">1</span>條文原文</h2>
+
+      <div class="article-box">
+        <span class="wm">14</span>
+        <h4>第14條（監護之宣告及撤銷）</h4>
+        <p>Ⅰ　對於因精神障礙或其他心智缺陷，致不能為意思表示或受意思表示，或不能辨識其意思表示之效果者，法院得因本人、配偶、四親等內之親屬、最近一年有同居事實之其他親屬、檢察官、主管機關、社會福利機構、輔助人、意定監護受任人或其他利害關係人之聲請，為監護之宣告。</p>
+        <p>Ⅱ　受監護之原因消滅時，法院應依前項聲請權人之聲請，撤銷其宣告。</p>
+        <p>Ⅲ　法院對於監護之聲請，認為未達第一項之程度者，得依第十五條之一第一項規定，為輔助之宣告。</p>
+        <p>Ⅳ　受監護之原因消滅，而仍有輔助之必要者，法院得依第十五條之一第一項規定，變更為輔助之宣告。</p>
+      </div>
+
+      <div class="article-box">
+        <span class="wm">15</span>
+        <h4>第15條（受監護宣告人之能力）</h4>
+        <p>受監護宣告之人，無行為能力。</p>
+      </div>
+
+      <div class="article-box">
+        <span class="wm">15-1</span>
+        <h4>第15條之1（輔助之宣告及撤銷）</h4>
+        <p>Ⅰ　對於因精神障礙或其他心智缺陷，致其為意思表示或受意思表示，或辨識其意思表示效果之能力，顯有不足者，法院得因本人、配偶、四親等內之親屬、最近一年有同居事實之其他親屬、檢察官、主管機關或社會福利機構之聲請，為輔助之宣告。</p>
+        <p>Ⅱ　受輔助之原因消滅時，法院應依前項聲請權人之聲請，撤銷其宣告。</p>
+        <p>Ⅲ　受輔助宣告之人有受監護之必要者，法院得依第十四條第一項規定，變更為監護之宣告。</p>
+      </div>
+
+      <div class="article-box">
+        <span class="wm">15-2</span>
+        <h4>第15條之2（受輔助宣告之人之行為能力）</h4>
+        <p>Ⅰ　受輔助宣告之人為下列行為時，應經輔助人同意。但純獲法律上利益，或依其年齡及身分、日常生活所必需者，不在此限：<br>
+        一、為獨資、合夥營業或為法人之負責人。<br>
+        二、為消費借貸、消費寄託、保證、贈與或信託。<br>
+        三、為訴訟行為。<br>
+        四、為和解、調解、調處或簽訂仲裁契約。<br>
+        五、為不動產、船舶、航空器、汽車或其他重要財產之處分、設定負擔、買賣、租賃或借貸。<br>
+        六、為遺產分割、遺贈、拋棄繼承權或其他相關權利。<br>
+        七、法院依前條聲請權人或輔助人之聲請，所指定之其他行為。</p>
+        <p>Ⅱ　第七十八條至第八十三條規定，於未依前項規定得輔助人同意之情形，準用之。</p>
+        <p>Ⅲ　第八十五條規定，於輔助人同意受輔助宣告之人為第一項第一款行為時，準用之。</p>
+        <p>Ⅳ　第一項所列應經同意之行為，無損害受輔助宣告之人利益之虞，而輔助人仍不為同意時，受輔助宣告之人得逕行聲請法院許可後為之。</p>
+      </div>
+
+      <details class="index-list">
+        <summary>關聯條文索引：第75條～第85條（行為能力之法律效果）</summary>
+        <p style="margin-top:10px;">
+          第75條、第76條（無行為能力人之效果）、第77條（限制行為能力人為意思表示應得允許）、
+          第78條～第83條（單獨行為無效、契約效力未定、催告權、撤回權、詐術之強制有效——§15-2 II準用）、
+          第85條（獨立營業之允許——§15-2 III準用）。
+        </p>
+        <div class="scope-note">
+          本份講義聚焦於第14、15、15-1、15-2條（精神狀態如何決定行為能力等級），
+          75～85條之詳細法律效果將於後續講義另行解說，此處先列出條號索引供對照；
+          年齡如何決定行為能力等級（第12、13條），請參見《民法第12、13條－行為能力（年齡篇）》。
+        </div>
+      </details>
+    </section>
+
+    <section id="s3">
+      <h2><span class="sec-num">2</span>條文結構</h2>
+      <p>年齡篇是用「7歲」「18歲」這種絕對客觀的年齡切點來分級；精神狀態篇則不同，法院要就個案具體審查行為人的意思能力（辨識、表達的能力）程度，再決定要宣告到哪一級：</p>
+
+      <table>
+        <thead><tr><th>宣告類型</th><th>要件（意思能力狀態）</th><th>行為能力等級</th><th>依據</th></tr></thead>
+        <tbody>
+          <tr><td>監護宣告</td><td>因精神障礙或心智缺陷，「不能」為意思表示或受意思表示，或「不能」辨識意思表示之效果</td><td class="no">視為無行為能力</td><td>§14、§15</td></tr>
+          <tr><td>輔助宣告</td><td>因精神障礙或心智缺陷，為意思表示或受意思表示，或辨識意思表示效果之能力「顯有不足」（未達監護程度）</td><td class="mid">保留行為能力，僅列舉行為須經同意</td><td>§15-1、§15-2</td></tr>
+        </tbody>
+      </table>
+
+      <figure>
+        <img src="../assets/images/capacity-age-diagram-simple.jpg" alt="行為能力架構簡圖（精神狀態分支）">
+        <figcaption>圖一・行為能力架構簡圖──本講義聚焦於左下「精神狀態」分支（§14、§15、§15-1、§15-2），對應右側§75、§76及§77以下之效果</figcaption>
+      </figure>
+
+      <p>下圖是行為能力的完整體系總覽，同時涵蓋「年齡」與「精神狀態」兩條分支。年齡分支（§12、§13）已於前一份講義說明，這裡再次呈現全貌，讓你看清楚監護宣告與輔助宣告在整個體系中的相對位置——監護宣告的效果與「無行為能力」（未滿7歲）是同一條線（§15→§75、§76），輔助宣告的效果則準用「限制行為能力」（§77以下）的規則架構，但適用範圍限縮在第15條之2所列舉的七款重要行為。</p>
+
+      <figure>
+        <img src="../assets/images/capacity-full-diagram.jpg" alt="行為能力完整架構圖">
+        <figcaption>圖二・行為能力完整體系總覽（可對照年齡篇與本篇在體系中的相對位置）</figcaption>
+      </figure>
+    </section>
+
+    <section id="s4">
+      <h2><span class="sec-num">3</span>要件逐項解析</h2>
+
+      <h4 style="color:var(--indigo);">① 第14條──監護宣告的要件</h4>
+      <p>要件有二：(1) 行為人因「精神障礙或其他心智缺陷」；(2) 致「不能」為意思表示或受意思表示，或「不能」辨識其意思表示之效果。程度上要求的是「完全不能」，例如長期昏迷、植物人狀態、重度失智或重度智能障礙，屬於意思能力的全然欠缺。聲請權人範圍很廣，除本人、配偶、四親等內親屬外，也包含輔助人與意定監護受任人——這反映修法後監護、輔助兩制度之間可以互相轉銜（第14條第3項、第4項：法院認為未達監護程度可逕依聲請改為輔助宣告；受輔助宣告人如日後惡化，也可變更為監護宣告）。</p>
+
+      <h4 style="color:var(--indigo);">② 第15條──受監護宣告人之效果</h4>
+      <p>條文極簡：「受監護宣告之人，無行為能力。」效果上直接與第13條第1項（未滿7歲）的無行為能力人並列適用第75條、第76條，其意思表示當然無效，須由法定代理人（監護人）代為、代受意思表示。這裡要注意：即使受監護宣告之人在某次行為時「神智清醒」，其意思表示依然無效，因為監護宣告是對其行為能力所作的「身分上宣告」，不是逐次審查個別行為時的意思能力狀態——這正好呼應年齡篇「客觀、絕對標準」的精神，只是這裡的客觀標準不是年齡，而是法院的宣告本身。</p>
+
+      <h4 style="color:var(--indigo);">③ 第15-1條──輔助宣告的要件</h4>
+      <p>要件：(1) 因精神障礙或其他心智缺陷；(2) 致意思表示、受意思表示或辨識意思表示效果之能力「顯有不足」——程度比監護宣告輕，是「能力減損」而非「能力全無」。聲請權人範圍較監護宣告窄，不包含輔助人與意定監護受任人（因為此時尚未有輔助人存在）。</p>
+
+      <h4 style="color:var(--indigo);">④ 第15-2條──受輔助宣告人之效果</h4>
+      <p>與監護宣告不同，受輔助宣告之人「不喪失」行為能力，只有在從事第一項列舉的七款重要行為（獨資合夥／消費借貸保證贈與信託／訴訟行為／和解調解仲裁／不動產等重要財產處分／遺產分割拋棄繼承／法院指定之其他行為）時，才需要經輔助人同意；同樣保留「純獲法律上利益」「日常生活所必需」的例外（§15-2 I但書），架構上與限制行為能力人的§77但書幾乎對稱。第二項明文準用第78條至第83條（單獨行為無效、契約效力未定、催告、撤回、詐術之強制有效），第三項準用第85條（獨立營業之允許）——這些細節效果留待後續講義展開，這裡先掌握「準用架構」本身。</p>
+    </section>
+
+    <section id="s5">
+      <h2><span class="sec-num">4</span>學說見解</h2>
+
+      <div class="article-box" style="border-left-color:var(--indigo);">
+        <h4>輔助宣告制度的規範目的與體系定位<span class="named-badge">具名作者</span></h4>
+        <p>輔助宣告制度自2008年增訂、2009年施行後，將我國成年監護制度從過去「監護（禁治產）宣告一級制」，修正為「監護宣告／輔助宣告二級制」，在比較法上雖非首創，但對我國行為能力規範體系而言意義重大，有必要就其規範目的、體系定位、基本構造及解釋適用進行檢討分析。</p>
+        <p><span class="src">王耀霆（學習司法官）〈簡析輔助宣告制度〉</span>
+          <a href="http://ja.lawbank.com.tw/pdf/%E7%B0%A1%E6%9E%90%E8%BC%94%E5%8A%A9%E5%AE%A3%E5%91%8A%E5%88%B6%E5%BA%A6.doc" target="_blank">資料來源連結 →</a>
+        </p>
+        <p style="font-size:12.5px;color:var(--ink-45);">※本文為司法官學習期間之研究報告，非正式期刊論文，作者具名但機構審查層級與一般期刊論文不同，建議日後有機會再核對是否有後續正式發表版本。</p>
+      </div>
+
+      <div class="article-box" style="border-left-color:var(--brass);">
+        <h4>監護宣告要件用語與刑法、行政罰法之立法對照<span class="verify-badge">待驗證來源</span></h4>
+        <p>2008年修法時，立法者參酌行政罰法第9條第3項及刑法第19條第1項規定，將監護宣告要件修正為現行「不能為意思表示或受意思表示，或不能辨識其意思表示之效果」之用語，與修法前的「禁治產宣告」用語相比，更貼近其他部門法對於欠缺意思能力／責任能力的描述方式，也讓監護宣告制度的用語脈絡與整體法秩序的價值判斷較為一致。</p>
+        <p><span class="src">正律法律事務所〈淺談成年監護之新制度〉</span>
+          <a href="https://www.justuslaw.com.tw/news_detail.php?class=MTc2" target="_blank">資料來源連結 →</a>
+        </p>
+      </div>
+
+      <div class="article-box" style="border-left-color:var(--brass);">
+        <h4>監護宣告與輔助宣告的區辨基準<span class="verify-badge">待驗證來源</span></h4>
+        <p>監護宣告與輔助宣告的核心差異，在於行為人意思能力欠缺的「程度」：完全無法判斷、表達者宣告監護，僅判斷、表達能力降低但未完全喪失者宣告輔助。實務上常見的監護宣告原因包含失智症、腦中風後遺症、重病昏迷等；輔助宣告則常見於輕度智能障礙、初期失智等日常生活尚可自理，但容易受騙或做出不利決定的情形。</p>
+        <p><span class="src">法律百科 Legispedia〈什麼是監護宣告？輔助宣告？〉</span>
+          <a href="https://www.legis-pedia.com/article/health-medical-ageing/241" target="_blank">資料來源連結 →</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="s6">
+      <h2><span class="sec-num">5</span>實務見解</h2>
+
+      <div class="case-card">
+        <div class="hd">臺灣高等法院臺中分院108年度上易字第582號民事判決（109年12月29日）<span class="verified-badge">已核對原文</span></div>
+        <div class="bd">
+          <p><strong>案由：</strong>所有權移轉登記。本案被上訴人於簽訂不動產買賣契約「後」才經法院為輔助宣告，上訴人主張其罹患精神疾病，簽約時之意思表示應屬無效，或至少須經輔助人承認始生效力。法院就「受輔助宣告前」精神障礙者之意思表示效力，作了完整的體系性說明。</p>
+
+          <h5>① 未受監護宣告之精神耗弱者，原則上意思表示仍屬有效</h5>
+          <blockquote class="quote">
+            「按民法第75條但書所謂無意識，係指全然無識別、判斷之能力。所謂精神錯亂，則指精神作用發生障礙，已達喪失自由決定意思之程度。均指事實上欠缺意思能力而不能為有效的意思表示而言。故<span class="hl">未受禁治產宣告之成年人，於行為時縱不具正常之意思能力，惟如未達上述無意識或精神錯亂之程度，要難謂其意思表示無效</span>。（最高法院98年台上字第1702號、99年台上字第1994號判決意旨）」
+          </blockquote>
+
+          <h5>② 受輔助宣告前，意思能力顯有不足者之行為效力：不類推適用第79條</h5>
+          <blockquote class="quote">
+            「意思能力較常人顯有不足之人，於未受輔助宣告以前，既欠缺公示方法使交易相對人得以確認行為人所為法律行為之效力；且斯時行為人並無輔助人，其法律行為之效力是否可得輔助人承認仍在未定之天，致其法律行為之效力懸於效力未定之狀態，對於交易安全之保障傷害程度更強。故法律就意思能力顯較常人不足之行為人，所為重大法律行為之效力，在其受輔助宣告前雖無明文規定，應認為<span class="hl">其所為法律行為即屬有效，並未違反法律規範之計劃及意旨，尚難認有漏洞存在，無以類推適用予以補充之餘地</span>。」
+          </blockquote>
+
+          <p><strong>教學重點：</strong>這兩段推理合起來說明了一個容易被誤解的地方——「精神狀態不好」不等於「當然無效」或「效力未定」。只有真正經法院宣告（監護或輔助）之後，才會依§15或§15-2發生法律明文規定的效果；宣告之前，即使當事人客觀上已經有精神障礙，除非已達第75條但書「無意識或精神錯亂」的極端程度，否則其法律行為原則上仍然有效，也不能類推適用第79條「效力未定」的規定來保護尚未受宣告之人——因為法律就此已經是「有意的沉默」，不是漏洞。</p>
+          <p><span class="src">裁判字號：臺灣高等法院臺中分院108年度上易字第582號民事判決</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="s7">
+      <h2><span class="sec-num">6</span>教學案例</h2>
+      <p style="font-size:13px;color:var(--ink-45);">以下案例為 AI 虛構，僅供教學使用，非真實案件。</p>
+
+      <div class="case-card">
+        <div class="hd">案例一・受監護宣告的陳伯伯與土地買賣</div>
+        <div class="bd">
+          <h5>事實</h5>
+          <p>陳伯伯罹患重度失智症，經法院為監護宣告，由兒子小陳擔任監護人。某日鄰居老王趁小陳不在，帶著契約到家裡，陳伯伯當時精神狀況難得清醒，親口說「好啊，賣給你」，並在契約上簽了名，將自己名下的土地以低價賣給老王。小陳事後發現，主張契約無效。</p>
+          <h5>爭點</h5>
+          <p>受監護宣告之人在「清醒」的當下所為意思表示，是否因為當時看起來意思清楚，就例外承認其效力？</p>
+          <h5>分析</h5>
+          <p>陳伯伯已經受法院監護宣告，依第15條規定為無行為能力人，其意思表示依第75條前段當然無效——這是一種「身分上」的宣告效果，不會因為個案中他當下神智特別清楚就例外承認效力。這與年齡篇「未滿7歲當然無效」的邏輯完全一致：一旦落入無行為能力的身分，就不再逐案審查行為時的實際意思能力。土地買賣須由法定代理人（監護人小陳）代為意思表示才能生效（§76）。</p>
+          <h5 class="no" style="color:var(--seal);">結論</h5>
+          <p>陳伯伯簽約的意思表示<span class="no">無效</span>，土地買賣契約不成立，老王無法取得土地。</p>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="hd">案例二・受輔助宣告的美美與二手車買賣</div>
+        <div class="bd">
+          <h5>事實</h5>
+          <p>美美因輕度智能障礙經法院為輔助宣告，由姐姐擔任輔助人。美美平常可以自己搭公車、買日用品，某天她自行決定用存款買了一台二手汽車，價值15萬元，並未告知輔助人姐姐。</p>
+          <h5>爭點</h5>
+          <p>受輔助宣告之人購買汽車的行為，是否需要經輔助人同意才生效？</p>
+          <h5>分析</h5>
+          <p>美美受輔助宣告，依第15-2條並未喪失行為能力，原則上可以自行為法律行為；但「汽車」屬於第15-2條第1項第5款「重要財產之處分、設定負擔、買賣、租賃或借貸」列舉範圍內，需經輔助人同意才生效力，且不屬於「純獲法律上利益」或「日常生活所必需」的例外情形（買二手車不同於買日用品）。因此依第15-2條第2項準用第79條，這是一個效力未定的契約行為，須經輔助人事後承認。</p>
+          <h5 class="mid" style="color:var(--brass);">結論</h5>
+          <p>若姐姐拒絕承認，買賣契約<span class="no">不生效力</span>；若姐姐事後承認，則<span class="yes">溯及生效</span>。這與限制行為能力人未經法定代理人允許訂立契約的處理方式（§79）架構相同。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="s8">
+      <h2><span class="sec-num">7</span>申論練習題與模擬解答</h2>
+      <div class="placeholder">
+        <div class="ic">📝</div>
+        <p>本節僅先建立標題佔位，題目與模擬解答待日後補充。</p>
+        <span class="badge">待補充</span>
+      </div>
+    </section>
+
+    <section id="s9">
+      <h2><span class="sec-num">8</span>速查卡</h2>
+      <div class="quickcard">
+        <span class="wm">速</span>
+        <h4>民法第14、15、15-1、15-2條・行為能力精神狀態分級</h4>
+        <table>
+          <thead><tr><th>宣告類型</th><th>意思能力程度</th><th>行為能力等級</th></tr></thead>
+          <tbody>
+            <tr><td>監護宣告（§14、§15）</td><td>完全不能為意思表示／辨識效果</td><td>無行為能力（同§13 I，準用§75、§76）</td></tr>
+            <tr><td>輔助宣告（§15-1、§15-2）</td><td>意思能力顯有不足（未達監護程度）</td><td>保留行為能力，僅七款重要行為須經同意（架構近似§77以下）</td></tr>
+          </tbody>
+        </table>
+        <div class="mnemonic">全無監護，減弱輔助；宣告之前，原則有效。</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.75);">口訣意涵：意思能力「完全欠缺」宣告監護、視為無行為能力；意思能力「顯有不足但未全無」宣告輔助、僅列舉行為受限；在法院正式宣告之前，當事人的法律行為原則上仍然有效，不能類推適用效力未定的規定。</p>
+      </div>
+
+      <div class="related-box" style="margin-top:24px;">
+        <h4>相關主題</h4>
+        <a href="民法12-13條-行為能力.html">《民法第12、13條－行為能力（年齡篇）》——同屬行為能力體系，年齡與精神狀態是判斷行為能力等級的兩條分支</a>
+      </div>
+    </section>
+
+    <footer>民法第14、15、15-1、15-2條－行為能力（精神狀態篇）｜civil-law-interpretation｜CC BY-NC 4.0</footer>
+  </main>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const deskLinks = document.querySelectorAll('#deskNav a');
+  const mobLinks = document.querySelectorAll('#mobileNav a');
+
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id = entry.target.getAttribute('id');
+        [deskLinks, mobLinks].forEach(list=>{
+          list.forEach(a=>{
+            a.classList.toggle('active', a.getAttribute('href') === '#'+id);
+          });
+        });
+      }
+    });
+  }, {rootMargin:'-40% 0px -50% 0px', threshold:0});
+
+  sections.forEach(sec=>obs.observe(sec));
+
+  [deskLinks, mobLinks].forEach(list=>{
+    list.forEach(a=>{
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) target.scrollIntoView({behavior:'smooth'});
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
