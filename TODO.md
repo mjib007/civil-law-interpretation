@@ -7,6 +7,8 @@
 
 ## 待確認 / 進行中
 
+- [ ] **12、13條講義**：§75~85條之詳細法律效果尚未展開（本次講義僅列索引），待後續講義另行製作
+- [ ] **12、13條講義**：申論題目前為標題佔位，待使用者提供題目與模擬解答後補上
 - [ ] **§111-113（無效之效果）講義**尚未製作（第六節無效及撤銷的第一段落，前次已決定先做 §114-116）
 - [ ] **§117-118（第三人同意、無權處分）講義**尚未製作，§118 無權處分預期份量較大（善意取得、物權行為獨立性延伸討論），建議獨立處理，需先確認展開深度
 - [ ] **§6-11講義**：§8「檢察官聲請死亡宣告之地位」（獨立地位說／輔助地位說）僅查得非具名來源（考生整理），目前標註「待驗證來源」，待找到具名學者出處後更新學說見解章節
@@ -14,6 +16,14 @@
 - [ ] **§6-11講義**：尚未執行 Step 5.5 互聯檢查（與其他既有講義之相關主題連結）
 
 ## 已完成
+- [x] §12、13條 行為能力（年齡篇）講義（條文結構解析、要件逐項解析、學說見解×3、實務見解×1、教學案例×2、速查卡；申論題暫為標題佔位）— 2026-08-23
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/講義/民法12-13條-行為能力.html
+- [x] 兩張行為能力架構圖上傳至 assets/images/（capacity-age-diagram-simple.jpg、capacity-full-diagram.jpg）— 2026-08-23
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/assets/images/capacity-age-diagram-simple.jpg
+- [x] §6-11條講義補上指向12-13條講義的連結（雙向互聯）— 2026-08-23
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/講義/民法6-11條-權利能力.html
+- [x] index.html：加入§12、13講義至分類節點 2-1（第二章人／第一節自然人）— 2026-08-23
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/index.html
 
 - [x] SKILL.md：新增 Step 3.6「學說見解搜尋與驗證流程」，學說見解可由 AI 搜尋但須附來源供使用者驗證 — 2026-08-18
   - https://github.com/mjib007/civil-law-interpretation/blob/main/SKILL.md
