@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>民法第12、13條－行為能力（年齡篇）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233b;
+    --indigo:#2c4a76;
+    --paper-outer:#f3ede0;
+    --paper-inner:#fbf8f1;
+    --paper-card:#fffdf8;
+    --seal:#9c2b3a;
+    --brass:#a9832f;
+    --border:#ddd3bf;
+    --ink-45:rgba(22,35,59,.45);
+    --ink-70:rgba(22,35,59,.7);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper-outer);
+    color:var(--ink);
+    font-family:'Noto Sans TC',sans-serif;
+    line-height:1.85;
+  }
+  h1,h2,h3,h4,.serif{font-family:'Noto Serif TC',serif;}
+  a{color:var(--indigo);}
+
+  /* ---------- LAYOUT ---------- */
+  .app{display:flex;max-width:1200px;margin:0 auto;}
+  .sidebar{
+    width:240px;flex:0 0 240px;position:sticky;top:0;align-self:flex-start;
+    height:100vh;overflow-y:auto;padding:32px 18px;
+    border-right:1px solid var(--border);
+  }
+  .sidebar-title{font-size:12px;letter-spacing:.15em;color:var(--ink-45);margin-bottom:14px;}
+  .sidebar nav a{
+    display:block;padding:9px 10px;border-radius:6px;
+    color:var(--ink-70);text-decoration:none;font-size:14.5px;
+    border-left:3px solid transparent;margin-bottom:2px;
+  }
+  .sidebar nav a.active{
+    background:var(--paper-card);color:var(--ink);border-left-color:var(--indigo);font-weight:700;
+  }
+  .main{flex:1;min-width:0;background:var(--paper-inner);box-shadow:-6px 0 18px rgba(22,35,59,.04);}
+  .mobile-nav{display:none;}
+
+  @media (max-width:980px){
+    .sidebar{display:none;}
+    .mobile-nav{
+      display:flex;gap:8px;overflow-x:auto;position:sticky;top:0;z-index:20;
+      background:var(--paper-outer);padding:10px 12px;border-bottom:1px solid var(--border);
+      -webkit-overflow-scrolling:touch;
+    }
+    .mobile-nav a{
+      flex:0 0 auto;padding:7px 14px;border-radius:999px;background:var(--paper-card);
+      border:1px solid var(--border);color:var(--ink-70);text-decoration:none;font-size:13px;white-space:nowrap;
+    }
+    .mobile-nav a.active{background:var(--indigo);color:var(--paper-inner);border-color:var(--indigo);}
+  }
+
+  section{padding:44px 40px;border-bottom:1px dashed var(--border);}
+  @media (max-width:600px){section{padding:30px 18px;}}
+  section h2{font-size:22px;display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+  .sec-num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--paper-inner);
+    font-size:14px;flex:0 0 auto;
+  }
+
+  /* ---------- COVER ---------- */
+  .cover{
+    padding:56px 44px 40px;position:relative;overflow:hidden;border-bottom:2px solid var(--ink);
+  }
+  .eyebrow{
+    display:inline-block;font-size:12px;letter-spacing:.2em;color:var(--brass);
+    border:1px solid var(--brass);padding:3px 10px;border-radius:999px;margin-bottom:18px;
+  }
+  .cover h1{font-size:34px;font-weight:900;color:var(--ink);margin:0 0 8px;line-height:1.4;}
+  .cover .sub{font-size:15px;color:var(--ink-70);margin-bottom:14px;}
+  .cover-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px;}
+  .ver-badge,.meta-date,.visitor-badge-wrap{
+    font-size:12px;border:1px solid var(--indigo);color:var(--indigo);
+    padding:3px 10px;border-radius:999px;background:var(--paper-card);
+  }
+  .ver-badge{border-color:var(--seal);color:var(--seal);}
+  .visitor-badge-wrap img{vertical-align:middle;}
+  .seal-mark{
+    position:absolute;top:38px;right:48px;width:96px;height:96px;border:3px solid var(--seal);
+    border-radius:10px;transform:rotate(8deg);display:flex;align-items:center;justify-content:center;
+    color:var(--seal);writing-mode:vertical-rl;font-family:'Noto Serif TC',serif;font-weight:900;
+    font-size:22px;letter-spacing:.15em;opacity:.85;
+  }
+  @media (max-width:600px){.seal-mark{display:none;}}
+
+  /* ---------- ARTICLE BOX ---------- */
+  .article-box{
+    position:relative;background:var(--paper-card);border-left:3px solid var(--indigo);
+    border-radius:4px;padding:20px 24px;margin:16px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(22,35,59,.06);
+  }
+  .article-box .wm{
+    position:absolute;right:10px;bottom:-14px;font-family:'Noto Serif TC',serif;font-weight:900;
+    font-size:96px;color:var(--ink);opacity:.06;line-height:1;pointer-events:none;
+  }
+  .article-box h4{margin:0 0 10px;font-size:16px;color:var(--indigo);}
+  .article-box p{margin:6px 0;position:relative;z-index:1;}
+  .article-box .amend-note{
+    margin-top:12px;font-size:13px;color:var(--ink-45);border-top:1px dashed var(--border);padding-top:10px;
+  }
+
+  .index-list{
+    background:var(--paper-card);border:1px solid var(--border);border-radius:6px;padding:16px 20px;
+    font-size:14px;color:var(--ink-70);
+  }
+  .index-list summary{cursor:pointer;font-weight:700;color:var(--ink);}
+  .index-list .scope-note{
+    margin-top:10px;padding:10px 14px;background:#f6f1e6;border-left:3px solid var(--brass);
+    font-size:13px;border-radius:4px;
+  }
+
+  /* ---------- TABLE ---------- */
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;}
+  th{background:var(--ink);color:var(--paper-inner);padding:10px 12px;text-align:left;font-family:'Noto Serif TC',serif;}
+  td{padding:10px 12px;border-bottom:1px solid var(--border);}
+  tr:nth-child(even) td{background:#f6f1e6;}
+  tr:nth-child(odd) td{background:var(--paper-card);}
+  .yes{color:var(--ink);font-weight:700;background-image:linear-gradient(transparent 65%, rgba(169,131,47,.35) 65%);background-repeat:no-repeat;}
+  .no{color:var(--seal);font-weight:700;}
+
+  /* ---------- IMAGE ---------- */
+  figure{margin:20px 0;text-align:center;}
+  figure img{max-width:100%;border:1px solid var(--border);border-radius:6px;background:#fff;}
+  figcaption{font-size:12.5px;color:var(--ink-45);margin-top:8px;}
+
+  /* ---------- CARDS ---------- */
+  .case-card,.exam-card{
+    background:var(--paper-card);border-radius:8px;margin:18px 0;overflow:hidden;
+    box-shadow:0 1px 2px rgba(22,35,59,.08), 0 6px 18px rgba(22,35,59,.06);
+  }
+  .case-card .hd{background:var(--indigo);color:var(--paper-inner);padding:10px 18px;font-family:'Noto Serif TC',serif;font-weight:700;}
+  .exam-card .hd{background:var(--ink);color:var(--paper-inner);padding:10px 18px;font-family:'Noto Serif TC',serif;font-weight:700;}
+  .case-card .bd,.exam-card .bd{padding:18px 20px;}
+  .case-card .bd h5{margin:14px 0 6px;color:var(--indigo);font-size:14.5px;}
+
+  /* ---------- PLACEHOLDER ---------- */
+  .placeholder{
+    border:2px dashed var(--brass);border-radius:8px;padding:34px 20px;text-align:center;
+    background:repeating-linear-gradient(135deg, rgba(169,131,47,.05) 0 10px, rgba(169,131,47,.09) 10px 20px);
+    color:var(--ink-70);
+  }
+  .placeholder .ic{font-size:26px;margin-bottom:8px;}
+  .placeholder .badge{
+    display:inline-block;margin-top:10px;font-size:12px;padding:3px 12px;border-radius:999px;
+    background:var(--seal);color:#fff;
+  }
+  .sidebar nav a.unfinished{color:var(--ink-45);}
+
+  /* ---------- SOURCE TAG ---------- */
+  .src{
+    display:inline-block;font-size:12px;margin:2px 6px 2px 0;padding:2px 10px;border-radius:999px;
+    border:1px solid var(--border);color:var(--ink-70);background:var(--paper-inner);
+  }
+  .verify-badge{
+    display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;
+    background:#f6f1e6;color:var(--brass);border:1px solid var(--brass);margin-left:6px;
+  }
+  .verified-badge{
+    display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;
+    background:#eef3ea;color:#3d6b3e;border:1px solid #3d6b3e;margin-left:6px;
+  }
+  blockquote.quote{
+    border-left:3px solid var(--brass);margin:10px 0;padding:8px 16px;background:#f6f1e6;
+    font-size:14px;color:var(--ink-70);
+  }
+
+  /* ---------- QUICK CARD ---------- */
+  .quickcard{
+    background:var(--ink);color:var(--paper-inner);border-radius:10px;padding:30px 28px;
+    position:relative;overflow:hidden;
+  }
+  .quickcard .wm{
+    position:absolute;right:6px;bottom:-30px;font-size:150px;font-family:'Noto Serif TC',serif;
+    color:rgba(255,255,255,.06);font-weight:900;
+  }
+  .quickcard h4{color:#fff;margin-top:0;}
+  .mnemonic{
+    background:var(--seal);color:#fff;padding:14px 18px;border-radius:6px;font-family:'Noto Serif TC',serif;
+    font-size:17px;text-align:center;margin:16px 0;letter-spacing:.05em;
+  }
+  .quickcard table td, .quickcard table th{background:transparent;color:#fff;border-color:rgba(255,255,255,.15);}
+
+  .link-note{border:1px dashed var(--border);border-radius:6px;padding:16px 18px;font-size:14px;color:var(--ink-70);}
+
+  footer{padding:24px 40px;font-size:12px;color:var(--ink-45);text-align:center;}
+</style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#s1">封面</a>
+  <a href="#s2">條文原文</a>
+  <a href="#s3">條文結構</a>
+  <a href="#s4">要件解析</a>
+  <a href="#s5">學說見解</a>
+  <a href="#s6">實務見解</a>
+  <a href="#s7">教學案例</a>
+  <a href="#s8" class="unfinished">申論題</a>
+  <a href="#s9">速查卡</a>
+</div>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-title">目　錄</div>
+    <nav id="deskNav">
+      <a href="#s1">封面</a>
+      <a href="#s2">一、條文原文</a>
+      <a href="#s3">二、條文結構</a>
+      <a href="#s4">三、要件逐項解析</a>
+      <a href="#s5">四、學說見解</a>
+      <a href="#s6">五、實務見解</a>
+      <a href="#s7">六、教學案例</a>
+      <a href="#s8" class="unfinished">七、申論練習題</a>
+      <a href="#s9">八、速查卡</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+
+    <section id="s1" class="cover">
+      <div class="seal-mark">無效</div>
+      <div class="eyebrow">民法第一編 總則・第一章 法例／行為能力年齡篇</div>
+      <h1>民法第12條、第13條<br>行為能力──年齡篇</h1>
+      <p class="sub">完全行為能力・無行為能力・限制行為能力的年齡分級制度</p>
+      <div class="cover-meta">
+        <span class="ver-badge">v1.0</span>
+        <span class="meta-date">建立日期 2026-08-23</span>
+        <span class="visitor-badge-wrap">
+          <img src="https://visitor-badge.laobi.icu/badge?page_id=mjib007.civil-law-interpretation.12-13" alt="訪客計數">
+        </span>
+      </div>
+    </section>
+
+    <section id="s2">
+      <h2><span class="sec-num">1</span>條文原文</h2>
+
+      <div class="article-box">
+        <span class="wm">12</span>
+        <h4>第12條（成年時期）</h4>
+        <p>滿十八歲為成年。</p>
+        <div class="amend-note">
+          109年12月25日修正、110年1月13日總統公布，自112年1月1日施行；修正前原為「滿二十歲為成年」。修法理由：現今社會網路科技發達、大眾傳播媒體普及、資訊大量流通，青年之身心發展及建構自我意識之能力已不同以往，原20歲之規定已不符合社會當今現況；世界多數國家成年多定為18歲，鄰近之日本亦於2018年將成年年齡自20歲下修為18歲；且現行法制上刑事責任、行政罰責任之完全責任年齡均為18歲（刑法第18條、行政罰法第9條），與民法成年年齡有異，致外界產生權責不相符之感，爰下修為18歲，以與國際接軌。
+        </div>
+      </div>
+
+      <div class="article-box">
+        <span class="wm">13</span>
+        <h4>第13條（未成年人之行為能力）</h4>
+        <p>Ⅰ　未滿七歲之未成年人，無行為能力。</p>
+        <p>Ⅱ　滿七歲以上之未成年人，有限制行為能力。</p>
+        <div class="amend-note">
+          109年12月25日同次修正，本條第一項、第二項文字未修正；因配合第12條成年年齡下修為18歲，以及第980條男女最低結婚年齡均修正為18歲後，民法成年年齡與最低結婚年齡已一致，爰配合刪除修正前第三項「未成年人已結婚者，有行為能力」之規定。換言之，現行條文不再有「因結婚而取得行為能力」的例外。
+        </div>
+      </div>
+
+      <details class="index-list">
+        <summary>關聯條文索引：第75條～第85條（行為能力之法律效果）</summary>
+        <p style="margin-top:10px;">
+          第75條、第76條（無行為能力人之效果）、第77條（限制行為能力人為意思表示應得允許）、
+          第78條（單獨行為無效）、第79條（契約效力未定）、第80條（相對人催告權）、
+          第81條（限制原因消滅後之承認）、第82條（相對人撤回權）、第83條（詐術之強制有效）、
+          第84條（特定財產處分之允許）、第85條（獨立營業之允許）。
+        </p>
+        <div class="scope-note">
+          本份講義僅解析第12條、第13條（年齡如何決定行為能力等級），
+          75～85條之詳細法律效果將於後續講義另行解說，此處先列出條號索引供對照。
+        </div>
+      </details>
+    </section>
+
+    <section id="s3">
+      <h2><span class="sec-num">2</span>條文結構</h2>
+      <p>民法把行為能力依「年齡」分成三級，第12條先定出「成年」的門檻，第13條再把未成年這一段依「7歲」為界，切成無行為能力與限制行為能力兩塊：</p>
+
+      <table>
+        <thead><tr><th>年齡區間</th><th>行為能力等級</th><th>依據</th><th>法律效果指向</th></tr></thead>
+        <tbody>
+          <tr><td>未滿7歲</td><td class="no">無行為能力</td><td>§13 I</td><td>§75、§76（意思表示無效，由法定代理人代為／代受）</td></tr>
+          <tr><td>滿7歲以上，未滿18歲</td><td>限制行為能力</td><td>§13 II</td><td>§77～§85（原則須法代允許／承認，例外自行有效）</td></tr>
+          <tr><td>滿18歲以上</td><td class="yes">完全行為能力</td><td>§12</td><td>單獨為有效之法律行為</td></tr>
+        </tbody>
+      </table>
+
+      <figure>
+        <img src="../assets/images/capacity-age-diagram-simple.jpg" alt="行為能力架構簡圖（年齡分支）">
+        <figcaption>圖一・行為能力架構簡圖──本講義聚焦於左側「年齡」分支（§12、§13），對應右側的§75、§76效果</figcaption>
+      </figure>
+
+      <p>下圖是行為能力的完整體系總覽，同時涵蓋「年齡」與「精神狀態」兩條分支，以及§75～§85的完整效果對照。精神狀態分支（監護宣告、輔助宣告，§14、§15、§15-1、§15-2）與§78～§85的細節效果，將於後續各自的講義中詳細說明，這裡先呈現全貌，讓你知道年齡篇在整個行為能力體系中的位置。</p>
+
+      <figure>
+        <img src="../assets/images/capacity-full-diagram.jpg" alt="行為能力完整架構圖">
+        <figcaption>圖二・行為能力完整體系總覽（精神狀態分支將於後續章節說明）</figcaption>
+      </figure>
+    </section>
+
+    <section id="s4">
+      <h2><span class="sec-num">3</span>要件逐項解析</h2>
+
+      <h4 style="color:var(--indigo);">① 第12條──成年的年齡門檻</h4>
+      <p>要件很單純：只要「滿十八歲」，就取得完全行為能力，可以獨立以自己的意思表示使法律行為發生效力，不需要任何人同意或承認。這裡的「滿十八歲」依第124條「年齡自出生之日起算」計算，是生理年齡、客觀年齡，不問行為人實際心智是否成熟。</p>
+
+      <h4 style="color:var(--indigo);">② 第13條第1項──無行為能力人</h4>
+      <p>要件：「未滿七歲」的「未成年人」。這一段的意思表示依第75條前段規定當然無效，不會因為個案中這個孩子特別早熟就例外承認其效力——這正是年齡制度「客觀、絕對標準」的展現。無行為能力人要為法律行為，只能由法定代理人代為意思表示、代受意思表示（§76）。</p>
+
+      <h4 style="color:var(--indigo);">③ 第13條第2項──限制行為能力人</h4>
+      <p>要件：「滿七歲以上」且尚未成年（未滿18歲）。這個等級不是「完全不能」，而是「原則上需要法定代理人允許或承認」，但保留了「純獲法律上利益」與「日常生活所必需」兩個例外（§77但書），讓限制行為能力人在生活中仍有一定的行為空間。這部分的細節效果（§77～§85）會在後續講義展開，這裡先記住：限制行為能力人的行為原則上「效力未定」，不是當然無效，也不是當然有效。</p>
+
+      <h4 style="color:var(--indigo);">④ 修法後的變化：結婚不再是取得行為能力的獨立事由</h4>
+      <p>修正前第13條第3項規定「未成年人已結婚者，有行為能力」，這是因為過去結婚最低年齡（男18、女16）可能早於成年年齡（20歲），所以特別給已婚未成年人完全行為能力。但現在成年年齡與最低結婚年齡都統一為18歲，兩者已經一致，不會再出現「已婚但未成年」的情況，這項例外規定也就配合刪除了。</p>
+    </section>
+
+    <section id="s5">
+      <h2><span class="sec-num">4</span>學說見解</h2>
+      <p style="font-size:13px;color:var(--ink-45);">
+        以下整理之見解來源非具名學者原典，屬考用書／機關普法資料之整理性內容，故標示「待驗證來源」，建議日後有機會取得具名學者專書或期刊論文原典後再行補充替換。
+      </p>
+
+      <div class="article-box" style="border-left-color:var(--brass);">
+        <h4>行為能力制度的規範目的<span class="verify-badge">待驗證來源</span></h4>
+        <p>行為能力制度是「法律為保護智慮不週之人及維護交易安全，而以行為人之意思能力（識別能力）為基礎，依其已否達一定年齡為標準，作為判斷法律行為是否生效之制度」，用以與權利能力（凡人因出生而當然取得）作區別──並非任何人均有行為能力。</p>
+        <p><span class="src">新保成／保成法學苑《民法－條文X體系X概念》</span>
+          <a href="https://www.eyebook.com.tw/Article/Detail/44361?lang=zh-TW" target="_blank">資料來源連結 →</a>
+        </p>
+      </div>
+
+      <div class="article-box" style="border-left-color:var(--brass);">
+        <h4>行為能力與責任能力的區辨<span class="verify-badge">待驗證來源</span></h4>
+        <p>民法的「行為能力」是判斷一個人能否對他人進行法律行為負法律責任的能力；刑法的「責任能力」則規範一個人有沒有辨識事務、承擔刑事責任而對自己行為負責的能力。兩者用不同的年齡界線（民法7歲／18歲，刑法14歲／18歲），是因為兩套制度保護的法益與考量的風險並不相同，不能混為一談。</p>
+        <p><span class="src">臺灣高等檢察署「生活與法律」專欄</span>
+          <a href="https://www.tph.moj.gov.tw/4421/4475/632364/857535/post" target="_blank">資料來源連結 →</a>
+        </p>
+      </div>
+
+      <div class="article-box" style="border-left-color:var(--brass);">
+        <h4>限制行為能力人交易並非「一律無效」<span class="verify-badge">待驗證來源</span></h4>
+        <p>社會上常見的誤解是「未成年人交易一律無效」，但依第77條但書，若屬「純獲法律上利益」或「依其年齡及身分、日常生活所必需」，限制行為能力人仍可自行為之而有效，不需法定代理人同意；只有超出上述範圍的交易，才會落入效力未定、須經法定代理人承認的狀態。</p>
+        <p><span class="src">自由評論網《法操》【民法小教室】行為能力</span>
+          <a href="https://talk.ltn.com.tw/article/breakingnews/2661596" target="_blank">資料來源連結 →</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="s6">
+      <h2><span class="sec-num">5</span>實務見解</h2>
+
+      <div class="case-card">
+        <div class="hd">臺灣高等法院臺中分院108年度上易字第582號民事判決（109年12月29日）<span class="verified-badge">已核對原文</span></div>
+        <div class="bd">
+          <p><strong>案由：</strong>所有權移轉登記（本判決同時涉及輔助宣告人之行為能力爭議，惟以下節錄之推理段落，是法院就民法第12、13條「年齡分級制度」本身的說明，與本講義主題直接相關）。</p>
+          <blockquote class="quote">
+            「按行為能力乃指為法律行為之能力而言，即得以獨立之意思表示使其行為發生法律上效果之資袼，然對於個人行為是否發生法律上效果，如須就行為人之意思能力於個案之逐一審查，事實上怠不可能，且易生疑義，亦非保護交易安全之道，是民法第12條：「滿20歲為成年。」及同法第13條：「未滿7歲之未成年人，無行為能力。滿7歲以上之未成年人，有限制行為能力。未成年人已結婚者，有行為能力。」之規定，係採取以年齡為基礎用以區別行為能力之有無及其範圍，規定滿20歲之人即為有完全行為能力人，又此法律所指之年齡又係生理年齡而非心理年齡而言，否則若不採一客觀、絕對之標準，必會導致因判斷結果不一，而產生有害交易安全之情形發生；但又為免過於僵化，並再輔以監護宣告制度（民法第14、15條）、輔助宣告制度（民法第15條之1、第15條之2）及意思表示在無意識或精神錯亂中（民法第75條但書）等情形作為例外之規定。」
+          </blockquote>
+          <p style="font-size:13px;color:var(--ink-45);">※判決作成時，第12條尚未修正為18歲（本文引用之20歲係當時條文），但法院就「為何採年齡作為客觀標準」的推理，於現行18歲之條文下仍完全適用。</p>
+          <p><strong>教學重點：</strong>這段判決直接回答了「為什麼行為能力要用年齡而不是逐案審查心智成熟度」這個核心提問——(1) 逐案審查意思能力不可能，也會產生疑義；(2) 不利交易安全；(3) 年齡是生理年齡、客觀絕對標準；(4) 為避免僵化，另外用監護宣告、輔助宣告、無意識精神錯亂等制度補充調和。</p>
+          <p><span class="src">裁判字號：臺灣高等法院臺中分院108年度上易字第582號民事判決</span></p>
+        </div>
+      </div>
+
+      <p style="font-size:13px;color:var(--ink-45);">
+        本條屬私法上行為能力年齡界線之技術性規定，目前查無大法官解釋或憲法法庭判決直接針對第12條、第13條作成解釋，理由推測為：本條屬立法形成空間較大之任意性年齡標準，較少有人以此聲請違憲審查。
+      </p>
+    </section>
+
+    <section id="s7">
+      <h2><span class="sec-num">6</span>教學案例</h2>
+      <p style="font-size:13px;color:var(--ink-45);">以下案例為 AI 虛構，僅供教學使用，非真實案件。</p>
+
+      <div class="case-card">
+        <div class="hd">案例一・6歲的小美與夾娃娃機</div>
+        <div class="bd">
+          <h5>事實</h5>
+          <p>小美今年6歲，趁阿嬤不注意，拿走阿嬤皮夾裡的100元銅板，自己到超商投進夾娃娃機，投了5次都沒夾到，錢也用完了。阿嬤發現後，要求超商業者返還這100元。</p>
+          <h5>爭點</h5>
+          <p>未滿7歲之人所為的投幣、操作夾娃娃機行為，在民法上效力如何？</p>
+          <h5>分析</h5>
+          <p>小美未滿7歲，依第13條第1項為無行為能力人。她投幣操作夾娃娃機的行為，屬於意思表示，依第75條前段規定當然無效，不因她「看起來很清楚在做什麼」而例外承認效力——這正是年齡制度採「客觀、絕對標準」而非逐案審查意思能力的展現。無行為能力人的意思表示要發生效力，必須由法定代理人代為（§76）。</p>
+          <h5 class="no" style="color:var(--seal);">結論</h5>
+          <p><span class="no">小美投幣的意思表示無效</span>，其法律關係應回歸不當得利或所有權返還等規定處理（阿嬤得請求返還其100元或其代表利益），而非依「夾娃娃機契約有效成立」處理。</p>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="hd">案例二・10歲的阿翔與線上課程訂閱</div>
+        <div class="bd">
+          <h5>事實</h5>
+          <p>阿翔10歲，滿7歲以上、未滿18歲，用媽媽手機上的已登入帳號，自行訂閱一堂線上程式設計課程，一次付清新臺幣3,000元。媽媽發現後主張契約無效，要求平台退費。</p>
+          <h5>爭點</h5>
+          <p>限制行為能力人未經法定代理人允許所為之付費訂閱契約，效力如何？是否落入「純獲法律上利益」或「日常生活所必需」的例外？</p>
+          <h5>分析</h5>
+          <p>阿翔滿7歲、未滿18歲，依第13條第2項為限制行為能力人。3,000元的課程訂閱屬於有償契約，並非「純獲法律上利益」；就一般10歲兒童的年齡及身分而言，也難認定屬於「日常生活所必需」。因此依第77條本文，須經法定代理人事前允許或事後承認，才生效力；在媽媽尚未表示同意前，這份契約屬於效力未定的狀態（§79）。</p>
+          <h5 class="no" style="color:var(--seal);">結論</h5>
+          <p>媽媽明確表示不同意（拒絕承認），依第79條規定，該訂閱契約<span class="no">不生效力</span>；已繳交的3,000元，得依不當得利規定請求平台返還。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="s8">
+      <h2><span class="sec-num">7</span>申論練習題與模擬解答</h2>
+      <div class="placeholder">
+        <div class="ic">📝</div>
+        <p>本節僅先建立標題佔位，題目與模擬解答待日後補充。</p>
+        <span class="badge">待補充</span>
+      </div>
+    </section>
+
+    <section id="s9">
+      <h2><span class="sec-num">8</span>速查卡</h2>
+      <div class="quickcard">
+        <span class="wm">速</span>
+        <h4>民法第12、13條・行為能力年齡分級</h4>
+        <table>
+          <thead><tr><th>年齡</th><th>等級</th><th>效果</th></tr></thead>
+          <tbody>
+            <tr><td>未滿7歲</td><td>無行為能力</td><td>意思表示無效（§75），法代代為（§76）</td></tr>
+            <tr><td>7歲～未滿18歲</td><td>限制行為能力</td><td>原則須法代允許／承認，例外自行有效（§77起）</td></tr>
+            <tr><td>滿18歲</td><td>完全行為能力</td><td>單獨為有效法律行為</td></tr>
+          </tbody>
+        </table>
+        <div class="mnemonic">七歲一線，十八轉全；年齡定分，客觀為先。</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.75);">口訣意涵：七歲是無行為能力／限制行為能力的分界線；十八歲一到即完全行為能力；整個制度以「客觀年齡」為判斷基準，不逐案審查心智成熟度。</p>
+      </div>
+    </section>
+
+    <footer>民法第12、13條－行為能力（年齡篇）｜civil-law-interpretation｜CC BY-NC 4.0</footer>
+  </main>
+</div>
+
+<script>
+  // Scroll spy
+  const sections = document.querySelectorAll('section[id]');
+  const deskLinks = document.querySelectorAll('#deskNav a');
+  const mobLinks = document.querySelectorAll('#mobileNav a');
+
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id = entry.target.getAttribute('id');
+        [deskLinks, mobLinks].forEach(list=>{
+          list.forEach(a=>{
+            a.classList.toggle('active', a.getAttribute('href') === '#'+id);
+          });
+        });
+      }
+    });
+  }, {rootMargin:'-40% 0px -50% 0px', threshold:0});
+
+  sections.forEach(sec=>obs.observe(sec));
+
+  [deskLinks, mobLinks].forEach(list=>{
+    list.forEach(a=>{
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) target.scrollIntoView({behavior:'smooth'});
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
