@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>民法第75條至第85條－行為能力之法律效果</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233b;
+    --indigo:#2c4a76;
+    --paper-outer:#f3ede0;
+    --paper-inner:#fbf8f1;
+    --paper-card:#fffdf8;
+    --seal:#9c2b3a;
+    --brass:#a9832f;
+    --border:#ddd3bf;
+    --ink-45:rgba(22,35,59,.45);
+    --ink-70:rgba(22,35,59,.7);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper-outer);color:var(--ink);font-family:'Noto Sans TC',sans-serif;line-height:1.85;}
+  h1,h2,h3,h4,.serif{font-family:'Noto Serif TC',serif;}
+  a{color:var(--indigo);}
+
+  .app{display:flex;max-width:1200px;margin:0 auto;}
+  .sidebar{width:240px;flex:0 0 240px;position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;padding:32px 18px;border-right:1px solid var(--border);}
+  .sidebar-title{font-size:12px;letter-spacing:.15em;color:var(--ink-45);margin-bottom:14px;}
+  .sidebar nav a{display:block;padding:9px 10px;border-radius:6px;color:var(--ink-70);text-decoration:none;font-size:14.5px;border-left:3px solid transparent;margin-bottom:2px;}
+  .sidebar nav a.active{background:var(--paper-card);color:var(--ink);border-left-color:var(--indigo);font-weight:700;}
+  .main{flex:1;min-width:0;background:var(--paper-inner);box-shadow:-6px 0 18px rgba(22,35,59,.04);}
+  .mobile-nav{display:none;}
+
+  @media (max-width:980px){
+    .sidebar{display:none;}
+    .mobile-nav{display:flex;gap:8px;overflow-x:auto;position:sticky;top:0;z-index:20;background:var(--paper-outer);padding:10px 12px;border-bottom:1px solid var(--border);-webkit-overflow-scrolling:touch;}
+    .mobile-nav a{flex:0 0 auto;padding:7px 14px;border-radius:999px;background:var(--paper-card);border:1px solid var(--border);color:var(--ink-70);text-decoration:none;font-size:13px;white-space:nowrap;}
+    .mobile-nav a.active{background:var(--indigo);color:var(--paper-inner);border-color:var(--indigo);}
+  }
+
+  section{padding:44px 40px;border-bottom:1px dashed var(--border);}
+  @media (max-width:600px){section{padding:30px 18px;}}
+  section h2{font-size:22px;display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+  .sec-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--paper-inner);font-size:14px;flex:0 0 auto;}
+
+  .cover{padding:56px 44px 40px;position:relative;overflow:hidden;border-bottom:2px solid var(--ink);}
+  .eyebrow{display:inline-block;font-size:12px;letter-spacing:.2em;color:var(--brass);border:1px solid var(--brass);padding:3px 10px;border-radius:999px;margin-bottom:18px;}
+  .cover h1{font-size:30px;font-weight:900;color:var(--ink);margin:0 0 8px;line-height:1.4;}
+  .cover .sub{font-size:15px;color:var(--ink-70);margin-bottom:14px;}
+  .cover-meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px;}
+  .ver-badge,.meta-date,.visitor-badge-wrap{font-size:12px;border:1px solid var(--indigo);color:var(--indigo);padding:3px 10px;border-radius:999px;background:var(--paper-card);}
+  .ver-badge{border-color:var(--seal);color:var(--seal);}
+  .visitor-badge-wrap img{vertical-align:middle;}
+  .seal-mark{position:absolute;top:38px;right:48px;width:96px;height:96px;border:3px solid var(--seal);border-radius:10px;transform:rotate(8deg);display:flex;align-items:center;justify-content:center;color:var(--seal);writing-mode:vertical-rl;font-family:'Noto Serif TC',serif;font-weight:900;font-size:22px;letter-spacing:.15em;opacity:.85;}
+  @media (max-width:600px){.seal-mark{display:none;}}
+
+  .article-box{position:relative;background:var(--paper-card);border-left:3px solid var(--indigo);border-radius:4px;padding:18px 22px;margin:14px 0;overflow:hidden;box-shadow:0 1px 3px rgba(22,35,59,.06);}
+  .article-box .wm{position:absolute;right:8px;bottom:-14px;font-family:'Noto Serif TC',serif;font-weight:900;font-size:64px;color:var(--ink);opacity:.06;line-height:1;pointer-events:none;}
+  .article-box h4{margin:0 0 8px;font-size:15.5px;color:var(--indigo);}
+  .article-box p{margin:5px 0;position:relative;z-index:1;font-size:14.5px;}
+
+  .index-list{background:var(--paper-card);border:1px solid var(--border);border-radius:6px;padding:16px 20px;font-size:14px;color:var(--ink-70);}
+  .index-list .scope-note{margin-top:10px;padding:10px 14px;background:#f6f1e6;border-left:3px solid var(--brass);font-size:13px;border-radius:4px;}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px;}
+  th{background:var(--ink);color:var(--paper-inner);padding:10px 12px;text-align:left;font-family:'Noto Serif TC',serif;}
+  td{padding:10px 12px;border-bottom:1px solid var(--border);}
+  tr:nth-child(even) td{background:#f6f1e6;}
+  tr:nth-child(odd) td{background:var(--paper-card);}
+  .yes{color:var(--ink);font-weight:700;background-image:linear-gradient(transparent 65%, rgba(169,131,47,.35) 65%);background-repeat:no-repeat;}
+  .no{color:var(--seal);font-weight:700;}
+  .mid{color:var(--brass);font-weight:700;}
+
+  figure{margin:20px 0;text-align:center;}
+  figure img{max-width:100%;border:1px solid var(--border);border-radius:6px;background:#fff;}
+  figcaption{font-size:12.5px;color:var(--ink-45);margin-top:8px;}
+
+  .case-card,.exam-card{background:var(--paper-card);border-radius:8px;margin:18px 0;overflow:hidden;box-shadow:0 1px 2px rgba(22,35,59,.08), 0 6px 18px rgba(22,35,59,.06);}
+  .case-card .hd{background:var(--indigo);color:var(--paper-inner);padding:10px 18px;font-family:'Noto Serif TC',serif;font-weight:700;}
+  .exam-card .hd{background:var(--ink);color:var(--paper-inner);padding:10px 18px;font-family:'Noto Serif TC',serif;font-weight:700;}
+  .case-card .bd,.exam-card .bd{padding:18px 20px;}
+  .case-card .bd h5{margin:14px 0 6px;color:var(--indigo);font-size:14.5px;}
+
+  .placeholder{border:2px dashed var(--brass);border-radius:8px;padding:34px 20px;text-align:center;background:repeating-linear-gradient(135deg, rgba(169,131,47,.05) 0 10px, rgba(169,131,47,.09) 10px 20px);color:var(--ink-70);}
+  .placeholder .ic{font-size:26px;margin-bottom:8px;}
+  .placeholder .badge{display:inline-block;margin-top:10px;font-size:12px;padding:3px 12px;border-radius:999px;background:var(--seal);color:#fff;}
+  .sidebar nav a.unfinished{color:var(--ink-45);}
+
+  .src{display:inline-block;font-size:12px;margin:2px 6px 2px 0;padding:2px 10px;border-radius:999px;border:1px solid var(--border);color:var(--ink-70);background:var(--paper-inner);}
+  .verify-badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:#f6f1e6;color:var(--brass);border:1px solid var(--brass);margin-left:6px;}
+  .named-badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:#eef0f6;color:var(--indigo);border:1px solid var(--indigo);margin-left:6px;}
+  .verified-badge{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:#eef3ea;color:#3d6b3e;border:1px solid #3d6b3e;margin-left:6px;}
+  blockquote.quote{border-left:3px solid var(--brass);margin:10px 0;padding:14px 20px;background:#f6f1e6;font-size:16px;line-height:1.95;color:var(--ink-70);}
+
+  .flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0;font-size:14px;}
+  .flow .node{background:var(--paper-card);border:1px solid var(--border);border-radius:6px;padding:8px 14px;}
+  .flow .node.hi{border-color:var(--seal);color:var(--seal);font-weight:700;}
+  .flow .node.mid{border-color:var(--brass);color:var(--brass);font-weight:700;}
+  .flow .arrow{color:var(--ink-45);}
+
+  .quickcard{background:var(--ink);color:var(--paper-inner);border-radius:10px;padding:30px 28px;position:relative;overflow:hidden;}
+  .quickcard .wm{position:absolute;right:6px;bottom:-30px;font-size:120px;font-family:'Noto Serif TC',serif;color:rgba(255,255,255,.06);font-weight:900;}
+  .quickcard h4{color:#fff;margin-top:0;}
+  .mnemonic{background:var(--seal);color:#fff;padding:14px 18px;border-radius:6px;font-family:'Noto Serif TC',serif;font-size:16.5px;text-align:center;margin:16px 0;letter-spacing:.03em;}
+  .quickcard table td, .quickcard table th{background:transparent;color:#fff;border-color:rgba(255,255,255,.15);}
+
+  .related-box{border:1px solid var(--border);border-radius:8px;padding:18px 20px;background:var(--paper-card);margin-top:24px;}
+  .related-box h4{margin:0 0 10px;font-size:15px;color:var(--indigo);}
+  .related-box a{display:block;margin:4px 0;font-size:14px;}
+
+  footer{padding:24px 40px;font-size:12px;color:var(--ink-45);text-align:center;}
+</style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#s1">封面</a>
+  <a href="#s2">條文原文</a>
+  <a href="#s3">條文結構</a>
+  <a href="#s4">要件解析</a>
+  <a href="#s5">學說見解</a>
+  <a href="#s6">實務見解</a>
+  <a href="#s7">教學案例</a>
+  <a href="#s8" class="unfinished">申論題</a>
+  <a href="#s9">速查卡</a>
+</div>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-title">目　錄</div>
+    <nav id="deskNav">
+      <a href="#s1">封面</a>
+      <a href="#s2">一、條文原文</a>
+      <a href="#s3">二、條文結構</a>
+      <a href="#s4">三、要件逐項解析</a>
+      <a href="#s5">四、學說見解</a>
+      <a href="#s6">五、實務見解</a>
+      <a href="#s7">六、教學案例</a>
+      <a href="#s8" class="unfinished">七、申論練習題</a>
+      <a href="#s9">八、速查卡</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+
+    <section id="s1" class="cover">
+      <div class="seal-mark">效力</div>
+      <div class="eyebrow">民法第一編 總則・第四章 法律行為／第二節 行為能力</div>
+      <h1>民法第75條至第85條<br>行為能力之法律效果</h1>
+      <p class="sub">無行為能力人・限制行為能力人所為法律行為的效力全貌</p>
+      <div class="cover-meta">
+        <span class="ver-badge">v1.0</span>
+        <span class="meta-date">建立日期 2026-08-23</span>
+        <span class="visitor-badge-wrap">
+          <img src="https://visitor-badge.laobi.icu/badge?page_id=mjib007.civil-law-interpretation.75-85" alt="訪客計數">
+        </span>
+      </div>
+    </section>
+
+    <section id="s2">
+      <h2><span class="sec-num">1</span>條文原文</h2>
+
+      <div class="article-box"><span class="wm">75</span>
+        <h4>第75條（無行為能力人及無意識能力人之意思表示）</h4>
+        <p>無行為能力人之意思表示，無效；雖非無行為能力人，而其意思表示，係在無意識或精神錯亂中所為者亦同。</p>
+      </div>
+      <div class="article-box"><span class="wm">76</span>
+        <h4>第76條（法定代理人之代理權）</h4>
+        <p>無行為能力人由法定代理人代為意思表示，並代受意思表示。</p>
+      </div>
+      <div class="article-box"><span class="wm">77</span>
+        <h4>第77條（限制行為能力人單獨行為之效力）</h4>
+        <p>限制行為能力人為意思表示及受意思表示，應得法定代理人之允許。但純獲法律上利益，或依其年齡及身分、日常生活所必需者，不在此限。</p>
+      </div>
+      <div class="article-box"><span class="wm">78</span>
+        <h4>第78條（限制行為能力人單獨行為之效力）</h4>
+        <p>限制行為能力人未得法定代理人之允許，所為之單獨行為，無效。</p>
+      </div>
+      <div class="article-box"><span class="wm">79</span>
+        <h4>第79條（限制行為能力人契約行為之效力）</h4>
+        <p>限制行為能力人未得法定代理人之允許，所訂立之契約，須經法定代理人之承認，始生效力。</p>
+      </div>
+      <div class="article-box"><span class="wm">80</span>
+        <h4>第80條（相對人之催告權）</h4>
+        <p>Ⅰ　前條契約相對人，得定一個月以上之期限，催告法定代理人，確答是否承認。</p>
+        <p>Ⅱ　於前項期限內，法定代理人不為確答者，視為拒絕承認。</p>
+      </div>
+      <div class="article-box"><span class="wm">81</span>
+        <h4>第81條（限制原因消滅後之承認）</h4>
+        <p>Ⅰ　限制行為能力人於限制原因消滅後，承認其所訂立之契約者，其承認與法定代理人之承認，有同一效力。</p>
+        <p>Ⅱ　前條規定，於前項情形準用之。</p>
+      </div>
+      <div class="article-box"><span class="wm">82</span>
+        <h4>第82條（相對人之撤回權）</h4>
+        <p>限制行為能力人所訂立之契約，未經承認前，相對人得撤回之。但訂立契約時，知其未得有允許者，不在此限。</p>
+      </div>
+      <div class="article-box"><span class="wm">83</span>
+        <h4>第83條（強制有效之行為）</h4>
+        <p>限制行為能力人用詐術使人信其為有行為能力人或已得法定代理人之允許者，其法律行為為有效。</p>
+      </div>
+      <div class="article-box"><span class="wm">84</span>
+        <h4>第84條（特定財產處分之允許）</h4>
+        <p>法定代理人允許限制行為能力人處分之財產，限制行為能力人，就該財產有處分之能力。</p>
+      </div>
+      <div class="article-box"><span class="wm">85</span>
+        <h4>第85條（獨立營業之允許）</h4>
+        <p>Ⅰ　法定代理人允許限制行為能力人獨立營業者，限制行為能力人，關於其營業，有行為能力。</p>
+        <p>Ⅱ　限制行為能力人，就其營業有不勝任之情形時，法定代理人得將其允許撤銷或限制之。但不得對抗善意第三人。</p>
+      </div>
+
+      <details class="index-list">
+        <summary style="cursor:pointer;font-weight:700;color:var(--ink);">前提條文索引：第12、13、14、15、15-1、15-2條（行為能力之等級判定）</summary>
+        <p style="margin-top:10px;">
+          行為能力「等級」如何判定，請參見《民法第12、13條－行為能力（年齡篇）》與《民法第14、15、15-1、15-2條－行為能力（精神狀態篇）》；
+          本講義聚焦於「等級判定之後，各等級所為法律行為的效力如何」這個下游問題。
+        </p>
+      </details>
+    </section>
+
+    <section id="s3">
+      <h2><span class="sec-num">2</span>條文結構</h2>
+      <p>第75條到第85條可以拆成兩條路徑來理解：一條是「無行為能力人」的路徑，很短，直接無效；另一條是「限制行為能力人」的路徑，比較長，原則要經法定代理人允許或承認，但保留了幾個重要例外。</p>
+
+      <h4 style="color:var(--indigo);margin-top:26px;">路徑一・無行為能力人（§75、§76）</h4>
+      <div class="flow">
+        <span class="node">無行為能力人為意思表示</span>
+        <span class="arrow">→</span>
+        <span class="node hi">當然無效（§75）</span>
+        <span class="arrow">→</span>
+        <span class="node">須由法定代理人代為／代受（§76）</span>
+      </div>
+
+      <h4 style="color:var(--indigo);margin-top:26px;">路徑二・限制行為能力人（§77～§85）</h4>
+      <p>先看原則與例外的分岔（§77）：</p>
+      <div class="flow">
+        <span class="node">限制行為能力人為意思表示</span>
+        <span class="arrow">→</span>
+        <span class="node mid">原則：須得法代允許（§77本文）</span>
+        <span class="arrow">或</span>
+        <span class="node yes">例外：純獲利益／日常所需，逕自有效（§77但書）</span>
+      </div>
+      <p>「須得法代允許」這條線，再依行為類型分兩支：</p>
+      <table>
+        <thead><tr><th>行為類型</th><th>未得允許之效力</th><th>依據</th><th>後續機制</th></tr></thead>
+        <tbody>
+          <tr><td>單獨行為（如債務免除、撤銷權行使）</td><td class="no">無效</td><td>§78</td><td>（無後續機制，直接確定無效）</td></tr>
+          <tr><td>契約行為</td><td class="mid">效力未定</td><td>§79</td><td>相對人得催告（§80）／限制原因消滅後本人得自行承認（§81）／承認前相對人得撤回（§82）</td></tr>
+        </tbody>
+      </table>
+      <p>最後是三個「例外自始有效」的情形：</p>
+      <div class="flow">
+        <span class="node yes">用詐術使人誤信有行為能力／已得允許（§83）</span>
+      </div>
+      <div class="flow">
+        <span class="node yes">法代允許處分特定財產，於該財產範圍內有處分能力（§84）</span>
+      </div>
+      <div class="flow">
+        <span class="node yes">法代允許獨立營業，於該營業範圍內有行為能力（§85）</span>
+      </div>
+
+      <figure>
+        <img src="../assets/images/capacity-full-diagram.jpg" alt="行為能力完整架構圖">
+        <figcaption>行為能力完整體系總覽──本講義聚焦於右側§75～§85的效果部分；左側年齡、精神狀態的等級判定，請參見另外兩份講義</figcaption>
+      </figure>
+    </section>
+
+    <section id="s4">
+      <h2><span class="sec-num">3</span>要件逐項解析</h2>
+
+      <h4 style="color:var(--indigo);">① 第75條──無行為能力人（及無意識、精神錯亂人）之意思表示</h4>
+      <p>要件有二種情形：(1) 無行為能力人（未滿7歲，或受監護宣告之人）所為之意思表示，當然無效；(2) 雖非無行為能力人（即完全行為能力人或限制行為能力人），但意思表示是在「無意識」或「精神錯亂」中所為者，效果同樣是無效。這後段但書的適用門檻很高——依實務見解，「無意識」指全然無識別、判斷能力，「精神錯亂」指精神作用障礙已達喪失自由決定意思之程度，僅僅是意思能力「較常人減退」尚不足以構成。</p>
+
+      <h4 style="color:var(--indigo);">② 第76條──無行為能力人之代理</h4>
+      <p>因為無行為能力人的意思表示一律無效，若要讓無行為能力人也能參與法律行為，只能透過法定代理人「代為」意思表示（主動表意，例如代為簽約）與「代受」意思表示（被動受意，例如代收要約）兩種方式進行，這與限制行為能力人「自己也可以表意，只是需要允許」的模式完全不同。</p>
+
+      <h4 style="color:var(--indigo);">③ 第77條──原則允許、例外自主</h4>
+      <p>本文要件：限制行為能力人「為」意思表示（主動）或「受」意思表示（被動），原則上都要事先得到法定代理人的允許。但書設有兩個例外：(1) 純獲法律上利益（只獲得權利、不負擔義務，例如單純受贈與）；(2) 依其年齡及身分、日常生活所必需（例如國中生自己買文具、搭公車）。學說上還發展出第三種類推適用的情形：「無損益之中性行為」（既未獲利益也未受不利益），詳見學說見解章節。</p>
+
+      <h4 style="color:var(--indigo);">④ 第78條──單獨行為的嚴格效果</h4>
+      <p>「單獨行為」指僅憑一方意思表示即可成立的法律行為，例如債務免除、契約解除、撤銷權之行使。這類行為一旦未經法定代理人允許便當然無效，沒有像契約行為（§79）那樣的效力未定緩衝空間——因為單獨行為一旦生效，往往立即發生權利得喪變更，法律選擇用更嚴格的「直接無效」來保護限制行為能力人。</p>
+
+      <h4 style="color:var(--indigo);">⑤ 第79條──契約行為的效力未定</h4>
+      <p>與單獨行為不同，契約行為未經法定代理人允許，並非當然無效，而是「效力未定」，須經法定代理人事後承認才生效。這個設計是為了保留契約相對人與限制行為能力人本身「事後把契約救回來」的彈性——契約牽涉雙方，法律沒有必要一律否定其效力。</p>
+
+      <h4 style="color:var(--indigo);">⑥ 第80條──相對人的催告權</h4>
+      <p>契約效力未定的狀態不能無限期拖著，第80條給契約相對人一個「定一個月以上期限催告法定代理人確答」的權利；法定代理人若在期限內不答覆，法律直接把這個「沉默」解釋為「拒絕承認」（視為拒絕，而不是視為承認）——立法者選擇用「不積極表態即視為否定」來保護限制行為能力人一方，而非讓相對人單方承受不確定的風險。</p>
+
+      <h4 style="color:var(--indigo);">⑦ 第81條──限制原因消滅後之自行承認</h4>
+      <p>如果限制行為能力人後來滿18歲、或其監護／輔助宣告的原因消滅了，這個人本身就取得完全行為能力，此時他可以自己承認當初訂立的契約，效力等同法定代理人的承認；第80條催告權的規定也準用於這個情形，也就是相對人一樣可以定期催告他本人確答是否承認。</p>
+
+      <h4 style="color:var(--indigo);">⑧ 第82條──相對人的撤回權</h4>
+      <p>在契約還沒被承認之前，契約相對人本身也可以主動撤回，不必乾等法定代理人表態——這是給善意相對人的一個退場機制。但但書排除了「訂約時就已經知道對方未經允許」的相對人，這種明知情形不值得用撤回權來保護，畢竟他訂約時就承擔了效力未定的風險。</p>
+
+      <h4 style="color:var(--indigo);">⑨ 第83條──詐術之強制有效</h4>
+      <p>要件：限制行為能力人「用詐術」使相對人誤信其為有行為能力人，或誤信其已得法定代理人之允許。一旦成立，法律行為「強制有效」，不再允許主張無效或效力未定來翻案——立法理由在於：一個能夠設局欺瞞他人的限制行為能力人，顯示其智慮已經足夠，沒有再特別保護的必要，此時交易安全應優先於對限制行為能力人的保護。「詐術」的認定範圍（是否包含消極不說明）存在學說爭議，詳見學說見解章節。</p>
+
+      <h4 style="color:var(--indigo);">⑩ 第84條──特定財產處分之允許</h4>
+      <p>法定代理人可以概括允許限制行為能力人處分「特定的財產」（例如給孩子一筆零用錢、一台特定用途的電腦），一旦允許，限制行為能力人就這筆財產範圍內有完整的處分能力，不需要每次交易都個別取得允許——這是為了避免瑣碎小額交易也要逐次徵求同意的不便。</p>
+
+      <h4 style="color:var(--indigo);">⑪ 第85條──獨立營業之允許</h4>
+      <p>法定代理人若允許限制行為能力人獨立經營一項營業（例如允許16歲的孩子經營網路商店），該限制行為能力人「關於該項營業」即有完整行為能力，不再逐筆審查。但若日後發現這個限制行為能力人經營能力不勝任，法定代理人可以撤銷或限制這項允許；不過這個撤銷或限制「不得對抗善意第三人」，也就是已經跟他交易、且不知情的第三人仍受保護。</p>
+    </section>
+
+    <section id="s5">
+      <h2><span class="sec-num">4</span>學說見解</h2>
+
+      <div class="article-box" style="border-left-color:var(--indigo);">
+        <h4>第83條「詐術」是否限於積極行為？肯定說（施啟揚）vs 通說<span class="named-badge">具名學者</span></h4>
+        <p>施啟揚教授採「肯定說」，認為第83條之詐術行為以限制行為能力人之積極行為為限，因此相對人詢問時，限制行為能力人僅是支吾其詞或沉默不答，不能因此消極行為構成詐術；通說則採「否定說」，認為詐術行為應從寬解釋，不限於積極欺罔行為，對相對人之誤信不加聲辯、故意引起相對人誤信或加強其誤信等消極行為，同樣屬於詐術。</p>
+        <p><span class="src">碩豐法律事務所〈民法第八十三條規定註〉（轉引施啟揚教授見解）</span>
+          <a href="https://shuofeng.com.tw/newsdetail_5_491.html" target="_blank">資料來源連結 →</a>
+        </p>
+        <p style="font-size:12.5px;color:var(--ink-45);">※本段為轉引整理，非直接查證施啟揚教授原著（《民法總則》一書），建議日後有機會取得原書後核對用字。</p>
+      </div>
+
+      <div class="article-box" style="border-left-color:var(--brass);">
+        <h4>第77條但書之類推適用──「無損益之中性行為」<span class="verify-badge">待驗證來源</span></h4>
+        <p>學說認為，限制行為能力人為法律行為前須得法定代理人允許的目的，在於保護其避免遭受不利益；若某法律行為對限制行為能力人而言，既未使其取得法律上利益，也未使其負擔法律上不利益（稱為「無損益之中性行為」），此時該行為未得允許，理論上仍不影響限制行為能力人之權益，故學說主張可類推適用第77條但書，使該行為為有效。</p>
+        <p><span class="src">法源法律網相關論述整理</span>
+          <a href="http://www.public.tw/prog/allenj/Pcsr2013/OnlinePublicationsDetail/2/130" target="_blank">資料來源連結 →</a>
+        </p>
+      </div>
+
+      <div class="article-box" style="border-left-color:var(--brass);">
+        <h4>限制行為能力人「無權處分」是否屬中性行為？通說vs少數說<span class="verify-badge">待驗證來源</span></h4>
+        <p>通說認為，限制行為能力人雖未因其所為之無權處分獲得利益，但也沒有遭受直接不利益，因為無權處分所涉及者僅是有權利人的財產，與限制行為能力人自身財產無關，故仍屬中性行為，可類推適用第77條但書；少數說則認為，限制行為能力人無權處分他人財產，可能因此對有權利人負不當得利、不法管理甚至侵權行為責任，因此對其而言仍屬不利益，只是此種民事責任並非無權處分行為本身之直接效果，而是間接不利益，故不影響無權處分行為本身作為中性行為之性質——換言之，即使採少數說之risk觀察角度，多數論者仍認定結論上屬中性行為。</p>
+        <p><span class="src">三民輔考〈民法之行為能力〉知識百科整理</span>
+          <a href="https://www.3people.com.tw/%E7%9F%A5%E8%AD%98/%E6%B0%91%E6%B3%95%E4%B9%8B%E8%A1%8C%E7%82%BA%E8%83%BD%E5%8A%9B/%E5%85%AC%E8%81%B7%E8%80%83%E8%A9%A6-%E9%AB%98%E6%99%AE%E5%88%9D%E3%80%81%E5%9C%B0%E7%89%B9-%E4%B8%80%E8%88%AC%E8%A1%8C%E6%94%BF/8e9b8c12-81fa-4d21-9572-82031415b406" target="_blank">資料來源連結 →</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="s6">
+      <h2><span class="sec-num">5</span>實務見解</h2>
+
+      <div class="case-card">
+        <div class="hd">最高法院49年台上字第1041號判例<span class="verify-badge">待驗證來源（轉引，尚未核對司法院原文）</span></div>
+        <div class="bd">
+          <blockquote class="quote">
+            「限制行為能力人，未得法定代理人之允許，所訂立之契約，並非無效之行為，亦非得撤銷之行為，而係效力未定之行為。限制行為能力人於行為後，不得主張其訂立之契約為無效，或表示撤銷而使其歸於無效。」
+          </blockquote>
+          <p><strong>教學重點：</strong>這則判例直接點出第79條「效力未定」跟「無效」「得撤銷」的差異——效力未定不是無效（還有機會被承認而生效），也不是得撤銷（不需要、也不能由限制行為能力人自己一句「我要撤銷」就使其歸於無效）。特別重要的是最後一句：連限制行為能力人「自己」都不能主張契約無效，這是為了避免限制行為能力人一方面主張契約有利就想留著，不利就主張無效，形成單方任意翻案的不公平局面。</p>
+          <p><span class="src">裁判字號：最高法院49年台上字第1041號判例</span>
+            <a href="https://ilawyer.com.tw/datalawdetail_3866.html" target="_blank">資料來源連結（轉引） →</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="hd">限制行為能力人簽發本票與第78條之適用（實務見解整理）<span class="verify-badge">待驗證來源</span></div>
+        <div class="bd">
+          <p>依票據法規定，簽發本票在性質上屬於單獨行為（發票人簽名後，即單方作出無條件支付一定金額之意思表示，不以相對人同意為要件）。依實務見解，限制行為能力人未經法定代理人允許所簽發之本票，依第78條規定，屬單獨行為，應為無效，而非第79條之效力未定；但票據法第8條規定，票據上雖有限制行為能力人之簽名，不影響其他共同簽名人簽名之效力，故若有其他完全行為能力人共同簽名，該部分票據效力仍不受影響。</p>
+          <p><strong>教學重點：</strong>這是第78條「單獨行為無效」在票據法領域的具體展現，可與前面「契約行為適用第79條效力未定」做對照，凸顯法律行為性質（單獨行為 vs 契約行為）決定了適用第78條還是第79條這個關鍵區辨。</p>
+          <p><span class="src">整理自法律實務文章（債務金融消費爭議律師網）</span>
+            <a href="https://sf-debtdisputelawyer.com/newsdetail_2_1489.html" target="_blank">資料來源連結 →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="s7">
+      <h2><span class="sec-num">6</span>教學案例</h2>
+      <p style="font-size:13px;color:var(--ink-45);">以下案例為 AI 虛構，僅供教學使用，非真實案件。</p>
+
+      <div class="case-card">
+        <div class="hd">案例一・14歲的小翔與同學間的債務免除（§77、§78）</div>
+        <div class="bd">
+          <h5>事實</h5>
+          <p>14歲的小翔之前借給同學阿哲2,000元，某天阿哲說手頭很緊，小翔一時心軟，當場口頭表示「這筆錢不用還我了」，未經父母同意。事後小翔的父母得知，認為這筆錢不該就這樣算了。</p>
+          <h5>爭點</h5>
+          <p>小翔免除阿哲債務的意思表示，效力如何？</p>
+          <h5>分析</h5>
+          <p>小翔為限制行為能力人（滿7歲以上未滿18歲），「免除債務」是單獨行為（僅憑債權人一方意思表示即生效，不需要債務人同意）。這個行為對小翔而言並非「純獲法律上利益」（他放棄了債權，屬於處分自己權利的不利益行為），也不是日常生活所需。依第77條本文，原則上須得法定代理人允許；未得允許時，依第78條規定，單獨行為「無效」，不像契約行為那樣還有效力未定、事後承認的空間。</p>
+          <h5 class="no" style="color:var(--seal);">結論</h5>
+          <p>小翔免除阿哲債務的意思表示<span class="no">無效</span>，這筆2,000元的債權依然存在，阿哲仍負清償義務。</p>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="hd">案例二・16歲的小雨與二手筆電買賣（§79、§80、§82）</div>
+        <div class="bd">
+          <h5>事實</h5>
+          <p>16歲的小雨未經父母同意，自行向網友小李購買一台二手筆電，價金8,000元，雙方已簽立簡單的買賣契約並約定一週後交貨付款。三天後，小李有點擔心，寄信給小雨的父母，定一個月期限催告確答是否承認這筆買賣。父母收到信後遲遲沒有回覆。</p>
+          <h5>爭點</h5>
+          <p>(1) 這筆買賣契約在父母表態前的效力如何？(2) 父母逾期未答覆，法律效果為何？(3) 若父母遲遲不回覆，小李還有什麼退場方式？</p>
+          <h5>分析</h5>
+          <p>買賣契約屬於契約行為，非日常生活所需（8,000元對16歲學生而言金額不小），依第79條規定，未得法定代理人允許前，契約效力未定。小李依第80條第1項行使催告權，定一個月以上期限催告，於期限內小雨父母未確答，依第80條第2項規定，視為拒絕承認。在父母明確表態或視為拒絕承認之前，小李原本也可以依第82條主張撤回，但既然小李已經選擇用催告的方式處理，且撤回權在法定代理人「承認前」都能行使，兩種機制其實可以並存，端視小李策略選擇。</p>
+          <h5 class="mid" style="color:var(--brass);">結論</h5>
+          <p>一個月期滿父母仍未答覆，依第80條第2項<span class="no">視為拒絕承認</span>，買賣契約確定不生效力，小雨應返還筆電（如已交付），小李返還已收價金（如已收受）。</p>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="hd">案例三・17歲的阿凱偽造證件購買機車（§83）</div>
+        <div class="bd">
+          <h5>事實</h5>
+          <p>17歲的阿凱想買一台二手機車，機車行老闆詢問是否成年，阿凱謊稱自己已經18歲，並出示一張自己修改出生年份的偽造身分證影本。老闆信以為真，完成買賣並過戶交車。事後老闆發現阿凱的真實年齡，主張契約無效並要求返還機車。</p>
+          <h5>爭點</h5>
+          <p>阿凱出示偽造證件的行為，是否構成第83條之「詐術」？契約效力如何？</p>
+          <h5>分析</h5>
+          <p>阿凱為限制行為能力人，買機車並非純獲利益或日常生活所需，原則上須得法定代理人允許，依第79條屬效力未定。但阿凱主動出示偽造身分證件，屬於積極的欺罔行為，不論採學說見解中的肯定說或通說，都會被認定構成第83條之「詐術」——使機車行老闆誤信阿凱為有行為能力人。依第83條規定，此時法律行為「強制有效」，不再適用第79條效力未定的保護機制。</p>
+          <h5 class="yes" style="color:var(--ink);">結論</h5>
+          <p>阿凱與機車行間的買賣契約<span class="yes">有效</span>，機車行老闆得請求阿凱支付價金，阿凱不能以自己未成年為由主張契約無效或效力未定。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="s8">
+      <h2><span class="sec-num">7</span>申論練習題與模擬解答</h2>
+      <div class="placeholder">
+        <div class="ic">📝</div>
+        <p>本節僅先建立標題佔位，題目與模擬解答待日後補充。</p>
+        <span class="badge">待補充</span>
+      </div>
+    </section>
+
+    <section id="s9">
+      <h2><span class="sec-num">8</span>速查卡</h2>
+      <div class="quickcard">
+        <span class="wm">效</span>
+        <h4>民法第75～85條・行為能力法律效果</h4>
+        <table>
+          <thead><tr><th>情境</th><th>效力</th><th>依據</th></tr></thead>
+          <tbody>
+            <tr><td>無行為能力人之意思表示</td><td>無效</td><td>§75、§76</td></tr>
+            <tr><td>限制行為能力人：純獲利益／日常所需</td><td>有效</td><td>§77但書</td></tr>
+            <tr><td>限制行為能力人：單獨行為未得允許</td><td>無效</td><td>§78</td></tr>
+            <tr><td>限制行為能力人：契約未得允許</td><td>效力未定</td><td>§79</td></tr>
+            <tr><td>限制行為能力人：用詐術致相對人誤信</td><td>強制有效</td><td>§83</td></tr>
+            <tr><td>限制行為能力人：特定財產／獨立營業經允許</td><td>該範圍內有效</td><td>§84、§85</td></tr>
+          </tbody>
+        </table>
+        <div class="mnemonic">單獨無效，契約未定；詐術強效，允許有效。</div>
+        <p style="font-size:13px;color:rgba(255,255,255,.75);">口訣意涵：限制行為能力人未經允許的單獨行為當然無效（§78）；未經允許的契約行為效力未定、留有承認空間（§79）；一旦用詐術欺瞞相對人，法律行為強制有效不容翻案（§83）；經法定代理人事先允許特定財產處分或獨立營業者，在該範圍內有效（§84、§85）。</p>
+      </div>
+
+      <div class="related-box">
+        <h4>相關主題</h4>
+        <a href="民法12-13條-行為能力.html">《民法第12、13條－行為能力（年齡篇）》——年齡如何決定行為能力等級</a>
+        <a href="民法14-15-15-1-15-2條-行為能力.html">《民法第14、15、15-1、15-2條－行為能力（精神狀態篇）》——精神狀態如何決定行為能力等級</a>
+      </div>
+    </section>
+
+    <footer>民法第75條至第85條－行為能力之法律效果｜civil-law-interpretation｜CC BY-NC 4.0</footer>
+  </main>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const deskLinks = document.querySelectorAll('#deskNav a');
+  const mobLinks = document.querySelectorAll('#mobileNav a');
+
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id = entry.target.getAttribute('id');
+        [deskLinks, mobLinks].forEach(list=>{
+          list.forEach(a=>{
+            a.classList.toggle('active', a.getAttribute('href') === '#'+id);
+          });
+        });
+      }
+    });
+  }, {rootMargin:'-40% 0px -50% 0px', threshold:0});
+
+  sections.forEach(sec=>obs.observe(sec));
+
+  [deskLinks, mobLinks].forEach(list=>{
+    list.forEach(a=>{
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) target.scrollIntoView({behavior:'smooth'});
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
