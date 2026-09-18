@@ -250,18 +250,6 @@
   }
   .article-box p { margin: 4px 0; position: relative; z-index: 1; }
 
-  .link-note {
-    font-size: 0.88rem;
-    color: var(--ink-70);
-    background: rgba(44,74,118,0.05);
-    border: 1px dashed var(--indigo-soft);
-    border-radius: 4px;
-    padding: 12px 16px;
-    margin: 14px 0 18px;
-  }
-  .link-note a { color: var(--indigo-soft); text-decoration: none; border-bottom: 1px dotted var(--indigo-soft); font-weight: 500; }
-  .link-note a:hover { color: var(--seal); border-color: var(--seal); }
-
   /* ---------- tables ---------- */
   table {
     width: 100%;
@@ -520,7 +508,7 @@
   <a href="#sec2" data-i="2">二、結構</a>
   <a href="#sec3" data-i="3">三、要件</a>
   <a href="#sec4" data-i="4" class="pending">四、學說</a>
-  <a href="#sec5" data-i="5" class="pending">五、實務</a>
+  <a href="#sec5" data-i="5">五、實務</a>
   <a href="#sec6" data-i="6">六、案例</a>
   <a href="#sec7" data-i="7">七、申論</a>
   <a href="#sec8" data-i="8">八、速查</a>
@@ -535,7 +523,7 @@
       <a href="#sec2" data-i="2"><span class="idx">二</span>條文結構</a>
       <a href="#sec3" data-i="3"><span class="idx">三</span>要件逐項解析</a>
       <a href="#sec4" data-i="4" class="pending"><span class="idx">四</span>學說見解</a>
-      <a href="#sec5" data-i="5" class="pending"><span class="idx">五</span>實務見解</a>
+      <a href="#sec5" data-i="5"><span class="idx">五</span>實務見解</a>
       <a href="#sec6" data-i="6"><span class="idx">六</span>教學案例</a>
       <a href="#sec7" data-i="7"><span class="idx">七</span>申論練習題</a>
       <a href="#sec8" data-i="8"><span class="idx">八</span>速查卡</a>
@@ -551,7 +539,7 @@
       <p class="sub">意思表示不自由（詐欺、脅迫）與撤銷之效力</p>
       <div class="cover-meta">
         <span class="ver-badge">v1.1</span>
-        <span class="meta-date">2026-08-17</span>
+        <span class="meta-date">2026-09-19</span>
         <img src="https://visitor-badge.laobi.icu/badge?page_id=mjib007.civil-law-interpretation.92-93-114" alt="Visitors" style="opacity:0.85;vertical-align:middle;">
       </div>
       <div class="seal-mark">得撤銷</div>
@@ -616,9 +604,6 @@
 
       <h3>（四）第114條——撤銷之效力</h3>
       <p>法律行為經撤銷，<span class="conclusion">視為自始無效</span>，也就是回溯到法律行為作成時起就沒有發生效力，與單純「向後失效」不同。若當事人於行為當時即知其得撤銷（或可得而知），則準用第113條，負回復原狀或損害賠償之責任。</p>
-      <div class="link-note">
-        📎 第114條之效力與承認（第115條）、撤銷承認之方式（第116條）等體系性討論，詳見《<a href="../講義/民法114-116條-撤銷及承認.html">民法第114、115、116條——撤銷及承認</a>》。
-      </div>
     </section>
 
     <section id="sec4">
@@ -632,11 +617,17 @@
 
     <section id="sec5">
       <div class="sec-head"><span class="num">五</span><h2>實務見解</h2></div>
-      <div class="placeholder">
-        <div class="ph-icon">判</div>
-        <div class="ph-text">尚未加入實務見解（判決／大法官解釋）內容</div>
-        <div class="ph-badge">待補充</div>
+
+      <div class="case-card exam">
+        <div class="header">最高法院114年度台上字第1329號民事判決 <span class="tag">第92條第三人詐欺之例外</span></div>
+        <div class="body">
+          <p><strong>事實概要</strong>：乙受詐騙集團成員甲(假冒檢警)誤導，誤以為自己僅係配合辦理「洗錢偵查」而需交付借款走流程，因而與丙簽訂借款契約並設定抵押權。嗣後乙發現受騙，主張其係受詐欺(詐欺行為人為甲，非契約相對人丙)而為意思表示，依民法第92條第1項訴請撤銷與丙之間的抵押權設定行為。</p>
+          <p><strong>爭點</strong>：詐欺行為人（甲）並非該法律行為之相對人（丙）時，乙得否依第92條第1項本文撤銷其意思表示？</p>
+          <p><strong>法院見解</strong>：乙核屬受第三人（甲）詐欺而與丙為系爭法律行為，依民法<span class="conclusion">第92條第1項但書</span>規定，應以相對人即丙明知其受詐欺之事實或可得而知為限，乙始得撤銷其受詐欺所為之意思表示。惟由乙丙兩造締約過程觀察，丙自事前交涉乃至簽約及設定登記過程中，並無徵象能使其得悉乙遭詐欺之事實，故乙主張依第92條第1項規定撤銷其意思表示，<span class="deny">尚屬無據</span>。</p>
+          <p class="conclusion">結論：本案印證第92條第1項但書「第三人詐欺之例外」的實際操作——詐欺行為人若非契約相對人本人，撤銷權之行使須以相對人明知或可得而知為前提要件，法院並非僅憑「表意人確實受詐欺」即准許撤銷，仍須逐一檢視相對人是否具備主觀可歸責性。</p>
+        </div>
       </div>
+      <div class="source-tag">📂 案例來源｜顏佑紘（臺灣大學法律學院副教授），〈民事法裁判精選——意思表示之瑕疵：欠缺表示意識、虛偽意思表示、錯誤與詐欺（114台上1329判決）〉，《月旦實務選評》第6卷第6期，2026年5月，頁30-37</div>
     </section>
 
     <section id="sec6">
@@ -783,7 +774,7 @@
     </section>
 
     <div class="note">
-      <p>本講義依「民法條文解釋」skill 產生，條文原文照錄自使用者提供之全國法規資料庫截圖；教學案例為 AI 虛構，僅供教學參考。申論練習題已補上兩則國考實例題（來源標示如上），僅列題目，模擬解答依skill規範由使用者另行提供。學說見解、實務見解（判例字號）兩節目前尚未補入內容，待另行提供或查證後補上。</p>
+      <p>本講義依「民法條文解釋」skill 產生，條文原文照錄自使用者提供之全國法規資料庫截圖；教學案例為 AI 虛構，僅供教學參考。申論練習題已補上兩則國考實例題（來源標示如上），僅列題目，模擬解答依skill規範由使用者另行提供。實務見解已補入最高法院114年度台上字第1329號民事判決（第92條第三人詐欺之例外），來源標示如上；學說見解一節仍待另行提供。</p>
     </div>
 
   </main>
