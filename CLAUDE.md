@@ -15,7 +15,8 @@
 ## Repo 結構
 - `README.md`、`SKILL.md`、`LICENSE`（CC BY-NC 4.0）、`TODO.md`
 - `index.html`：總覽頁，`LECTURES` 陣列列出所有講義（articles／title／date／chapterKey／file）
-- `講義/`：各講義 HTML 檔案存放處，新增講義時必須同步在 `index.html` 的 `LECTURES` 補上一筆
+- `lectures/`：各講義 HTML 檔案存放處，新增講義時必須同步在 `index.html` 的 `LECTURES` 補上一筆
+  - 檔名格式：`civil-code-{條號}-{英文主題}.html`（例如 `civil-code-6-11-capacity-of-rights.html`）
 - 對外網頁（GitHub Pages）：https://mjib007.github.io/civil-law-interpretation/ ，抓取 `main` 分支內容
 
 ## GitHub 操作固定規則

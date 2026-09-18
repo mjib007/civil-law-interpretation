@@ -20,38 +20,38 @@
 
 ## 已完成
 - [x] §75~85條 行為能力之法律效果講義（十一條逐條要件解析、學說見解×3含施啟揚教授具名學說對立、實務見解×2、教學案例×3、速查卡；申論題暫為標題佔位）— 2026-08-23
-  - https://github.com/mjib007/civil-law-interpretation/blob/main/講義/民法75-85條-行為能力之法律效果.html
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/lectures/civil-code-75-85-legal-effect-of-capacity.html
 - [x] 年齡篇、精神狀態篇補上指向§75-85條講義的互聯連結 — 2026-08-23
 - [x] index.html：加入§75-85講義至分類節點 4-2（第四章法律行為／第二節行為能力）— 2026-08-23
 - [x] §6-11、§12-13、§14-15-15-1-15-2 三份講義完整互聯檢查（Step 5.5）：確認§6-11與92-93-114、114-116無重疊，僅與12-13條互聯（已連結）；§14-15-15-1-15-2經比對三份既有講義均無重疊，僅與12-13條互聯（已連結）— 2026-08-23
 - [x] §14、15、15-1、15-2條 行為能力（精神狀態篇）講義（條文結構解析、要件逐項解析、學說見解×3含具名作者1篇、實務見解沿用108上易582號判決之新段落、教學案例×2、速查卡；申論題暫為標題佔位）— 2026-08-23
-  - https://github.com/mjib007/civil-law-interpretation/blob/main/講義/民法14-15-15-1-15-2條-行為能力.html
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/lectures/civil-code-14-15-1-15-2-capacity-by-mental-state.html
 - [x] 年齡篇、精神狀態篇雙向互聯連結 — 2026-08-23
-  - https://github.com/mjib007/civil-law-interpretation/blob/main/講義/民法12-13條-行為能力.html
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/lectures/civil-code-12-13-capacity-by-age.html
 - [x] index.html：加入§14、15、15-1、15-2講義至分類節點 2-1（第二章人／第一節自然人）— 2026-08-23
   - https://github.com/mjib007/civil-law-interpretation/blob/main/index.html
 - [x] §12、13條 行為能力（年齡篇）講義（條文結構解析、要件逐項解析、學說見解×3、實務見解×1、教學案例×2、速查卡；申論題暫為標題佔位）— 2026-08-23
-  - https://github.com/mjib007/civil-law-interpretation/blob/main/講義/民法12-13條-行為能力.html
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/lectures/civil-code-12-13-capacity-by-age.html
 - [x] 兩張行為能力架構圖上傳至 assets/images/（capacity-age-diagram-simple.jpg、capacity-full-diagram.jpg）— 2026-08-23
   - https://github.com/mjib007/civil-law-interpretation/blob/main/assets/images/capacity-age-diagram-simple.jpg
 - [x] §6-11條講義補上指向12-13條講義的連結（雙向互聯）— 2026-08-23
-  - https://github.com/mjib007/civil-law-interpretation/blob/main/講義/民法6-11條-權利能力.html
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/lectures/civil-code-6-11-capacity-of-rights.html
 - [x] index.html：加入§12、13講義至分類節點 2-1（第二章人／第一節自然人）— 2026-08-23
   - https://github.com/mjib007/civil-law-interpretation/blob/main/index.html
 
 - [x] SKILL.md：新增 Step 3.6「學說見解搜尋與驗證流程」，學說見解可由 AI 搜尋但須附來源供使用者驗證 — 2026-08-18
   - https://github.com/mjib007/civil-law-interpretation/blob/main/SKILL.md
 - [x] §6-11條 自然人之權利能力 講義（含條文原文、結構、要件解析、學說見解×2、實務見解、教學案例、申論題×2） — 2026-08-18
-  - https://github.com/mjib007/civil-law-interpretation/blob/main/講義/民法6-11條-權利能力.html
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/lectures/civil-code-6-11-capacity-of-rights.html
 - [x] index.html：加入§6-11講義至分類節點 2-1（第二章人／第一節自然人） — 2026-08-18
   - https://github.com/mjib007/civil-law-interpretation/blob/main/index.html
 
 - [x] Step 5.5（互聯檢查與相關講義連結）正式定案並寫入SKILL.md：相關主題區塊放於速查卡後、無重疊時留言記錄 — 2026-08-17
   - https://github.com/mjib007/civil-law-interpretation/blob/main/SKILL.md
 - [x] §114-116條 撤銷及承認 講義（Step 1-5 全部跑完，含申論題與雙向互聯） — 2026-08-17
-  - https://github.com/mjib007/civil-law-interpretation/blob/main/講義/民法114-116條-撤銷及承認.html
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/lectures/civil-code-114-116-rescission-and-ratification.html
 - [x] 92-93-114條講義補上指向114-116條講義的連結（雙向互聯） — 2026-08-17
-  - https://github.com/mjib007/civil-law-interpretation/blob/main/講義/民法92-93-114條-意思表示不自由.html
+  - https://github.com/mjib007/civil-law-interpretation/blob/main/lectures/civil-code-92-93-114-vitiated-intent.html
 - [x] SKILL.md：Step 3 新增「產生前重新讀取最新 SKILL.md」規則 — 2026-08-17
   - https://github.com/mjib007/civil-law-interpretation/blob/main/SKILL.md
 - [x] README.md：檔案結構補上114-116條講義 — 2026-08-17
