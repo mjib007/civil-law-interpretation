@@ -145,7 +145,7 @@ civil-law-interpretation/
 ├── SKILL.md          # 完整 Skill 內容，依 Claude Skill 格式安裝即可使用
 ├── LICENSE.md         # CC BY-NC 4.0 授權條款（中英對照）
 ├── index.html         # 講義總覽頁（分類覆蓋地圖＋搜尋篩選），GitHub Pages 入口
-└── 講義/               # 各講義 HTML 檔案存放處
+└── lectures/           # 各講義 HTML 檔案存放處
     ├── 民法92-93-114條-意思表示不自由.html
     └── 民法114-116條-撤銷及承認.html
 ```
