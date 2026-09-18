@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>民法第66條至第70條 — 物之種類與孳息之歸屬</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233b;
+    --ink-45:rgba(22,35,59,.45);
+    --indigo:#2c4a76;
+    --paper-outer:#f3ede0;
+    --paper-content:#fbf8f1;
+    --paper-card:#fffdf8;
+    --paper-card-alt:#f6f1e6;
+    --seal:#9c2b3a;
+    --brass:#a9832f;
+    --border:#ddd3bf;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper-outer);
+    color:var(--ink);
+    font-family:"Noto Sans TC","PMingLiU",sans-serif;
+    line-height:1.85;
+  }
+  h1,h2,h3,.serif{font-family:"Noto Serif TC",serif;}
+
+  /* ---------- Layout ---------- */
+  .layout{display:flex; max-width:1180px; margin:0 auto;}
+  .sidebar{
+    width:240px; flex-shrink:0; position:sticky; top:0; align-self:flex-start;
+    height:100vh; overflow-y:auto; padding:28px 18px; background:var(--paper-outer);
+  }
+  .sidebar h4{
+    font-size:.72em; letter-spacing:.15em; color:var(--brass); margin:0 0 12px 4px; text-transform:uppercase;
+  }
+  .sidebar a{
+    display:block; padding:8px 10px; border-radius:6px; color:var(--ink);
+    text-decoration:none; font-size:.92em; margin-bottom:2px; border-left:3px solid transparent;
+  }
+  .sidebar a.placeholder-link{color:var(--ink-45);}
+  .sidebar a.active{background:var(--paper-card); border-left:3px solid var(--indigo); font-weight:700;}
+  .main{
+    flex:1; min-width:0; background:var(--paper-content);
+    box-shadow:-6px 0 18px -12px rgba(22,35,59,.25);
+    padding:0 0 60px 0;
+  }
+  .content-inner{max-width:760px; margin:0 auto; padding:0 28px;}
+
+  /* mobile pill nav */
+  .mobile-nav{
+    display:none; position:sticky; top:0; z-index:20; background:var(--paper-outer);
+    padding:10px 12px; overflow-x:auto; white-space:nowrap; border-bottom:1px solid var(--border);
+  }
+  .mobile-nav a{
+    display:inline-block; padding:7px 14px; margin-right:8px; border-radius:999px;
+    background:var(--paper-card); border:1px solid var(--border); color:var(--ink);
+    text-decoration:none; font-size:.82em;
+  }
+  .mobile-nav a.placeholder-link{color:var(--ink-45);}
+  .mobile-nav a.active{background:var(--indigo); color:var(--paper-card); border-color:var(--indigo);}
+
+  @media (max-width:980px){
+    .sidebar{display:none;}
+    .mobile-nav{display:block;}
+    .content-inner{padding:0 16px;}
+  }
+
+  /* ---------- Cover ---------- */
+  .cover{position:relative; padding:56px 0 40px; border-bottom:3px solid var(--indigo); margin-bottom:36px;}
+  .eyebrow{
+    display:inline-block; font-size:.78em; letter-spacing:.18em; color:var(--brass);
+    border:1px solid var(--brass); padding:3px 10px; border-radius:999px; margin-bottom:16px;
+  }
+  .cover h1{font-size:2em; font-weight:900; margin:0 0 10px; color:var(--ink); line-height:1.4;}
+  .cover .desc{color:var(--ink-45); font-size:.95em; margin:0 0 4px;}
+  .seal-mark{
+    position:absolute; top:40px; right:0; width:78px; height:78px; border:3px solid var(--seal);
+    border-radius:8px; display:flex; align-items:center; justify-content:center;
+    transform:rotate(8deg); color:var(--seal); font-family:"Noto Serif TC",serif; font-weight:900;
+    writing-mode:vertical-rl; font-size:1.05em; letter-spacing:.15em; opacity:.85;
+  }
+  @media (max-width:600px){ .seal-mark{position:static; transform:rotate(-3deg); margin-top:16px;} }
+  .toc{margin-top:20px; font-size:.9em; color:var(--ink);}
+  .toc span{color:var(--brass); margin-right:6px;}
+
+  /* ---------- Section heading ---------- */
+  section{margin-bottom:48px; scroll-margin-top:20px;}
+  .sec-head{
+    display:flex; align-items:baseline; gap:10px; border-left:4px solid var(--brass);
+    padding-left:12px; margin-bottom:18px;
+  }
+  .sec-head .num{font-family:"Noto Serif TC",serif; font-weight:900; color:var(--brass); font-size:1.3em;}
+  .sec-head h2{margin:0; font-size:1.25em; color:var(--ink);}
+
+  /* ---------- Article box ---------- */
+  .article-box{
+    position:relative; background:var(--paper-card); border:1px solid var(--border);
+    border-left:3px solid var(--indigo); border-radius:6px; padding:20px 24px; margin-bottom:16px;
+    overflow:hidden;
+  }
+  .article-box .watermark{
+    position:absolute; right:10px; bottom:-14px; font-family:"Noto Serif TC",serif; font-weight:900;
+    font-size:5.5em; color:var(--indigo); opacity:.06; line-height:1; pointer-events:none;
+  }
+  .article-box .a-title{font-family:"Noto Serif TC",serif; font-weight:700; font-size:1.1em; margin:0 0 2px;}
+  .article-box .a-caption{font-size:.82em; color:var(--brass); margin:0 0 10px;}
+  .article-box p{margin:0 0 6px; position:relative; z-index:1;}
+  .article-box .item-num{color:var(--brass); font-weight:700; margin-right:4px;}
+
+  /* ---------- Table ---------- */
+  table{width:100%; border-collapse:collapse; margin:14px 0 24px; font-size:.92em;}
+  thead th{
+    background:var(--ink); color:var(--paper-card); padding:10px 12px; text-align:left;
+    font-family:"Noto Serif TC",serif; font-weight:700;
+  }
+  tbody td{padding:10px 12px; border-bottom:1px solid var(--border);}
+  tbody tr:nth-child(odd){background:var(--paper-card);}
+  tbody tr:nth-child(even){background:var(--paper-card-alt);}
+
+  .conclude-yes{font-weight:700; color:var(--ink); background:linear-gradient(transparent 60%, rgba(169,131,47,.35) 60%);}
+  .conclude-no{font-weight:700; color:var(--seal);}
+
+  /* ---------- sub-heading ---------- */
+  h3.sub{
+    font-size:1.02em; border-left:3px solid var(--indigo); padding-left:10px; margin:26px 0 10px;
+  }
+
+  /* ---------- case card ---------- */
+  .case-card{
+    background:var(--paper-card); border-radius:8px; overflow:hidden; margin-bottom:20px;
+    box-shadow:0 1px 2px rgba(22,35,59,.12), 0 8px 20px -12px rgba(22,35,59,.25);
+  }
+  .case-card .case-head{
+    background:var(--indigo); color:var(--paper-card); padding:10px 18px; font-family:"Noto Serif TC",serif; font-weight:700;
+  }
+  .case-card.exam .case-head{background:var(--ink);}
+  .case-card .case-body{padding:16px 20px;}
+  .case-card .case-body h4{margin:14px 0 4px; font-size:.95em; color:var(--indigo);}
+  .case-card .case-body h4:first-child{margin-top:0;}
+  .case-card .tag{
+    display:inline-block; font-size:.72em; background:var(--paper-card-alt); color:var(--ink-45);
+    padding:2px 8px; border-radius:4px; margin-left:8px;
+  }
+
+  .source-block{
+    font-size:.85em; color:var(--ink-45); border-top:1px dashed var(--border); margin-top:14px; padding-top:10px;
+  }
+
+  /* ---------- placeholder ---------- */
+  .placeholder{
+    border:2px dashed var(--brass); border-radius:8px; padding:30px 20px; text-align:center;
+    background:repeating-linear-gradient(135deg, rgba(169,131,47,.05) 0 10px, rgba(169,131,47,.09) 10px 20px);
+    color:var(--ink-45);
+  }
+  .placeholder .icon{font-size:1.6em; margin-bottom:8px;}
+  .placeholder .badge{
+    display:inline-block; margin-top:10px; font-size:.75em; background:var(--brass); color:#fff;
+    padding:3px 12px; border-radius:999px;
+  }
+
+  /* ---------- 速查卡 ---------- */
+  .quickcard{
+    position:relative; background:var(--ink); color:var(--paper-card); border-radius:10px;
+    padding:28px 26px; overflow:hidden;
+  }
+  .quickcard .deco{
+    position:absolute; right:10px; bottom:-30px; font-family:"Noto Serif TC",serif; font-weight:900;
+    font-size:9em; opacity:.08; line-height:1;
+  }
+  .quickcard h3{margin-top:0; font-size:1.05em; color:var(--paper-card);}
+  .quickcard ul{margin:0 0 16px; padding-left:20px;}
+  .quickcard li{margin-bottom:6px; font-size:.93em;}
+  .mnemonic{
+    background:var(--seal); border-radius:6px; padding:14px 18px; font-family:"Noto Serif TC",serif;
+    font-size:1.1em; text-align:center; letter-spacing:.06em; position:relative; z-index:1;
+  }
+
+  .note{font-size:.85em; color:var(--ink-45); margin-top:6px;}
+  footer.page-footer{text-align:center; font-size:.78em; color:var(--ink-45); padding:24px 0 0;}
+</style>
+</head>
+<body>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#s1">封面</a>
+  <a href="#s2">條文原文</a>
+  <a href="#s3">結構總覽</a>
+  <a href="#s4">要件解析</a>
+  <a href="#s5" class="placeholder-link">學說見解</a>
+  <a href="#s6">實務見解</a>
+  <a href="#s7">教學案例</a>
+  <a href="#s8" class="placeholder-link">申論練習題</a>
+  <a href="#s9">速查卡</a>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <h4>目錄</h4>
+    <a href="#s1">一、封面</a>
+    <a href="#s2">二、條文原文</a>
+    <a href="#s3">三、條文結構總覽</a>
+    <a href="#s4">四、要件逐項解析</a>
+    <a href="#s5" class="placeholder-link">五、學說見解（待補充）</a>
+    <a href="#s6">六、實務見解</a>
+    <a href="#s7">七、教學案例</a>
+    <a href="#s8" class="placeholder-link">八、申論練習題（待補充）</a>
+    <a href="#s9">九、速查卡</a>
+  </aside>
+
+  <main class="main">
+    <div class="content-inner">
+
+      <section id="s1" class="cover">
+        <span class="eyebrow">民法・第一編 總則・第三章 物</span>
+        <div class="seal-mark">物之種類</div>
+        <h1>第66條～第70條<br>物之種類與孳息之歸屬</h1>
+        <p class="desc">不動產與動產・主物與從物・天然孳息與法定孳息</p>
+        <div class="toc">
+          <span>涵蓋：</span>§66 不動產　§67 動產　§68 主物與從物　§69 孳息之意義　§70 孳息之歸屬
+        </div>
+      </section>
+
+      <section id="s2">
+        <div class="sec-head"><span class="num">二</span><h2>條文原文</h2></div>
+
+        <div class="article-box">
+          <span class="watermark">66</span>
+          <p class="a-title">第 66 條</p>
+          <p class="a-caption">物之意義（一）－不動產</p>
+          <p><span class="item-num">Ⅰ</span>稱不動產者，謂土地及其定著物。</p>
+          <p><span class="item-num">Ⅱ</span>不動產之出產物，尚未分離者，為該不動產之部分。</p>
+        </div>
+
+        <div class="article-box">
+          <span class="watermark">67</span>
+          <p class="a-title">第 67 條</p>
+          <p class="a-caption">物之意義（二）－動產</p>
+          <p>稱動產者，為前條所稱不動產以外之物。</p>
+        </div>
+
+        <div class="article-box">
+          <span class="watermark">68</span>
+          <p class="a-title">第 68 條</p>
+          <p class="a-caption">主物與從物</p>
+          <p><span class="item-num">Ⅰ</span>非主物之成分，常助主物之效用，而同屬於一人者，為從物。但交易上有特別習慣者，依其習慣。</p>
+          <p><span class="item-num">Ⅱ</span>主物之處分，及於從物。</p>
+        </div>
+
+        <div class="article-box">
+          <span class="watermark">69</span>
+          <p class="a-title">第 69 條</p>
+          <p class="a-caption">天然孳息與法定孳息</p>
+          <p><span class="item-num">Ⅰ</span>稱天然孳息者，謂果實、動物之產物及其他依物之用法所收穫之出產物。</p>
+          <p><span class="item-num">Ⅱ</span>稱法定孳息者，謂利息、租金及其他因法律關係所得之收益。</p>
+        </div>
+
+        <div class="article-box">
+          <span class="watermark">70</span>
+          <p class="a-title">第 70 條</p>
+          <p class="a-caption">孳息之歸屬</p>
+          <p><span class="item-num">Ⅰ</span>有收取天然孳息權利之人，其權利存續期間內，取得與原物分離之孳息。</p>
+          <p><span class="item-num">Ⅱ</span>有收取法定孳息權利之人，按其權利存續期間內之日數，取得其孳息。</p>
+        </div>
+
+        <p class="note">資料來源：全國法規資料庫（law.moj.gov.tw）民法第一編總則第三章「物」。</p>
+      </section>
+
+      <section id="s3">
+        <div class="sec-head"><span class="num">三</span><h2>條文結構總覽</h2></div>
+        <table>
+          <thead>
+            <tr><th>分類軸線</th><th>類型一</th><th>類型二</th><th>區分實益（依§758、§761）</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>物之種類（§66、§67）</td>
+              <td>不動產：土地及其定著物</td>
+              <td>動產：不動產以外之物</td>
+              <td>不動產物權變動採<span class="conclude-yes">登記生效主義</span>（§758）；動產物權讓與採<span class="conclude-yes">交付生效主義</span>（§761）</td>
+            </tr>
+            <tr>
+              <td>物與物之關係（§68）</td>
+              <td>主物</td>
+              <td>從物：非主物成分、常助主物效用、同屬一人</td>
+              <td>主物之處分及於從物（§68Ⅱ）</td>
+            </tr>
+            <tr>
+              <td>孳息（§69、§70）</td>
+              <td>天然孳息：果實、動物之產物等原有用法之出產物</td>
+              <td>法定孳息：利息、租金等法律關係所得收益</td>
+              <td>天然孳息按<span class="conclude-yes">分離時</span>歸屬；法定孳息按<span class="conclude-yes">權利存續日數比例</span>歸屬（§70）</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="s4">
+        <div class="sec-head"><span class="num">四</span><h2>要件逐項解析</h2></div>
+
+        <h3 class="sub">§66　不動產與「定著物」的判斷</h3>
+        <p>條文本身未定義「定著物」的具體標準，實務發展出四項判斷要件（詳見第六節實務見解）：</p>
+        <table>
+          <thead><tr><th>要件</th><th>內容</th></tr></thead>
+          <tbody>
+            <tr><td>①非土地構成部分</td><td>該物須與土地在物理上可獨立辨識，非土地本身之一部分</td></tr>
+            <tr><td>②繼續附著於土地</td><td>非暫時性放置，而係持續性地固定於土地之上</td></tr>
+            <tr><td>③達一定經濟上使用目的</td><td>依社會通念，已足以達成其設置之經濟功能（例如可遮風避雨）</td></tr>
+            <tr><td>④不易移動</td><td>移動將導致該物毀損或喪失原有經濟效用</td></tr>
+          </tbody>
+        </table>
+        <p><span class="conclude-yes">四要件均具備者</span>，即使尚未辦理保存登記（如未完工但已足以遮風避雨之建物），仍屬定著物，為不動產之一種。</p>
+
+        <h3 class="sub">§68　從物之三要件</h3>
+        <table>
+          <thead><tr><th>要件</th><th>說明</th></tr></thead>
+          <tbody>
+            <tr><td>①非主物之成分</td><td>從物須為獨立之物，非主物之構成部分（若為構成部分，則本身即屬主物之一部，非從物問題）</td></tr>
+            <tr><td>②常助主物之效用</td><td>須「客觀上」具有持續性地輔助主物經濟效用之作用，非所有人主觀認定，亦非暫時性輔助（呼應第六節實務見解）</td></tr>
+            <tr><td>③同屬於一人</td><td>主物與從物須屬同一所有權人</td></tr>
+          </tbody>
+        </table>
+        <p>但書：交易上另有特別習慣者，從其習慣。法律效果為：主物之處分，效力及於從物（§68Ⅱ），例如買賣汽車之效力及於備胎、隨車工具。</p>
+
+        <h3 class="sub">§69、§70　天然孳息與法定孳息之比較</h3>
+        <table>
+          <thead><tr><th></th><th>天然孳息</th><th>法定孳息</th></tr></thead>
+          <tbody>
+            <tr><td>定義</td><td>果實、動物之產物及其他依物之用法所收穫之出產物</td><td>利息、租金及其他因法律關係所得之收益</td></tr>
+            <tr><td>歸屬時點</td><td>與原物<span class="conclude-yes">分離時</span>，由有收取權之人取得</td><td>依收取權存續期間之<span class="conclude-yes">日數比例</span>取得</td></tr>
+            <tr><td>計算方式</td><td>不可分割，分離當下歸屬一方</td><td>可按日數比例分割計算，適用於期間中途權利移轉之情形</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="sub">動產／不動產區分之實益──§758、§761 對照</h3>
+        <div class="article-box">
+          <span class="watermark">758</span>
+          <p class="a-title">第 758 條</p>
+          <p class="a-caption">不動產物權登記生效要件（關聯條文）</p>
+          <p><span class="item-num">Ⅰ</span>不動產物權，依法律行為而取得、設定、喪失及變更者，非經登記，不生效力。</p>
+          <p><span class="item-num">Ⅱ</span>前項行為，應以書面為之。</p>
+        </div>
+        <div class="article-box">
+          <span class="watermark">761</span>
+          <p class="a-title">第 761 條</p>
+          <p class="a-caption">動產物權之讓與方法（關聯條文）</p>
+          <p><span class="item-num">Ⅰ</span>動產物權之讓與，非將動產交付，不生效力。但受讓人已占有動產者，於讓與合意時，即生效力。（現實交付／簡易交付）</p>
+          <p><span class="item-num">Ⅱ</span>讓與動產物權，而讓與人仍繼續占有動產者，讓與人與受讓人間，得訂立契約，使受讓人因此取得間接占有，以代交付。（占有改定）</p>
+          <p><span class="item-num">Ⅲ</span>讓與動產物權，如其動產由第三人占有時，讓與人得以對於第三人之返還請求權，讓與於受讓人，以代交付。（指示交付）</p>
+        </div>
+        <p>可見§66、§67 對物的分類，直接決定了物權變動所應遵循的公示方法：不動產須<span class="conclude-yes">登記</span>始生效力；動產則以<span class="conclude-yes">交付</span>（含簡易交付、占有改定、指示交付三種替代方式）為要件。</p>
+      </section>
+
+      <section id="s5">
+        <div class="sec-head"><span class="num">五</span><h2>學說見解</h2></div>
+        <div class="placeholder">
+          <div class="icon">📖</div>
+          <div>尚未加入學說見解內容</div>
+          <span class="badge">待補充</span>
+        </div>
+      </section>
+
+      <section id="s6">
+        <div class="sec-head"><span class="num">六</span><h2>實務見解</h2></div>
+
+        <h3 class="sub">§66　定著物之判斷</h3>
+        <table>
+          <thead><tr><th>案號</th><th>要旨</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>最高法院63年度第6次民庭庭推總會議決議</td>
+              <td>揭示定著物四要件（非土地構成部分、繼續附著土地、達一定經濟使用目的、不易移動）；未完工房屋若已足以遮風避雨，可達經濟使用目的，屬土地定著物</td>
+            </tr>
+            <tr>
+              <td>最高法院106年度台上字第828號民事判決</td>
+              <td>台電電桿因密切附著土地、不易移動、達供電經濟目的，且具繼續性設置，應認屬不動產（定著物）</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">「決議」性質之先例雖非「判例」，但108年法院組織法修正後，判例制度已不再選編，舊判例與決議現僅作為裁判先例參考，不具過去之拘束力。上開決議可至司法院裁判書查詢系統（https://judgment.judicial.gov.tw/）查閱討論脈絡；106年台上字第828號判決可於同系統輸入案號查閱全文。</p>
+
+        <h3 class="sub">§68　從物之客觀性要件</h3>
+        <table>
+          <thead><tr><th>案號</th><th>要旨</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>最高法院81年度台上字第1370號民事判決</td>
+              <td>從物須「客觀上具有繼續性輔助主物經濟效用」之特徵；所有人僅主觀上將某物作為輔助使用，或僅暫時性輔助者，非從物</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">本判決可至司法院裁判書查詢系統（https://judgment.judicial.gov.tw/）輸入案號【81年，台上，1370號】自行查閱全文。</p>
+
+        <h3 class="sub">§69、§70　天然孳息與法定孳息</h3>
+        <div class="placeholder">
+          <div class="icon">⚖️</div>
+          <div>本條（§69、§70）目前查無代表性最高法院判決或大法官解釋／憲法法庭判決。理由：本條屬定義性、任意規定，性質上較少發生違憲審查或高度爭議之訴訟案型</div>
+          <span class="badge">查無代表性判決</span>
+        </div>
+      </section>
+
+      <section id="s7">
+        <div class="sec-head"><span class="num">七</span><h2>教學案例</h2></div>
+        <p class="note">以下案例為教學用途虛構，人物、地點、案號均非真實，僅供對應條文要件練習分析。</p>
+
+        <div class="case-card">
+          <div class="case-head">案例一　未完工建物是否為定著物</div>
+          <div class="case-body">
+            <h4>事實</h4>
+            <p>甲於自有土地上興建平房，主體結構、屋頂及四面牆壁均已完工，僅尚未裝設門窗及水電，即因資金短缺而停工。乙主張該建物尚未完工，不具經濟使用目的，非屬民法上之定著物，僅為土地之出產物。</p>
+            <h4>爭點</h4>
+            <p>未完工但已具備遮風避雨功能之建物，是否符合「定著物」之要件？</p>
+            <h4>分析</h4>
+            <p>依民法第66條第1項，不動產包括土地及其定著物。所謂定著物，依實務見解需具備非土地構成部分、繼續附著土地、達一定經濟使用目的、不易移動四要件。本案建物主體結構、屋頂、牆壁均已完成，客觀上已足以遮風避雨，達到房屋通常之經濟使用目的，縱未裝設門窗水電，仍不影響其作為定著物之本質。</p>
+            <h4>結論</h4>
+            <p class="conclude-yes">該建物已符合定著物四要件，屬民法第66條第1項之不動產，乙之主張不可採。</p>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-head">案例二　加油站設備是否為從物</div>
+          <div class="case-body">
+            <h4>事實</h4>
+            <p>丙經營加油站，土地及地上加油站建物均為丙所有。丙將加油站土地及建物出售予丁，未於契約中特別約定地下油槽及計量設備之歸屬。丁主張依民法第68條第2項，主物（加油站建物）之處分效力及於從物（地下油槽及計量設備），故一併取得該等設備所有權；丙則主張該等設備係另行採購安裝，非契約標的範圍。</p>
+            <h4>爭點</h4>
+            <p>地下油槽及計量設備是否構成加油站建物之從物，而隨主物一併移轉？</p>
+            <h4>分析</h4>
+            <p>依民法第68條第1項，從物須具備非主物成分、客觀上常助主物效用、與主物同屬一人三要件。地下油槽及計量設備並非加油站建物之構成部分（可獨立拆卸），且客觀上持續、非暫時性地輔助加油站經營之經濟目的（供油、計量），並與建物同屬丙一人所有，核與從物三要件相符。買賣契約未特別排除從物，依民法第68條第2項，主物之處分效力及於從物。</p>
+            <h4>結論</h4>
+            <p class="conclude-yes">地下油槽及計量設備為加油站建物之從物，丁因買賣取得建物所有權時，一併取得該等設備所有權，丙之主張不可採。</p>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-head">案例三　租賃期間房屋出售，租金孳息之歸屬計算</div>
+          <div class="case-body">
+            <h4>事實</h4>
+            <p>戊將其所有房屋出租予己，約定每月租金新臺幣3萬元，於每月1日收取當月租金。租賃期間中，戊於某月15日將該房屋所有權移轉登記予庚，並將租賃人地位一併移轉予庚。庚主張自15日起之租金應歸其所有；戊則主張其已於1日收取整月租金，無庸返還。</p>
+            <h4>爭點</h4>
+            <p>法定孳息（租金）於權利人期間中途更迭時，應如何歸屬與計算？</p>
+            <h4>分析</h4>
+            <p>依民法第69條第2項，租金屬法定孳息。依同法第70條第2項，有收取法定孳息權利之人，應按其權利存續期間內之日數，取得其孳息，而非以收取時點為準。本案戊於當月1日至14日（共14日）享有收租權利，庚則自15日起至月底享有收租權利，故租金應依雙方各自享有收租權利之日數比例分配，戊雖已一次收取整月租金，仍應就庚應得部分（15日起之日數比例）返還予庚，或於移轉時另行結算。</p>
+            <h4>結論</h4>
+            <p class="conclude-yes">租金依民法第70條第2項應按日數比例分配於戊、庚二人，戊不得以已收取整月租金為由，拒絕返還庚應得部分。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="s8">
+        <div class="sec-head"><span class="num">八</span><h2>申論練習題</h2></div>
+        <div class="case-card exam">
+          <div class="case-head">申論題（題目與解答待補充）</div>
+          <div class="case-body">
+            <div class="placeholder">
+              <div class="icon">✍️</div>
+              <div>本章節僅先建立標題佔位，申論題目與模擬解答尚未加入</div>
+              <span class="badge">待補充</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="s9">
+        <div class="sec-head"><span class="num">九</span><h2>速查卡</h2></div>
+        <div class="quickcard">
+          <div class="deco">速</div>
+          <h3>一分鐘重點回顧</h3>
+          <ul>
+            <li>§66／§67：不動產＝土地＋定著物；動產＝不動產以外之物</li>
+            <li>定著物四要件：非土地構成部分・繼續附著・達經濟目的・不易移動</li>
+            <li>§68：從物三要件＝非成分・常助效用（客觀）・同屬一人；主物之處分及於從物</li>
+            <li>§69：天然孳息＝原有用法之出產物；法定孳息＝利息、租金等法律關係收益</li>
+            <li>§70：天然孳息按「分離時」歸屬；法定孳息按「存續日數比例」歸屬</li>
+            <li>區分實益：不動產物權變動＝登記生效（§758）；動產物權讓與＝交付生效（§761）</li>
+          </ul>
+          <div class="mnemonic">「天然看分離，法定算日子」</div>
+        </div>
+      </section>
+
+      <footer class="page-footer">民法第66條～第70條教學講義　製作用途：教學參考，實際適用請以最新公告條文及司法院裁判為準</footer>
+    </div>
+  </main>
+</div>
+
+<script>
+(function(){
+  var sections = ['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
+  var sideLinks = document.querySelectorAll('.sidebar a');
+  var mobLinks = document.querySelectorAll('.mobile-nav a');
+
+  function setActive(id){
+    sideLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+    mobLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+  }
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        setActive(entry.target.id);
+      }
+    });
+  }, {rootMargin: '-20% 0px -70% 0px', threshold: 0});
+
+  sections.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) observer.observe(el);
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.getElementById(a.getAttribute('href').slice(1));
+      if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  setActive('s1');
+})();
+</script>
+</body>
+</html>
