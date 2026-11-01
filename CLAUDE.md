@@ -14,7 +14,8 @@
 
 ## Repo 結構
 - `README.md`、`SKILL.md`、`LICENSE`（CC BY-NC 4.0）、`TODO.md`
-- `index.html`：總覽頁，`LECTURES` 陣列列出所有講義（articles／title／date／chapterKey／file）
+- `index.html`：**民法總覽頁**（2026-11-01改版，版型沿用土地法總覽）：六大主題六個框（總則、債編總論、債編各論、物權、親屬、繼承）＋所有教材卡片。由本機 `J:\AI課程\民法\網站工具/build_index.py` 產生，新增教材改該檔的清單後重跑
+- `general.html`：民法總則分類覆蓋地圖（原 index.html 搬來），`LECTURES` 陣列列出總則講義（articles／title／date／chapterKey／file）
 - `lectures/`：各講義 HTML 檔案存放處，新增講義時必須同步在 `index.html` 的 `LECTURES` 補上一筆
   - 檔名格式：`civil-code-{條號}-{英文主題}.html`（例如 `civil-code-6-11-capacity-of-rights.html`）
 - 對外網頁（GitHub Pages）：https://mjib007.github.io/civil-law-interpretation/ ，抓取 `main` 分支內容
@@ -25,7 +26,7 @@
 - **每次完成 GitHub 上的變更後，一律附上兩個連結**：
   1. GitHub 連結（PR 連結，或所在分支／commit 連結）
   2. 對外網頁連結 https://mjib007.github.io/civil-law-interpretation/ ，並註明是否已合併進 main（未合併則網頁不會更新）
-- 涉及檔案異動一律先建立 PR，經使用者確認或合併後才視為完成
+- 比照刑法教材：直接提交並推送到 `main`，不另開 PR（2026-11-01 使用者指示）
 
 ## 待辦追蹤機制
 - 對話開始時若任務性質為「接續之前工作」或不確定目前進度，主動先讀取 `TODO.md` 確認待辦與已完成項目

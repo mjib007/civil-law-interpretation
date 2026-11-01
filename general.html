@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>民法總則｜第一編 §1–152 教材總覽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #16233b;
+    --indigo: #2c4a76;
+    --indigo-soft: #3f5f8f;
+    --parchment: #f3ede0;
+    --paper: #fbf8f1;
+    --paper-panel: #fffdf8;
+    --seal: #9c2b3a;
+    --seal-soft: #c7566450;
+    --brass: #a9832f;
+    --line: #ddd3bf;
+    --ink-70: rgba(22,35,59,0.7);
+    --ink-45: rgba(22,35,59,0.45);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Noto Sans TC",sans-serif;
+    background:var(--parchment);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- cover ---------- */
+  .cover{
+    position:relative;
+    max-width:1000px;
+    margin:0 auto;
+    padding:56px 1.5rem 40px;
+    border-bottom:1px solid var(--line);
+  }
+  .cover .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:.74rem;
+    letter-spacing:.24em;
+    color:var(--brass);
+    font-weight:700;
+    margin-bottom:16px;
+  }
+  .cover .eyebrow::before{
+    content:"";
+    width:22px;height:1px;
+    background:var(--brass);
+  }
+  .cover h1{
+    font-family:"Noto Serif TC",serif;
+    font-weight:900;
+    font-size:2.1rem;
+    line-height:1.35;
+    margin:0 0 10px;
+    color:var(--ink);
+    letter-spacing:.01em;
+  }
+  .cover .sub{
+    font-size:1rem;
+    color:var(--indigo);
+    font-weight:500;
+    margin:0;
+  }
+  .cover-meta{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:18px;
+    flex-wrap:wrap;
+  }
+  .ver-badge{
+    font-family:"Noto Serif TC",serif;
+    font-weight:700;
+    font-size:.78rem;
+    color:var(--seal);
+    border:1px solid var(--seal);
+    border-radius:20px;
+    padding:3px 12px;
+    letter-spacing:.03em;
+  }
+  .meta-date{
+    font-size:.8rem;
+    color:var(--ink-45);
+  }
+  .license-note{
+    font-size:.78rem;
+    color:var(--ink-45);
+    margin:10px 0 0;
+  }
+  .license-note a{
+    color:var(--indigo);
+    text-decoration:underline;
+    text-underline-offset:2px;
+  }
+  .license-note a:hover{
+    color:var(--seal);
+  }
+  .cover .seal-mark{
+    position:absolute;
+    top:48px;
+    right:1.5rem;
+    width:76px;
+    height:76px;
+    border:2.5px solid var(--seal);
+    border-radius:6px;
+    color:var(--seal);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Noto Serif TC",serif;
+    font-weight:900;
+    font-size:1.15rem;
+    letter-spacing:.1em;
+    writing-mode:vertical-rl;
+    opacity:.82;
+    transform:rotate(3deg);
+    background:rgba(156,43,58,0.03);
+  }
+
+  main{
+    max-width:1000px;
+    margin:0 auto;
+    padding:1.5rem 1.5rem 4rem;
+  }
+  .controls{
+    display:flex;
+    gap:.75rem;
+    flex-wrap:wrap;
+    margin-bottom:1.5rem;
+    position:sticky;
+    top:0;
+    background:var(--parchment);
+    padding:1rem 0;
+    z-index:5;
+  }
+  .controls input[type="text"],
+  .controls select{
+    font-family:inherit;
+    font-size:.95rem;
+    padding:.6rem .9rem;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:var(--paper-panel);
+    color:var(--ink);
+    outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .controls input[type="text"]:focus,
+  .controls select:focus{
+    border-color:var(--indigo);
+    box-shadow:0 0 0 3px rgba(44,74,118,.14);
+  }
+  .controls select{
+    color:var(--ink-45);
+  }
+  .controls select.filtered{
+    color:var(--seal);
+    font-weight:700;
+    border-color:var(--seal);
+  }
+  .controls input[type="text"]{
+    flex:1;
+    min-width:180px;
+  }
+  .controls select{
+    min-width:220px;
+  }
+  .count{
+    font-size:.85rem;
+    color:var(--ink-45);
+    margin-bottom:1rem;
+  }
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:1rem;
+  }
+  .card{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+    background:var(--paper-panel);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:1.2rem 1.3rem;
+    transition:box-shadow .15s ease, transform .15s ease, border-color .15s ease;
+  }
+  .card:hover{
+    box-shadow:0 6px 18px rgba(22,35,59,.10);
+    transform:translateY(-2px);
+    border-color:var(--brass);
+  }
+  .card .articles{
+    font-family:"Noto Serif TC",serif;
+    font-weight:700;
+    color:var(--ink);
+    font-size:1.05rem;
+    margin-bottom:.4rem;
+  }
+  .card .title{
+    font-size:.95rem;
+    color:var(--ink-70);
+    margin-bottom:.8rem;
+    line-height:1.4;
+  }
+  .card .meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:.78rem;
+    color:var(--ink-45);
+  }
+  .card .tag{
+    background:var(--parchment);
+    color:var(--brass);
+    padding:.15rem .55rem;
+    border-radius:999px;
+    font-size:.72rem;
+    border:1px solid var(--line);
+  }
+  .card .date{
+    color:var(--seal);
+    font-weight:500;
+  }
+  .empty{
+    text-align:center;
+    color:var(--ink-45);
+    padding:3rem 0;
+    font-size:.95rem;
+    font-style:italic;
+  }
+
+  /* 分類覆蓋地圖 */
+  .coverage{
+    background:var(--paper-panel);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:1.1rem 1.3rem 1.3rem;
+    margin-bottom:1.5rem;
+  }
+  .coverage-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:.7rem;
+  }
+  .coverage-header h2{
+    font-family:"Noto Serif TC",serif;
+    font-size:1rem;
+    font-weight:700;
+    color:var(--ink);
+    margin:0;
+  }
+  .coverage-header .progress{
+    font-size:.8rem;
+    color:var(--ink-45);
+  }
+  .coverage-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:1rem;
+  }
+  .chapter-block{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:.9rem 1rem 1rem;
+    background:var(--paper);
+  }
+  .chapter-block > .chapter-title{
+    font-family:"Noto Serif TC",serif;
+    font-size:.85rem;
+    font-weight:700;
+    color:var(--brass);
+    letter-spacing:.02em;
+    margin-bottom:.5rem;
+    padding-bottom:.4rem;
+    border-bottom:1px solid var(--line);
+  }
+  .leaf-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .leaf-list li{
+    margin:.15rem 0;
+  }
+  .leaf-btn{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    background:none;
+    border:none;
+    font-family:inherit;
+    font-size:.82rem;
+    padding:.3rem .5rem;
+    border-radius:5px;
+    cursor:pointer;
+    color:var(--ink-70);
+    text-align:left;
+  }
+  .leaf-btn .indent{
+    padding-left:0.6em;
+  }
+  .leaf-btn:hover:not(.zero){
+    background:rgba(44,74,118,0.07);
+  }
+  .leaf-btn .badge{
+    min-width:1.6em;
+    text-align:center;
+    font-size:.75rem;
+    font-weight:700;
+    padding:.1rem .5rem;
+    border-radius:999px;
+  }
+
+  /* 有筆記（與是否為目前篩選無關）：淡黃銅徽章＋深墨粗體文字 */
+  .leaf-btn.has-count{
+    font-weight:700;
+    color:var(--ink);
+  }
+  .leaf-btn.has-count .badge{
+    background:rgba(169,131,47,0.16);
+    color:var(--brass);
+  }
+
+  /* 無筆記：大幅淡化，不可點 */
+  .leaf-btn.zero{
+    color:var(--ink-45);
+    cursor:not-allowed;
+    opacity:.6;
+  }
+  .leaf-btn.zero .badge{
+    background:none;
+    color:var(--ink-45);
+    font-weight:400;
+  }
+
+  /* 目前篩選中：獨立於「有無筆記」，用印璽紅外框標示 */
+  .leaf-btn.active{
+    box-shadow: inset 0 0 0 2px var(--seal);
+  }
+  .leaf-btn.active.has-count{
+    background:rgba(156,43,58,0.05);
+  }
+
+  .leaf-btn.merged-title{
+    font-size:.86rem;
+  }
+  .leaf-btn.chapter-merged{
+    font-family:"Noto Serif TC",serif;
+    font-size:.85rem;
+    font-weight:700;
+    color:var(--brass);
+    border-bottom:1px solid var(--line);
+    padding:.3rem .2rem .5rem;
+    margin-bottom:.6rem;
+    border-radius:0;
+  }
+  .leaf-btn.chapter-merged .badge{
+    background:rgba(169,131,47,0.16);
+    color:var(--brass);
+  }
+  .leaf-btn.chapter-merged.zero{
+    opacity:.7;
+  }
+  .leaf-btn.chapter-merged.active{
+    box-shadow:none;
+    border-bottom:2px solid var(--seal);
+  }
+
+  footer{
+    text-align:center;
+    font-size:.78rem;
+    color:var(--ink-45);
+    padding:1.5rem 0 3rem;
+    max-width:1000px;
+    margin:0 auto;
+  }
+  .reading-note{
+    max-width:1000px;
+    margin:2.5rem auto 0;
+    padding:1rem 1.5rem;
+    border-top:1px solid var(--line);
+    text-align:left;
+    font-size:.85rem;
+    color:var(--ink-70);
+  }
+  .reading-note .reading-label{
+    display:block;
+    font-size:.74rem;
+    letter-spacing:.12em;
+    color:var(--brass);
+    font-weight:700;
+    margin-bottom:.4rem;
+  }
+  .reading-note a{
+    color:var(--indigo);
+    text-decoration:underline;
+    text-underline-offset:2px;
+  }
+  .reading-note a:hover{
+    color:var(--seal);
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="eyebrow"><a href="./" style="color:inherit">← 民法總覽</a> · 第一編 總則</div>
+  <h1>蒸餾skill／自動共享／協力共筆</h1>
+  <p class="sub">民法總則．第一編（§1–152）</p>
+  <div class="cover-meta">
+    <span class="ver-badge">v1.1</span>
+    <span class="meta-date">2026-08-23</span>
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=mjib007.civil-law-interpretation.index" alt="Visitors" style="opacity:0.85;vertical-align:middle;">
+  </div>
+  <p class="license-note">
+    <a href="https://github.com/mjib007/civil-law-interpretation/blob/main/LICENSE.md" target="_blank" rel="noopener">授權條款 CC BY-NC 4.0</a>
+    （非商用．使用請於明顯處標明出處）
+  </p>
+  <div class="seal-mark">總覽</div>
+</div>
+
+<main>
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="搜尋條號或主題關鍵字…">
+    <select id="categorySelect"></select>
+  </div>
+
+  <div class="coverage">
+    <div class="coverage-header">
+      <h2>分類覆蓋地圖（民法總則 §1–152）</h2>
+      <span class="progress" id="coverageProgress"></span>
+    </div>
+    <div class="coverage-grid" id="coverageGrid"></div>
+  </div>
+
+  <div class="count" id="countLabel"></div>
+  <div class="cards" id="cardGrid"></div>
+  <div class="empty" id="emptyState" style="display:none;">沒有符合條件的講義</div>
+</main>
+
+<div class="reading-note">
+  <span class="reading-label">📄 延伸閱讀</span>
+  <a href="https://vocus.cc/article/6a851628fd897800014acea8" target="_blank" rel="noopener">從GEMA v. Suno看AI時代的合理使用邊界：從影印機到雲端資料池的著作權思考</a>
+</div>
+
+<footer>civil-law-interpretation · 民法總則．學習歷程紀錄 · CC BY-NC 4.0</footer>
+
+<script>
+/* ============================================================
+   分類架構：民法第一編 總則（§1–152）
+   key 對應「主要條文所在節／款」，作為每份講義的單一主分類
+   ============================================================ */
+const CHAPTERS = [
+  { key: "1",     label: "第一章 法例（§1）" },
+  { key: "2-1",   label: "第二章 人／第一節 自然人（§6）" },
+  { key: "2-2-1", label: "第二章 人／第二節 法人／第一款 通則（§25）" },
+  { key: "2-2-2", label: "第二章 人／第二節 法人／第二款 社團（§45）" },
+  { key: "2-2-3", label: "第二章 人／第二節 法人／第三款 財團（§59）" },
+  { key: "3",     label: "第三章 物（§66）" },
+  { key: "4-1",   label: "第四章 法律行為／第一節 通則（§71）" },
+  { key: "4-2",   label: "第四章 法律行為／第二節 行為能力（§75）" },
+  { key: "4-3",   label: "第四章 法律行為／第三節 意思表示（§86）" },
+  { key: "4-4",   label: "第四章 法律行為／第四節 條件及期限（§99）" },
+  { key: "4-5",   label: "第四章 法律行為／第五節 代理（§103）" },
+  { key: "4-6",   label: "第四章 法律行為／第六節 無效及撤銷（§111）" },
+  { key: "5",     label: "第五章 期日及期間（§119）" },
+  { key: "6",     label: "第六章 消滅時效（§125）" },
+  { key: "7",     label: "第七章 權利之行使（§148）" }
+];
+
+/* ============================================================
+   講義清單：每完成一份講義，新增一筆物件即可
+   - articles: 條號（顯示用，如「第92、93、114條」）
+   - title: 主題
+   - date: 完成日期 YYYY-MM-DD
+   - chapterKey: 對應 CHAPTERS 的 key（單一主分類，以主要條文所在節為準）
+   - file: 講義相對路徑
+   ============================================================ */
+const LECTURES = [
+  {
+    articles: "第66至70條",
+    title: "物之種類與孳息之歸屬——不動產與動產、主物與從物、天然孳息與法定孳息",
+    date: "2026-09-18",
+    chapterKey: "3",
+    file: "lectures/civil-code-66-70-classification-of-things-and-fruits.html"
+  },
+  {
+    articles: "第75至85條",
+    title: "行為能力之法律效果——無行為能力人及限制行為能力人所為法律行為的效力",
+    date: "2026-08-23",
+    chapterKey: "4-2",
+    file: "lectures/civil-code-75-85-legal-effect-of-capacity.html"
+  },
+  {
+    articles: "第14、15、15-1、15-2條",
+    title: "行為能力（精神狀態篇）——監護宣告／輔助宣告之效果",
+    date: "2026-08-23",
+    chapterKey: "2-1",
+    file: "lectures/civil-code-14-15-1-15-2-capacity-by-mental-state.html"
+  },
+  {
+    articles: "第12、13條",
+    title: "行為能力（年齡篇）——完全／無／限制行為能力之年齡分級",
+    date: "2026-08-23",
+    chapterKey: "2-1",
+    file: "lectures/civil-code-12-13-capacity-by-age.html"
+  },
+  {
+    articles: "第6至11條",
+    title: "自然人之權利能力、胎兒保護與死亡宣告",
+    date: "2026-08-18",
+    chapterKey: "2-1",
+    file: "lectures/civil-code-6-11-capacity-of-rights.html"
+  },
+  {
+    articles: "第92、93、114條",
+    title: "意思表示不自由（詐欺、脅迫之撤銷）",
+    date: "2026-09-19",
+    chapterKey: "4-3",
+    file: "lectures/civil-code-92-93-114-vitiated-intent.html"
+  },
+  {
+    articles: "第114、115、116條",
+    title: "撤銷及承認",
+    date: "2026-08-16",
+    chapterKey: "4-6",
+    file: "lectures/civil-code-114-116-rescission-and-ratification.html"
+  }
+];
+
+/* ============================================================
+   階層式分類樹（用於分類覆蓋地圖），葉節點 key 對應 CHAPTERS
+   ============================================================ */
+const TREE = [
+  { title: "第一章 法例",
+    leaves: [{ key: "1", label: "§1" }] },
+  { title: "第二章 人",
+    groups: [
+      { title: "第一節 自然人", leaves: [{ key: "2-1", label: "§6" }] },
+      { title: "第二節 法人", groups: [
+        { title: "第一款 通則", leaves: [{ key: "2-2-1", label: "§25" }] },
+        { title: "第二款 社團", leaves: [{ key: "2-2-2", label: "§45" }] },
+        { title: "第三款 財團", leaves: [{ key: "2-2-3", label: "§59" }] }
+      ]}
+    ]},
+  { title: "第三章 物",
+    leaves: [{ key: "3", label: "§66" }] },
+  { title: "第四章 法律行為",
+    groups: [
+      { title: "第一節 通則", leaves: [{ key: "4-1", label: "§71" }] },
+      { title: "第二節 行為能力", leaves: [{ key: "4-2", label: "§75" }] },
+      { title: "第三節 意思表示", leaves: [{ key: "4-3", label: "§86" }] },
+      { title: "第四節 條件及期限", leaves: [{ key: "4-4", label: "§99" }] },
+      { title: "第五節 代理", leaves: [{ key: "4-5", label: "§103" }] },
+      { title: "第六節 無效及撤銷", leaves: [{ key: "4-6", label: "§111" }] }
+    ]},
+  { title: "第五章 期日及期間",
+    leaves: [{ key: "5", label: "§119" }] },
+  { title: "第六章 消滅時效",
+    leaves: [{ key: "6", label: "§125" }] },
+  { title: "第七章 權利之行使",
+    leaves: [{ key: "7", label: "§148" }] }
+];
+
+/* ============================================================
+   Rendering
+   ============================================================ */
+const chapterMap = Object.fromEntries(CHAPTERS.map(c => [c.key, c.label]));
+
+function countFor(key){
+  return LECTURES.filter(item => item.chapterKey === key).length;
+}
+
+function initCategorySelect(){
+  const select = document.getElementById('categorySelect');
+  const allOption = document.createElement('option');
+  allOption.value = '';
+  allOption.textContent = '全部分類';
+  select.appendChild(allOption);
+  CHAPTERS.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c.key;
+    opt.textContent = c.label;
+    select.appendChild(opt);
+  });
+}
+
+function selectCategory(key){
+  const items = LECTURES.filter(item => item.chapterKey === key);
+
+  if (items.length === 0) return; // 沒有筆記，不動作（按鈕本身已停用）
+
+  if (items.length === 1){
+    // 只有一篇，直接開啟該講義
+    window.open(items[0].file, '_blank', 'noopener');
+    return;
+  }
+
+  // 多篇：篩選卡片清單，並捲動到卡片區讓使用者看到結果
+  const select = document.getElementById('categorySelect');
+  select.value = (select.value === key) ? '' : key; // 再點一次取消篩選
+  render();
+  document.getElementById('countLabel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderLeafList(leaves, depth){
+  const activeKey = document.getElementById('categorySelect').value;
+  const ul = document.createElement('ul');
+  ul.className = 'leaf-list';
+  leaves.forEach(leaf => {
+    const n = countFor(leaf.key);
+    const li = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    const stateClass = n === 0 ? 'zero' : 'has-count';
+    btn.className = 'leaf-btn ' + stateClass + (activeKey === leaf.key ? ' active' : '');
+    btn.disabled = (n === 0);
+    btn.innerHTML = `<span class="indent">${leaf.label}</span><span class="badge">${n === 0 ? '–' : n}</span>`;
+    btn.addEventListener('click', () => selectCategory(leaf.key));
+    li.appendChild(btn);
+    ul.appendChild(li);
+  });
+  return ul;
+}
+
+function isMergeable(node){
+  return !!node.leaves && node.leaves.length === 1 && !node.groups;
+}
+
+function makeMergedButton(labelText, leaf, extraClass){
+  const activeKey = document.getElementById('categorySelect').value;
+  const n = countFor(leaf.key);
+  const stateClass = n === 0 ? 'zero' : 'has-count';
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'leaf-btn ' + stateClass + (activeKey === leaf.key ? ' active' : '') + (extraClass ? (' ' + extraClass) : '');
+  btn.disabled = (n === 0);
+  btn.innerHTML = `<span>${labelText}</span><span class="badge">${n === 0 ? '–' : n}</span>`;
+  btn.addEventListener('click', () => selectCategory(leaf.key));
+  return btn;
+}
+
+function renderGroup(node, container){
+  if (node.groups){
+    node.groups.forEach(g => {
+      const sub = document.createElement('div');
+      sub.style.marginBottom = '.4rem';
+      if (isMergeable(g)){
+        const leaf = g.leaves[0];
+        const btn = makeMergedButton(`${g.title}（${leaf.label}起）`, leaf, 'merged-title');
+        sub.appendChild(btn);
+      } else {
+        const label = document.createElement('div');
+        label.style.fontSize = '.78rem';
+        label.style.color = '#5a6b80';
+        label.style.margin = '.3rem 0 .1rem';
+        label.textContent = g.title;
+        sub.appendChild(label);
+        renderGroup(g, sub);
+      }
+      container.appendChild(sub);
+    });
+  } else if (node.leaves){
+    container.appendChild(renderLeafList(node.leaves));
+  }
+}
+
+function renderCoverageMap(){
+  const grid = document.getElementById('coverageGrid');
+  grid.innerHTML = '';
+  TREE.forEach(chapter => {
+    const block = document.createElement('div');
+    block.className = 'chapter-block';
+
+    if (isMergeable(chapter)){
+      // 章節本身只有單一起始條號（如「第一章 法例」只對到 §1），
+      // 直接把章名、起始條號與篇數合併成一行，避免讓人誤以為分類僅限該條文本身
+      const leaf = chapter.leaves[0];
+      const btn = makeMergedButton(`${chapter.title}（${leaf.label}起）`, leaf, 'chapter-merged');
+      block.appendChild(btn);
+    } else {
+      const title = document.createElement('div');
+      title.className = 'chapter-title';
+      title.textContent = chapter.title;
+      block.appendChild(title);
+      renderGroup(chapter, block);
+    }
+
+    grid.appendChild(block);
+  });
+
+  const coveredLeaves = CHAPTERS.filter(c => countFor(c.key) > 0).length;
+  document.getElementById('coverageProgress').textContent =
+    `已覆蓋 ${coveredLeaves} / ${CHAPTERS.length} 節款 · 共 ${LECTURES.length} 篇筆記`;
+}
+
+function render(){
+  const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+  const categorySelectEl = document.getElementById('categorySelect');
+  const category = categorySelectEl.value;
+  categorySelectEl.classList.toggle('filtered', category !== '');
+
+  const filtered = LECTURES.filter(item => {
+    const matchesKeyword = !keyword ||
+      item.articles.toLowerCase().includes(keyword) ||
+      item.title.toLowerCase().includes(keyword);
+    const matchesCategory = !category || item.chapterKey === category;
+    return matchesKeyword && matchesCategory;
+  }).sort((a, b) => b.date.localeCompare(a.date));
+
+  const grid = document.getElementById('cardGrid');
+  const empty = document.getElementById('emptyState');
+  const count = document.getElementById('countLabel');
+
+  count.textContent = `共 ${filtered.length} 份講義（總計 ${LECTURES.length} 份）`;
+
+  grid.innerHTML = '';
+  if (filtered.length === 0){
+    empty.style.display = 'block';
+  } else {
+    empty.style.display = 'none';
+    filtered.forEach(item => {
+      const a = document.createElement('a');
+      a.className = 'card';
+      a.href = item.file;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.innerHTML = `
+        <div class="articles">${item.articles}</div>
+        <div class="title">${item.title}</div>
+        <div class="meta">
+          <span class="tag">${chapterMap[item.chapterKey] || item.chapterKey}</span>
+        </div>
+        <div class="meta" style="margin-top:.5rem;">
+          <span class="date">${item.date}</span>
+        </div>
+      `;
+      grid.appendChild(a);
+    });
+  }
+
+  renderCoverageMap();
+}
+
+initCategorySelect();
+let searchScrollTimer = null;
+document.getElementById('searchInput').addEventListener('input', () => {
+  render();
+  clearTimeout(searchScrollTimer);
+  const keyword = document.getElementById('searchInput').value.trim();
+  if (keyword){
+    // 停止輸入約 0.5 秒後，自動捲動到結果區，避免被上方的分類覆蓋地圖擋住視線
+    searchScrollTimer = setTimeout(() => {
+      document.getElementById('countLabel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 500);
+  }
+});
+document.getElementById('categorySelect').addEventListener('change', render);
+render();
+</script>
+
+</body>
+</html>
