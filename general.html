@@ -411,6 +411,7 @@
   .reading-note a:hover{
     color:var(--seal);
   }
+  .card .title .topic{font-weight:800;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -484,6 +485,7 @@ const CHAPTERS = [
    講義清單：每完成一份講義，新增一筆物件即可
    - articles: 條號（顯示用，如「第92、93、114條」）
    - title: 主題
+   - topics: 卡片中要加粗的主題詞（須與title文字相同）
    - date: 完成日期 YYYY-MM-DD
    - chapterKey: 對應 CHAPTERS 的 key（單一主分類，以主要條文所在節為準）
    - file: 講義相對路徑
@@ -492,6 +494,7 @@ const LECTURES = [
   {
     articles: "第66至70條",
     title: "物之種類與孳息之歸屬——不動產與動產、主物與從物、天然孳息與法定孳息",
+    topics: ["物之種類", "孳息"],
     date: "2026-09-18",
     chapterKey: "3",
     file: "lectures/civil-code-66-70-classification-of-things-and-fruits.html"
@@ -499,6 +502,7 @@ const LECTURES = [
   {
     articles: "第75至85條",
     title: "行為能力之法律效果——無行為能力人及限制行為能力人所為法律行為的效力",
+    topics: ["行為能力之法律效果"],
     date: "2026-08-23",
     chapterKey: "4-2",
     file: "lectures/civil-code-75-85-legal-effect-of-capacity.html"
@@ -506,6 +510,7 @@ const LECTURES = [
   {
     articles: "第14、15、15-1、15-2條",
     title: "行為能力（精神狀態篇）——監護宣告／輔助宣告之效果",
+    topics: ["監護宣告", "輔助宣告"],
     date: "2026-08-23",
     chapterKey: "2-1",
     file: "lectures/civil-code-14-15-1-15-2-capacity-by-mental-state.html"
@@ -513,6 +518,7 @@ const LECTURES = [
   {
     articles: "第12、13條",
     title: "行為能力（年齡篇）——完全／無／限制行為能力之年齡分級",
+    topics: ["行為能力"],
     date: "2026-08-23",
     chapterKey: "2-1",
     file: "lectures/civil-code-12-13-capacity-by-age.html"
@@ -520,6 +526,7 @@ const LECTURES = [
   {
     articles: "第6至11條",
     title: "自然人之權利能力、胎兒保護與死亡宣告",
+    topics: ["權利能力", "胎兒保護", "死亡宣告"],
     date: "2026-08-18",
     chapterKey: "2-1",
     file: "lectures/civil-code-6-11-capacity-of-rights.html"
@@ -527,20 +534,15 @@ const LECTURES = [
   {
     articles: "第88條（國考實戰）",
     title: "國考實戰：110高考三級戶政民法第一題擬答——LINE訊息打錯價格，能撤銷嗎？",
+    topics: ["國考實戰", "110高考三級戶政民法第一題擬答"],
     date: "2026-11-11",
     chapterKey: "4-3",
     file: "lectures/exam-110-household-civil-q1.html"
   },
   {
-    articles: "第169條（國考實戰）",
-    title: "國考實戰：114律師二試民法第一題（二）擬答｜同居人拿印章去設定抵押，要負表見代理責任嗎？",
-    date: "2026-11-12",
-    chapterKey: "4-5",
-    file: "lectures/exam-114-lawyer-civil-q1-2.html"
-  },
-  {
     articles: "第92、93、114條",
     title: "意思表示不自由（詐欺、脅迫之撤銷）",
+    topics: ["意思表示不自由"],
     date: "2026-09-19",
     chapterKey: "4-3",
     file: "lectures/civil-code-92-93-114-vitiated-intent.html"
@@ -548,6 +550,7 @@ const LECTURES = [
   {
     articles: "第114、115、116條",
     title: "撤銷及承認",
+    topics: ["撤銷及承認"],
     date: "2026-08-16",
     chapterKey: "4-6",
     file: "lectures/civil-code-114-116-rescission-and-ratification.html"
@@ -720,6 +723,18 @@ function renderCoverageMap(){
     `已覆蓋 ${coveredLeaves} / ${CHAPTERS.length} 節款 · 共 ${LECTURES.length} 篇筆記`;
 }
 
+function formatCardTitle(item){
+  const escape = value => value.replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const ranges = (item.topics || []).map(topic => ({start:item.title.indexOf(topic), text:topic})).filter(part => part.start >= 0).sort((a,b) => a.start-b.start);
+  let result = '', cursor = 0;
+  ranges.forEach(part => {
+    if (part.start < cursor) return;
+    result += escape(item.title.slice(cursor, part.start)) + '<strong class="topic">' + escape(part.text) + '</strong>';
+    cursor = part.start + part.text.length;
+  });
+  return result + escape(item.title.slice(cursor));
+}
+
 function render(){
   const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
   const categorySelectEl = document.getElementById('categorySelect');
@@ -753,7 +768,7 @@ function render(){
       a.rel = 'noopener';
       a.innerHTML = `
         <div class="articles">${item.articles}</div>
-        <div class="title">${item.title}</div>
+        <div class="title">${formatCardTitle(item)}</div>
         <div class="meta">
           <span class="tag">${chapterMap[item.chapterKey] || item.chapterKey}</span>
         </div>
