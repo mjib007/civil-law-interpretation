@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>國考實戰｜114律師二試民法第一題（一）表意自由與民法第184條第1項前段 擬答</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233b; --indigo:#2c4a76; --paper-outer:#f3ede0; --paper-inner:#fbf8f1;
+    --card:#fffdf8; --seal:#9c2b3a; --brass:#a9832f; --border:#ddd3bf; --ink-45:rgba(22,35,59,.62); --green:#2f7a52;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper-outer); color:var(--ink); font-family:"Noto Sans TC",sans-serif; line-height:1.85;}
+  h1,h2,h3,.serif{font-family:"Noto Serif TC",serif;}
+  a{color:var(--indigo);}
+  main{max-width:880px; margin:0 auto; padding:0 16px 80px;}
+  section{padding-top:44px;}
+  section h2{font-size:1.45rem; margin:0 0 18px; display:flex; align-items:center; gap:10px;}
+  section h2::before{content:""; width:6px; height:26px; background:var(--brass); display:inline-block; border-radius:2px; flex:none;}
+  .cover{padding-top:52px;}
+  .eyebrow{display:inline-block; font-size:.8rem; letter-spacing:.08em; color:var(--indigo); background:var(--card);
+    border:1px solid var(--border); padding:5px 14px; border-radius:99px; margin:0 6px 14px 0;}
+  .cover h1{font-size:2.1rem; font-weight:900; margin:0 0 8px; line-height:1.4;}
+  .cover .sub{font-size:1.1rem; color:var(--indigo); margin:0 0 18px;}
+  .meta{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:.9rem; color:var(--ink-45);}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin-bottom:18px;}
+  .question{border-left:4px solid var(--indigo);}
+  .question .dim{color:var(--ink-45);}
+  .question .facts{background:linear-gradient(transparent 62%, rgba(169,131,47,.22) 62%);}
+  .question ol{list-style:none; padding:0; margin:10px 0 0;}
+  .question li{padding-left:3em; text-indent:-3em; margin:4px 0;}
+  .question li.today{color:var(--ink); font-weight:700; border:2px solid var(--brass); border-radius:8px; padding:6px 10px 6px calc(3em + 10px); background:rgba(169,131,47,.08);}
+  .today-tag{display:inline-block; text-indent:0; font-size:.78rem; font-weight:700; color:#fff; background:var(--seal); border-radius:99px; padding:1px 10px; margin-left:6px;}
+  .question .src{font-size:.85rem; color:var(--ink-45); margin-top:8px;}
+  .video{position:relative; width:100%; aspect-ratio:16/9; background:#12161f; border-radius:10px; overflow:hidden;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .relation-wrap{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:10px;}
+  .relation-wrap{overflow-x:auto;}
+  .relation-wrap svg{width:100%; min-width:560px; height:auto; display:block; max-width:640px; margin:0 auto;}
+  .relation-note{text-align:center; color:var(--ink-45); font-size:.9rem; margin:8px 0 0;}
+  .answer h3{font-size:1.1rem; color:var(--indigo); margin:0 0 10px;}
+  .answer p{margin:4px 0 10px;}
+  .answer p.h2{padding-left:2em; text-indent:-2em;}
+  .answer p.h3{padding-left:3em; text-indent:-3em;}
+  .answer .concl{font-weight:700; border-bottom:3px solid var(--brass);}
+  .count{font-size:.85rem; color:var(--ink-45);}
+  .ainote{border:1px solid var(--border); color:var(--ink-45); background:var(--card); border-radius:8px; padding:8px 14px; font-size:.9rem; margin-bottom:14px;}
+  .table-wrap{overflow-x:auto; margin:10px 0 20px;}
+  table{width:100%; border-collapse:collapse; font-size:.93rem;}
+  th{background:var(--ink); color:var(--paper-inner); padding:9px 12px; text-align:left;}
+  td{padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top;}
+  tr:nth-child(even) td{background:var(--card);} tr:nth-child(odd) td{background:#f6f1e6;}
+  .map{font-family:"Noto Serif TC",serif; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px 22px; white-space:pre; overflow-x:auto; line-height:1.9;}
+  .bars{display:grid; grid-template-columns:5.5em 1fr 4em; gap:6px 10px; align-items:center; font-size:.9rem;}
+  .bars .b{height:14px; border-radius:7px; background:var(--indigo);}
+  .bars .b.hot{background:var(--brass);}
+  .note{border:1px solid var(--seal); background:rgba(156,43,58,.04); border-radius:10px; padding:16px 20px;}
+  .links a{display:inline-block; margin:4px 14px 4px 0;}
+  .own{display:inline-block; font-size:.75rem; color:var(--seal); border:1px dashed var(--seal); border-radius:99px; padding:0 8px; margin-left:4px; white-space:nowrap;}
+  /* 兩說切換 */
+  .tabs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;}
+  .tab{font:inherit; cursor:pointer; background:var(--card); color:var(--ink); border:2px solid var(--ink); border-radius:99px; padding:6px 18px; font-weight:700;}
+  .tab[aria-selected="true"]{background:var(--ink); color:var(--paper-inner);}
+  .tab:focus-visible{outline:3px solid var(--brass); outline-offset:2px;}
+  .steps{list-style:none; margin:0; padding:0;}
+  .steps li{display:grid; grid-template-columns:7.5em 1fr; gap:4px 12px; padding:8px 0; border-bottom:1px dashed var(--border);}
+  .steps li:last-child{border-bottom:0;}
+  .steps .k{font-weight:700; color:var(--indigo);}
+  .verdict{display:inline-block; font-weight:700; border-radius:6px; padding:2px 10px;}
+  .verdict.no{color:var(--seal); border:2px solid var(--seal);}
+  .verdict.maybe{color:var(--green); border:2px solid var(--green);}
+  footer{margin-top:50px; font-size:.85rem; color:var(--ink-45); border-top:1px solid var(--border); padding-top:18px;}
+  @media (max-width:600px){ .cover h1{font-size:1.6rem;} table{font-size:.85rem;} th,td{padding:7px 8px;} .card{padding:16px 16px;} .map{font-size:.9rem; padding:14px; white-space:pre-wrap;} .steps li{grid-template-columns:1fr;} }
+  .verdict.yes{color:var(--green); border:2px solid var(--green);}
+  .crop{display:block; width:100%; border:1px solid var(--border); border-radius:8px; margin:8px 0;}
+</style>
+</head>
+<body>
+<main>
+
+<section class="cover">
+  <span class="eyebrow">國考實戰</span><span class="eyebrow">債編總論・侵權行為</span><span class="eyebrow">總則・詐欺</span>
+  <h1>被騙買地，能用民法第184條第1項前段請求賠償嗎？</h1>
+  <p class="sub">114年律師第二試｜民法與民事訴訟法（一）｜第一題第（一）小題（25分）</p>
+  <div class="meta"><span>爭點：表意自由是不是第184條第1項前段的「權利」；純粹經濟上損失</span><span>擬答463字（上限561字）</span><span>2026-11-13</span></div>
+</section>
+
+<section id="question">
+  <h2>題目</h2>
+  <p class="count">這一題有三段故事、三個小題。第（二）小題表見代理、第（三）小題第三取得人清償代位，另有示範頁（見文末相關連結）。本頁只做第（一）小題，用得到的事實畫黃色底線。</p>
+  <div class="card question">
+    <span class="dim">一、</span><span class="facts">甲男、乙女同居多年，甲有A地一筆，乙有B、C地二筆。甲出賣其所有之A地於好友丙，訂立買賣契約時，甲對丙謊稱A地全已劃入市地重劃範圍，並出示不實證明文件取信丙。丙以高於市價4倍之價格新臺幣（下同）4,000萬元購買A地，已付清價款並辦畢土地所有權移轉登記。嗣後，丙發現A地未劃入市地重劃範圍，受有價差3,000萬元的損害。</span><span class="dim">乙出國洽公，乃交付身分證和印章委託甲為其領取信件。甲趁機擅執乙的印章及身分證，且盜取B地所有權狀，持偽造乙簽名之委任書，向戶政機關申請印鑑證明，並在抵押權設定申請書上偽造乙簽名，將B地設定最高限額1,500萬元之抵押權於丁，作為甲向丁借款1,500萬元的擔保。清償期屆至，甲未清償借款致B地將遭拍賣，乙始知悉上情，並拒絕承認該抵押權設定效力。另乙向戊借款1,000萬元，並以其所有C地設定擔保1,000萬元債權之抵押權於戊，約定1年後清償債務。嗣後乙將C地出賣於庚，並辦妥所有權移轉登記，庚未承擔C地抵押權擔保之1,000萬元債務清償責任。試問：</span>
+    <ol>
+      <li class="today">（一）丙以被詐欺為由，依民法第184條第1項前段規定，請求甲賠償其所受之3,000萬元損害，有無理由？（25分）<span class="today-tag">本頁只做這一題</span></li>
+      <li class="dim">（二）乙請求丁塗銷B地之抵押權設定登記，丁則抗辯甲已出示乙之身分證、印章、B地所有權狀、印鑑證明等文件，乙應負授權人責任。丁之抗辯，有無理由？（25分）</li>
+      <li class="dim">（三）乙屆期未清償其對戊之1,000萬元借款債務，庚恐C地遭拍賣，遂向戊清償該借款，經戊塗銷C地之抵押權登記後，庚請求乙給付1,000萬元，有無理由？（25分）</li>
+    </ol>
+    <div class="src">題目來源：<a href="https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&amp;code=114111&amp;c=302&amp;s=0203&amp;q=1" target="_blank" rel="noopener">考選部考畢試題查詢平臺（原始試卷）</a>。114年司法官、律師考試第二試，全卷2小時，第一題三個小題各25分。題目文字已依原卷圖片逐字核對。</div>
+  </div>
+</section>
+
+<section id="video">
+  <h2>影片說明</h2>
+  <div class="video">
+    <iframe src="https://www.youtube-nocookie.com/embed/1CSAYDK5FjE" title="被騙買地，能用民法第184條第1項前段請求賠償嗎？114年律師二試民法申論題" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <p class="links"><a href="https://youtu.be/1CSAYDK5FjE" target="_blank" rel="noopener">在 YouTube 觀看（3分14秒）</a></p>
+  <p class="count">影片依序示範：讀題、算字數上限、看考選部評分要點、第184條的三道門、110台上2150判決、學弟學姊對話說明兩說、本文見解與結論、閱卷委員提醒的易錯點，最後比對兩個AI的版本，把擬答從頭看一遍。</p>
+</section>
+
+<section id="relation">
+  <h2>甲騙丙買地</h2>
+  <div class="relation-wrap">
+    <svg viewBox="0 0 640 250" role="img" aria-labelledby="relT relD">
+      <title id="relT">甲、丙與A地的關係圖</title>
+      <desc id="relD">甲謊稱A地已劃入重劃範圍並出示不實證明，丙以市價4倍、4000萬元買下，價差3000萬元。丙請求甲賠償3000萬元。</desc>
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2c4a76"/></marker>
+        <marker id="arR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9c2b3a"/></marker>
+        <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a9832f"/></marker>
+      </defs>
+      <rect x="20" y="40" width="130" height="56" rx="8" fill="#fffdf8" stroke="#16233b" stroke-width="2"/>
+      <text x="85" y="66" text-anchor="middle" font-family="Noto Serif TC" font-weight="700" font-size="18" fill="#16233b">甲</text>
+      <text x="85" y="86" text-anchor="middle" font-family="Noto Sans TC" font-size="12" fill="#5b6472">出賣人</text>
+      <rect x="490" y="40" width="130" height="56" rx="8" fill="#fffdf8" stroke="#16233b" stroke-width="2"/>
+      <text x="555" y="66" text-anchor="middle" font-family="Noto Serif TC" font-weight="700" font-size="18" fill="#16233b">丙</text>
+      <text x="555" y="86" text-anchor="middle" font-family="Noto Sans TC" font-size="12" fill="#5b6472">買受人（好友）</text>
+      <path d="M155,56 L485,56" stroke="#9c2b3a" stroke-width="2" marker-end="url(#arR)"/>
+      <text x="320" y="46" text-anchor="middle" font-family="Noto Sans TC" font-size="12" fill="#9c2b3a">謊稱「A地已劃入重劃範圍」＋不實證明</text>
+      <path d="M485,82 L155,82" stroke="#2c4a76" stroke-width="2" marker-end="url(#ar)"/>
+      <text x="320" y="102" text-anchor="middle" font-family="Noto Sans TC" font-size="12" fill="#2c4a76">付清4000萬元（市價4倍），已過戶</text>
+      <rect x="250" y="140" width="140" height="80" rx="6" fill="#fff4c2" stroke="#a9832f" stroke-width="2"/>
+      <text x="320" y="176" text-anchor="middle" font-family="Noto Serif TC" font-weight="700" font-size="18" fill="#16233b">A地</text>
+      <text x="320" y="198" text-anchor="middle" font-family="Noto Sans TC" font-size="11" fill="#5b6472">其實未劃入重劃範圍</text>
+      <path d="M555,100 Q520,230 400,200" fill="none" stroke="#a9832f" stroke-width="2.5" marker-end="url(#ar2)"/>
+      <text x="560" y="200" text-anchor="middle" font-family="Noto Sans TC" font-size="13" font-weight="700" fill="#a9832f">價差3000萬元</text>
+      <text x="560" y="218" text-anchor="middle" font-family="Noto Sans TC" font-size="13" font-weight="700" fill="#a9832f">依§184Ⅰ前段請求？</text>
+    </svg>
+  </div>
+  <p class="relation-note">丙的身體、所有權都沒有受損，損失的是「多付的錢」。這是本題的關鍵。</p>
+</section>
+
+<section id="words">
+  <h2>先懂兩個詞</h2>
+  <div class="card"><strong>表意自由</strong>：自己決定要不要簽約、用什麼條件簽的自由。丙是被甲騙了才決定用4,000萬元買地，這個做決定的自由受到侵害。</div>
+  <div class="card"><strong>純粹經濟上損失</strong>：人和東西都沒有受傷、損壞，只是錢變少了。例如丙多付的3,000萬元價差。</div>
+  <p>第184條有三道門，丙走哪一道，結果不一樣：</p>
+  <div class="table-wrap"><table>
+    <tr><th>門</th><th>條文要件</th><th>保護什麼</th><th>丙能不能過</th></tr>
+    <tr><td>第1項前段</td><td>因故意或過失，不法侵害他人之權利</td><td>權利，例如生命、身體、所有權</td><td><span class="verdict no">本文：不能</span>　價差是純粹經濟上損失；表意自由不算前段的權利（否定說）</td></tr>
+    <tr><td>第1項後段</td><td>故意以背於善良風俗之方法，加損害於他人</td><td>不限於權利</td><td><span class="verdict yes">能</span>　甲故意騙人（112台上1719）</td></tr>
+    <tr><td>第2項</td><td>違反保護他人之法律，致生損害於他人</td><td>保護他人之法律所要保護的利益</td><td><span class="verdict maybe">看刑法</span>　甲如構成刑法第339條詐欺罪</td></tr>
+  </table></div>
+</section>
+
+<section id="map">
+  <h2>答題地圖</h2>
+  <div class="map">丙依§184Ⅰ前段請求無理由，但得依同項後段請求
+一、甲構成詐欺（重要事實，非動機錯誤）
+二、表意自由是否為§184Ⅰ前段之「權利」
+  （一）前段限於權利；純粹經濟上損失不在內（110台上2150）
+  （二）否定說
+  （三）肯定說
+  （四）本文採否定說
+三、結論：前段無理由；改依後段（112台上1719）、第2項</div>
+  <p class="count">標號層次：一、→（一）→1.。第二層不要直接寫「1.」。第一行直接寫結論，不再加題號「（一）」，以免和第二層的（一）混淆。</p>
+</section>
+
+<section id="official">
+  <h2>考選部評分要點與閱卷委員的話</h2>
+  <p>考選部公布了這一題的評分要點，先肯定甲構成詐欺，再分兩步：</p>
+  <div class="table-wrap"><table>
+    <tr><th>評分要點</th><th>內容</th></tr>
+    <tr><td>1. 前段保護客體</td><td>第184條第1項前段保護的權利，原則上限於既存法律體系所明認之權利；純粹經濟上損失，除契約責任及同條第1項後段、第2項外，不在前段保護範圍（引110台上2150、104台上1577）。</td></tr>
+    <tr><td>2. 表意自由是否為前段客體</td><td>學說有不同見解，兩說都要寫。<br>甲說（否定）：前段之自由限於身體行動自由；但得依第1項後段請求（引111台上176、112台上1719），甲如構成刑法第339條詐欺罪，另得依第2項請求。<br>乙說（肯定）：表意自由屬人格法益核心，且得具體特定，應屬前段之權利。</td></tr>
+  </table></div>
+  <img class="crop" src="../assets/exam-114-civil-q1-1-scoring-p1.png" alt="考選部評分要點第1頁節錄：第184條第1項前段保護之權利，原則上限於既存法律體系所明認之權利">
+  <p>閱卷委員的話：</p>
+  <ul>
+    <li>多數考生能指出表意自由受民法制度保護、得依第92條撤銷；採肯定說、否定說的都有。</li>
+    <li>有考生把重點放在「意思表示之動機不受保護」，<strong>忽略甲謊稱並出示不實證明文件的行為</strong>，也把「丙以高於市價4倍的價格購買」和「丙預期A地將上漲4倍的動機錯誤」混在一起，<strong>略屬缺憾</strong>。</li>
+  </ul>
+  <img class="crop" src="../assets/exam-114-civil-q1-1-scoring-p5.png" alt="考選部評分要點第5頁閱卷委員的話節錄">
+  <p class="count">來源：考選部〈<a href="https://wwwc.moex.gov.tw/main/news/wfrmNews.aspx?kind=3&amp;menu_id=42&amp;news_id=7714" target="_blank" rel="noopener">114年司法官、律師考試第二試法律專業科目評分要點及各科目成績統計</a>〉附件第1、2、5頁，已轉成圖片逐頁核對。104台上1577未開全文核對，本頁擬答未引用。</p>
+</section>
+
+<section id="answer">
+  <h2>擬答</h2>
+  <div class="ainote">AI擬答，待教師驗證。擬答由兩個AI（Claude、Codex）各寫一版，依考選部評分要點比對：Claude採否定說、Codex採肯定說，定稿採否定說。條文已依全國法規資料庫核對，判決已開全文核對。</div>
+  <div class="card answer">
+    <h3>丙依§184Ⅰ前段請求無理由，但得依同項後段請求：</h3>
+    <p class="h2">一、甲構成詐欺</p>
+    <p>甲明知A地未劃入重劃範圍，仍謊稱已劃入並出示不實證明，就交易重要事實積極欺罔，使丙陷於錯誤，以市價4倍購地，受有3000萬元價差損害。此非丙單純預期漲價之動機錯誤。</p>
+    <p class="h2">二、表意自由是否為§184Ⅰ前段之「權利」</p>
+    <p class="h3">（一）前段保護客體原則限於既存法律體系明認之權利；純粹經濟上損失，除契約責任及§184Ⅰ後段、Ⅱ外，不在前段保護範圍（110台上2150）。</p>
+    <p class="h3">（二）否定說：前段之自由限於身體行動自由，不及於意思決定自由，否則保護範圍難以確定，侵權責任將成概括條款。</p>
+    <p class="h3">（三）肯定說：表意自由與人格自主、人性尊嚴不可分，屬人格法益核心，且得具體特定，應屬前段之權利。</p>
+    <p class="h3">（四）本文採否定說：丙所失者為高價購地之價差，屬純粹經濟上損失；法律另有§92撤銷及§184Ⅰ後段、Ⅱ之保護，無須擴張前段。</p>
+    <p class="h2">三、結論</p>
+    <p><span class="concl">丙依§184Ⅰ前段請求無理由。</span>惟甲故意以背於善良風俗之方法加損害於丙，丙得依§184Ⅰ後段請求3000萬元（112台上1719）；甲如構成刑法§339詐欺罪，丙亦得依§184Ⅱ請求。</p>
+  </div>
+  <p class="count">擬答463字（含標題、標點與數字，不含空白，以程式計算）。</p>
+</section>
+
+<section id="limit">
+  <h2>字數上限：為什麼是561字</h2>
+  <div class="table-wrap"><table>
+    <tr><th>項目</th><th>數字</th></tr>
+    <tr><td>本小題可用時間</td><td>120分鐘 × 25/150 ＝ 20分鐘</td></tr>
+    <tr><td>讀題</td><td>約3分鐘，實際作答約17分鐘</td></tr>
+    <tr><td>打字速度</td><td>一般人中文打字約每分鐘33字（粗估）</td></tr>
+    <tr><td>上限</td><td>17分鐘 × 每分鐘約33字 ＝ 561字</td></tr>
+  </table></div>
+  <div class="card">
+    <div class="bars">
+      <span>總標題</span><span class="b" style="width:10%"></span><span>25字</span>
+      <span>一、</span><span class="b" style="width:35%"></span><span>89字</span>
+      <span>二、</span><span class="b hot" style="width:100%"></span><span>254字</span>
+      <span>三、</span><span class="b" style="width:37%"></span><span>95字</span>
+    </div>
+    <p class="count" style="margin:10px 0 0;">二是本題重心：兩說並陳，再表明本文見解與理由。</p>
+  </div>
+</section>
+
+<section id="compare">
+  <h2>互動：丙走哪一道門？</h2>
+  <p>同樣是被騙，丙主張的依據不同，結果就不同。<strong>先自己想想，再點。</strong></p>
+  <div class="tabs" role="tablist">
+    <button type="button" class="tab" role="tab" id="tA" aria-selected="true" aria-controls="pane">第1項前段</button>
+    <button type="button" class="tab" role="tab" id="tB" aria-selected="false" aria-controls="pane">第1項後段</button>
+    <button type="button" class="tab" role="tab" id="tC" aria-selected="false" aria-controls="pane">第2項</button>
+  </div>
+  <div class="card" id="pane" role="tabpanel" aria-live="polite"></div>
+</section>
+
+<section id="why">
+  <h2>為什麼這樣寫</h2>
+  <div class="table-wrap"><table>
+    <tr><th>寫法</th><th>理由</th></tr>
+    <tr><td>總標題先寫結論</td><td>閱卷者第一眼就知道答案：前段不行，後段可以。</td></tr>
+    <tr><td>一、先寫甲構成詐欺</td><td>評分要點的起點。最後一句「非動機錯誤」回應閱卷委員的提醒。</td></tr>
+    <tr><td>二（一）先講前段只保護權利</td><td>評分要點第1點；用110台上2150，事實和本題幾乎相同。</td></tr>
+    <tr><td>兩說並陳</td><td>評分要點把甲說、乙說並列，兩說都要寫，再表明本文見解。</td></tr>
+    <tr><td>本文採否定說</td><td>貼近最高法院110台上2150、112台上1719的路線；丙另有第92條撤銷、後段、第2項可用，不必把前段撐大。採肯定說也可以，理由寫清楚即可。<span class="own">本頁取捨</span></td></tr>
+    <tr><td>結論改走後段＋第2項</td><td>評分要點甲說的後半段：否定說下，仍可依後段、第2項請求。</td></tr>
+  </table></div>
+</section>
+
+<section id="cases">
+  <h2>實務見解</h2>
+  <div class="table-wrap"><table>
+    <tr><th>字號</th><th>重點</th><th>怎麼用</th></tr>
+    <tr><td><a href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&amp;id=TPSV%2c110%2c%e5%8f%b0%e4%b8%8a%2c2150%2c20211202%2c1" target="_blank" rel="noopener">最高法院110年度台上字第2150號民事判決</a>（110年12月2日，廢棄發回）</td><td>第184條保護之法益，除同條第1項後段、第2項外，原則上限於既存法律體系所明認之權利；純粹經濟上損失不在前段保護範圍。該案出賣人隱瞞土地未納入重劃範圍，買受人受有價差損失，原審未說明究為何種權利受侵害，廢棄發回。</td><td>事實和本題幾乎相同。發回後，臺灣高等法院花蓮分院111年度上更一字第1號認詐欺事實不足採，買受人敗訴；本頁只援用最高法院的法律見解。</td></tr>
+    <tr><td><a href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&amp;id=TPSV%2c112%2c%e5%8f%b0%e4%b8%8a%2c1719%2c20240612%2c1" target="_blank" rel="noopener">最高法院112年度台上字第1719號民事判決</a>（113年6月12日，廢棄發回）</td><td>詐欺符合故意以背於善良風俗之方法加損害於他人者，受害人得依第184條第1項後段請求；所保護者為表意人意思表示形成過程之自由。</td><td>否定說下，結論改走後段。</td></tr>
+  </table></div>
+  <p class="count">兩件都在司法院系統開全文核對（2026-11-12）。</p>
+</section>
+
+<section id="pitfalls">
+  <h2>預想易錯點</h2>
+  <p class="count">以下是批改前預想的錯誤（第一列取自閱卷委員的話），還不是學生實際作答的統計。集體批改後，會改成「常見錯誤」並註明人數。</p>
+  <div class="table-wrap"><table>
+    <tr><th>可能的錯誤</th><th>應該怎麼寫</th></tr>
+    <tr><td>只寫「丙以為會漲價，是動機錯誤，不受保護」</td><td>丙會這樣想，是甲拿假文件騙出來的。重點是甲就重要事實積極欺罔，構成詐欺（閱卷委員：略屬缺憾）。</td></tr>
+    <tr><td>直接說「自由被侵害」，前段當然成立</td><td>先說前段只保護權利、價差是純粹經濟上損失，再討論表意自由算不算前段的權利，兩說並陳。</td></tr>
+    <tr><td>只寫第92條撤銷</td><td>題目問的是第184條第1項前段，撤銷只能當本文見解的理由之一。</td></tr>
+    <tr><td>採否定說後直接寫「無理由」結束</td><td>補上後段（112台上1719）與第2項，丙仍可請求3,000萬元。</td></tr>
+    <tr><td>第一行寫題號「（一）」，第二層又寫（一）</td><td>第一行直接寫結論；層次是一、→（一）→1.。</td></tr>
+  </table></div>
+</section>
+
+<section id="think">
+  <h2>延伸思考</h2>
+  <div class="card">1. 如果甲沒有說謊，只是丙自己聽說A地要劃入重劃範圍而高價買下，丙還能依第92條撤銷或依第184條請求嗎？<span class="own">本頁設問</span></div>
+  <div class="card">2. 採肯定說時，丙依前段請求和依後段請求，要件有什麼不同？（提示：前段故意或過失即可，後段限於故意。）<span class="own">本頁設問</span></div>
+</section>
+
+<section id="refs">
+  <h2>參考資料</h2>
+  <ul>
+    <li><a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=92" target="_blank" rel="noopener">民法第92條</a>、<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=184" target="_blank" rel="noopener">第184條</a>（全國法規資料庫，現行條文）</li>
+    <li>考選部〈114年司法官、律師考試第二試法律專業科目評分要點及各科目成績統計〉附件第1、2、5頁</li>
+    <li>最高法院110年度台上字第2150號、112年度台上字第1719號民事判決（見上方實務見解）</li>
+  </ul>
+</section>
+
+<section>
+  <h2>歡迎指正</h2>
+  <div class="note">
+    這是AI擬答，待教師驗證，不是考選部公布的標準答案（申論題考選部只公布評分要點，不公布答案）。如果你有不同看法，或發現錯誤，歡迎來信指正：<a href="mailto:mjib007@gmail.com">mjib007@gmail.com</a>。
+  </div>
+</section>
+
+<section>
+  <h2>相關連結</h2>
+  <p class="links">
+    <a href="../index.html">民法講義總覽</a>
+    <a href="exam-114-lawyer-civil-q1-2.html">同一題第（二）小題：同居人拿印章去設定抵押，要負表見代理責任嗎？</a>
+    <a href="exam-114-lawyer-civil-q1-3.html">同一題第（三）小題：買了有抵押的地，替賣方還錢後能要回來嗎？</a>
+    <a href="civil-code-92-93-114-vitiated-intent.html">意思表示不自由（詐欺、脅迫之撤銷）</a>
+    <a href="https://github.com/mjib007/civil-law-interpretation" target="_blank" rel="noopener">GitHub 原始檔</a>
+  </p>
+</section>
+
+<footer>
+  作者：錢世傑，在中正大學高階法律碩士在職專班、中原大學法律系、輔仁大學法律系、高雄空中大學法律系、中央大學資管系講授AI、AI Agent等課程。聯絡：mjib007@gmail.com｜臉書：<a href="https://www.facebook.com/mjib007" target="_blank" rel="noopener">facebook.com/mjib007</a><br>
+  本頁為教學用整理，不構成個案法律意見。
+</footer>
+
+</main>
+<script>
+(function () {
+  var data = {
+    tA: [
+      ['條文', '因故意或過失，不法侵害他人之<strong>權利</strong>。'],
+      ['丙失去什麼', '多付的3,000萬元價差：身體、所有權都沒受損，是純粹經濟上損失（110台上2150）。'],
+      ['表意自由算權利嗎', '否定說：不算，前段的自由只限身體行動自由。肯定說：算，屬人格法益核心。'],
+      ['本文結論', '<span class="verdict no">無理由</span>　採否定說。']
+    ],
+    tB: [
+      ['條文', '<strong>故意</strong>以背於善良風俗之方法，加損害於他人。'],
+      ['保護範圍', '不限於權利，純粹經濟上損失也包括。'],
+      ['涵攝', '甲明知A地未劃入，故意謊稱並出示不實證明。詐欺符合後段，保護表意人意思表示形成過程之自由（112台上1719）。'],
+      ['結論', '<span class="verdict yes">有理由</span>　丙得請求3,000萬元。']
+    ],
+    tC: [
+      ['條文', '違反保護他人之法律，致生損害於他人。'],
+      ['保護他人之法律', '刑法第339條詐欺罪。'],
+      ['條件', '要先確定甲構成詐欺罪；題目沒有交代刑事部分。'],
+      ['結論', '<span class="verdict maybe">甲如構成詐欺罪</span>　丙亦得依第2項請求。']
+    ]
+  };
+  var pane = document.getElementById('pane');
+  var tabs = ['tA', 'tB', 'tC'].map(function (i) { return document.getElementById(i); });
+  function show(id) {
+    tabs.forEach(function (t) { t.setAttribute('aria-selected', t.id === id ? 'true' : 'false'); });
+    pane.innerHTML = '<ul class="steps">' + data[id].map(function (r) {
+      return '<li><span class="k">' + r[0] + '</span><span>' + r[1] + '</span></li>';
+    }).join('') + '</ul>';
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.id); }); });
+  show('tA');
+})();
+</script>
+</body>
+</html>
