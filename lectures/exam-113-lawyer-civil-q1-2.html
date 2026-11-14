@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>國考實戰｜113律師二試民法第一題（二）附負擔贈與撤銷權可否繼承（民法第412條、第416條） 擬答</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233b; --indigo:#2c4a76; --paper-outer:#f3ede0; --paper-inner:#fbf8f1;
+    --card:#fffdf8; --seal:#9c2b3a; --brass:#a9832f; --border:#ddd3bf; --ink-45:rgba(22,35,59,.62); --green:#2f7a52;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper-outer); color:var(--ink); font-family:"Noto Sans TC",sans-serif; line-height:1.85;}
+  h1,h2,h3,.serif{font-family:"Noto Serif TC",serif;}
+  a{color:var(--indigo);}
+  main{max-width:880px; margin:0 auto; padding:0 16px 80px;}
+  section{padding-top:44px;}
+  section h2{font-size:1.45rem; margin:0 0 18px; display:flex; align-items:center; gap:10px;}
+  section h2::before{content:""; width:6px; height:26px; background:var(--brass); display:inline-block; border-radius:2px; flex:none;}
+  .cover{padding-top:52px;}
+  .eyebrow{display:inline-block; font-size:.8rem; letter-spacing:.08em; color:var(--indigo); background:var(--card);
+    border:1px solid var(--border); padding:5px 14px; border-radius:99px; margin:0 6px 14px 0;}
+  .cover h1{font-size:2.1rem; font-weight:900; margin:0 0 8px; line-height:1.4;}
+  .cover .sub{font-size:1.1rem; color:var(--indigo); margin:0 0 18px;}
+  .meta{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:.9rem; color:var(--ink-45);}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin-bottom:18px;}
+  .question{border-left:4px solid var(--indigo);}
+  .question .dim{color:var(--ink-45);}
+  .question .facts{background:linear-gradient(transparent 62%, rgba(169,131,47,.22) 62%);}
+  .question ol{list-style:none; padding:0; margin:10px 0 0;}
+  .question li{padding-left:3em; text-indent:-3em; margin:4px 0;}
+  .question li.today{color:var(--ink); font-weight:700; border:2px solid var(--brass); border-radius:8px; padding:6px 10px 6px calc(3em + 10px); background:rgba(169,131,47,.08);}
+  .today-tag{display:inline-block; text-indent:0; font-size:.78rem; font-weight:700; color:#fff; background:var(--seal); border-radius:99px; padding:1px 10px; margin-left:6px;}
+  .question .src{font-size:.85rem; color:var(--ink-45); margin-top:8px;}
+  .video{position:relative; width:100%; aspect-ratio:16/9; background:#12161f; border-radius:10px; overflow:hidden;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .relation-wrap{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:10px;}
+  .relation-wrap{overflow-x:auto;}
+  .relation-wrap svg{width:100%; min-width:560px; height:auto; display:block; max-width:640px; margin:0 auto;}
+  .relation-note{text-align:center; color:var(--ink-45); font-size:.9rem; margin:8px 0 0;}
+  .answer h3{font-size:1.1rem; color:var(--indigo); margin:0 0 10px;}
+  .answer p{margin:4px 0 10px;}
+  .answer p.h2{padding-left:2em; text-indent:-2em;}
+  .answer p.h3{padding-left:3em; text-indent:-3em;}
+  .answer .concl{font-weight:700; border-bottom:3px solid var(--brass);}
+  .count{font-size:.85rem; color:var(--ink-45);}
+  .ainote{border:1px solid var(--border); color:var(--ink-45); background:var(--card); border-radius:8px; padding:8px 14px; font-size:.9rem; margin-bottom:14px;}
+  .table-wrap{overflow-x:auto; margin:10px 0 20px;}
+  table{width:100%; border-collapse:collapse; font-size:.93rem;}
+  th{background:var(--ink); color:var(--paper-inner); padding:9px 12px; text-align:left;}
+  td{padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top;}
+  tr:nth-child(even) td{background:var(--card);} tr:nth-child(odd) td{background:#f6f1e6;}
+  .map{font-family:"Noto Serif TC",serif; background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px 22px; white-space:pre; overflow-x:auto; line-height:1.9;}
+  .bars{display:grid; grid-template-columns:5.5em 1fr 4em; gap:6px 10px; align-items:center; font-size:.9rem;}
+  .bars .b{height:14px; border-radius:7px; background:var(--indigo);}
+  .bars .b.hot{background:var(--brass);}
+  .note{border:1px solid var(--seal); background:rgba(156,43,58,.04); border-radius:10px; padding:16px 20px;}
+  .links a{display:inline-block; margin:4px 14px 4px 0;}
+  .own{display:inline-block; font-size:.75rem; color:var(--seal); border:1px dashed var(--seal); border-radius:99px; padding:0 8px; margin-left:4px; white-space:nowrap;}
+  /* 兩說切換 */
+  .tabs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;}
+  .tab{font:inherit; cursor:pointer; background:var(--card); color:var(--ink); border:2px solid var(--ink); border-radius:99px; padding:6px 18px; font-weight:700;}
+  .tab[aria-selected="true"]{background:var(--ink); color:var(--paper-inner);}
+  .tab:focus-visible{outline:3px solid var(--brass); outline-offset:2px;}
+  .steps{list-style:none; margin:0; padding:0;}
+  .steps li{display:grid; grid-template-columns:7.5em 1fr; gap:4px 12px; padding:8px 0; border-bottom:1px dashed var(--border);}
+  .steps li:last-child{border-bottom:0;}
+  .steps .k{font-weight:700; color:var(--indigo);}
+  .verdict{display:inline-block; font-weight:700; border-radius:6px; padding:2px 10px;}
+  .verdict.no{color:var(--seal); border:2px solid var(--seal);}
+  .verdict.maybe{color:var(--green); border:2px solid var(--green);}
+  footer{margin-top:50px; font-size:.85rem; color:var(--ink-45); border-top:1px solid var(--border); padding-top:18px;}
+  @media (max-width:600px){ .cover h1{font-size:1.6rem;} table{font-size:.85rem;} th,td{padding:7px 8px;} .card{padding:16px 16px;} .map{font-size:.9rem; padding:14px; white-space:pre-wrap;} .steps li{grid-template-columns:1fr;} }
+  .verdict.yes{color:var(--green); border:2px solid var(--green);}
+  .crop{display:block; width:100%; border:1px solid var(--border); border-radius:8px; margin:8px 0;}
+  .lawcard{background:var(--card); border:1px solid var(--border); border-left:4px solid var(--indigo); border-radius:10px; padding:16px 20px; margin-bottom:16px;}
+  .lawcard .no{font-family:"Noto Serif TC",serif; font-weight:700; color:var(--indigo); margin:0 0 6px;}
+  .lawcard .orig{font-family:"Noto Serif TC",serif; background:#f6f1e6; border-radius:6px; padding:8px 12px; margin:0 0 8px;}
+  .lawcard .orig mark{background:linear-gradient(transparent 55%, rgba(169,131,47,.35) 55%); color:inherit;}
+  .lawcard p{margin:4px 0;}
+  .lbl{display:inline-block; font-size:.78rem; font-weight:700; color:var(--paper-inner); background:var(--indigo); border-radius:4px; padding:0 6px; margin-right:6px;}
+  details.more{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:10px 18px;}
+  details.more summary{cursor:pointer; font-weight:700; color:var(--indigo);}
+</style>
+</head>
+<body>
+<main>
+
+<section class="cover">
+  <span class="eyebrow">國考實戰</span><span class="eyebrow">債各・贈與</span><span class="eyebrow">繼承・專屬權</span>
+  <h1>太太把地送外甥，外甥違約，先生能撤銷嗎？</h1>
+  <p class="sub">113年律師第二試｜民法與民事訴訟法（一）｜第一題第（二）小題（25分）</p>
+  <div class="meta"><span>爭點：附負擔贈與之撤銷權是否專屬贈與人、可否由繼承人行使（民法第412條、第416條、第417條、第1148條）</span><span>擬答538字（上限561字）</span><span>2026-11-14</span></div>
+</section>
+
+<section id="question">
+  <h2>題目</h2>
+  <p class="count">這一題有三個小題。本頁只做第（二）小題，用得到的事實畫黃色底線。</p>
+  <div class="card question">
+    <span class="dim">一、甲分別向親友乙、丙、丁借款新臺幣（下同）800萬元、500萬元及300萬元，借款清償期均已屆至。甲明知其財產僅餘市價800萬元之A地一筆，別無其他財產，仍將A地出賣於乙，並辦理移轉登記，用以抵償其對乙之800萬元債務，卻未清償其對丙和丁之債務，乙亦知其情事。</span><span class="facts">丙和戊結婚多年，未育有子女，戊繼承B地一筆，丙經戊同意於B地自建違章C屋一棟居住。後戊將B地贈與其外甥庚，同時約定：庚允諾丙、戊居住之C屋使用B基地至2人百年終老</span>（下稱系爭約定）。<span class="facts">1年後戊死亡，庚旋即向丙訴請拆除C屋返還B地。</span><span class="dim">另丁有鄰地為袋地之D地一筆，以市價1100萬元賣給辛，並辦畢所有權移轉登記。半年後，該袋地所有人丑向辛請求確認對D地有袋地通行權存在，經法院為丑勝訴之判決確定。試問：</span>
+    <ol>
+      <li class="dim">（一）丙、丁依民法第244條第2項規定，聲請法院撤銷甲、乙間就A地之買賣契約及所有權移轉登記行為，有無理由？（25分）<a href="exam-113-lawyer-civil-q1-1.html">（本題講義）</a></li>
+      <li class="today">（二）丙以庚不履行系爭約定為由，對庚主張撤銷B地之贈與契約，有無理由？（25分）<span class="today-tag">本頁只做這一題</span></li>
+      <li class="dim">（三）辛以D地受袋地通行權限制為由，向丁請求權利瑕疵擔保之損害賠償，有無理由？（25分）<a href="exam-113-lawyer-civil-q1-3.html">（本題講義）</a></li>
+    </ol>
+    <div class="src">題目來源：考選部113年司法官、律師考試第二試「民法與民事訴訟法（一）」第一題。題目文字已依原卷圖片逐字核對。</div>
+  </div>
+</section>
+
+<section id="video">
+  <h2>影片說明</h2>
+  <div class="video">
+    <iframe src="https://www.youtube-nocookie.com/embed/pyq1gq6To9M" title="贈與人過世，繼承人還能撤銷贈與嗎？113年律師二試民法申論題" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <p class="links"><a href="https://youtu.be/pyq1gq6To9M" target="_blank" rel="noopener">在 YouTube 觀看（3分25秒）</a></p>
+  <p class="count">影片依序示範：主播介紹、整題讀一遍並逐句畫出事實、故事圖、關係圖、第412條、第1148條、第412條與第416條比較表、第417條例外、111台上1900的撤銷權分類、時間軸涵攝、三個易錯點，最後把擬答從頭看一遍。</p>
+</section>
+
+<section id="relation">
+  <h2>關係與時間：負擔履行到什麼時候？</h2>
+  <div class="relation-wrap">
+    <svg viewBox="0 0 640 260" role="img" aria-labelledby="relT relD">
+      <title id="relT">丙、戊、庚的關係與負擔期間</title>
+      <desc id="relD">丙戊為夫妻且無子女，戊把B地贈與外甥庚，約定C屋使用B地到丙戊都過世。戊過世後庚才訴請拆屋，負擔尚未履行完畢，丙為戊之繼承人。</desc>
+      <g font-family="Noto Sans TC">
+      <rect x="40" y="20" width="90" height="48" rx="8" fill="#e2f8f6" stroke="#2EC4B6" stroke-width="2"/>
+      <text x="85" y="50" text-anchor="middle" font-family="Noto Serif TC" font-weight="700" font-size="18" fill="#16233b">丙</text>
+      <rect x="230" y="20" width="90" height="48" rx="8" fill="#f1f1f1" stroke="#FF6FB5" stroke-width="2"/>
+      <text x="275" y="44" text-anchor="middle" font-family="Noto Serif TC" font-weight="700" font-size="18" fill="#16233b">戊</text>
+      <text x="275" y="61" text-anchor="middle" font-size="11" fill="#8a8f98">已過世</text>
+      <line x1="130" y1="44" x2="230" y2="44" stroke="#16233b" stroke-width="2"/>
+      <text x="180" y="36" text-anchor="middle" font-size="11" fill="#16233b">配偶（繼承人）</text>
+      <rect x="470" y="20" width="90" height="48" rx="8" fill="#fff6d6" stroke="#FFC93C" stroke-width="2"/>
+      <text x="515" y="50" text-anchor="middle" font-family="Noto Serif TC" font-weight="700" font-size="18" fill="#16233b">庚</text>
+      <path d="M320,44 L470,44" stroke="#C98A00" stroke-width="2" stroke-dasharray="6 4"/>
+      <text x="395" y="36" text-anchor="middle" font-size="11" fill="#a07000">外甥；受贈B地</text>
+      <line x1="40" y1="160" x2="610" y2="160" stroke="#118AB2" stroke-width="3"/>
+      <path d="M600,152 L612,160 L600,168" fill="none" stroke="#118AB2" stroke-width="3"/>
+      <line x1="70" y1="150" x2="70" y2="170" stroke="#118AB2" stroke-width="3"/><text x="70" y="140" text-anchor="middle" font-size="12" fill="#16233b">贈與＋約定</text>
+      <line x1="250" y1="150" x2="250" y2="170" stroke="#118AB2" stroke-width="3"/><text x="250" y="140" text-anchor="middle" font-size="12" fill="#16233b">戊過世</text>
+      <circle cx="340" cy="160" r="8" fill="#E63946"/><text x="340" y="140" text-anchor="middle" font-size="12" fill="#E63946">庚訴請拆屋</text>
+      <line x1="560" y1="150" x2="560" y2="170" stroke="#8a8f98" stroke-width="3" stroke-dasharray="3 3"/><text x="560" y="140" text-anchor="middle" font-size="12" fill="#8a8f98">丙過世（未來）</text>
+      <rect x="70" y="185" width="490" height="16" rx="6" fill="#FF9F1C55" stroke="#FF9F1C"/>
+      <text x="315" y="225" text-anchor="middle" font-size="12" fill="#b86b00">負擔期間：C屋可使用B地，到丙、戊都過世為止</text>
+      </g>
+    </svg>
+  </div>
+  <p class="relation-note">庚是在戊<strong>死後</strong>才不履行負擔，這時契約還有義務沒履行完，所以重點是：繼承人丙能不能接手這個撤銷權？</p>
+</section>
+
+<section id="laws">
+  <h2>本題用到的條文</h2>
+  <p class="count">先看核心條文。原文中畫底線的部分，就是本題用到的那一句。</p>
+  <div class="lawcard">
+    <p class="no">民法第412條：附負擔贈與的撤銷</p>
+    <p class="orig"><mark>贈與附有負擔者，如贈與人已為給付而受贈人不履行其負擔時，贈與人得請求受贈人履行其負擔，或撤銷贈與。</mark>負擔以公益為目的者，於贈與人死亡後，主管機關或檢察官得請求受贈人履行其負擔。</p>
+    <p><span class="lbl">白話</span>送東西時附了條件（負擔），對方拿到東西卻不照條件做，送的人可以要求他做，或乾脆撤銷贈與。</p>
+    <p><span class="lbl">例子</span>阿姨把地送外甥，條件是讓姨丈住到老；外甥要趕姨丈走，就是不履行負擔。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第416條：受贈人忘恩負義</p>
+    <p class="orig">受贈人對於贈與人，有左列情事之一者，贈與人得撤銷其贈與：一、對於贈與人、其配偶、直系血親、三親等內旁系血親或二親等內姻親，<mark>有故意侵害之行為，依刑法有處罰之明文者</mark>。二、<mark>對於贈與人有扶養義務而不履行者</mark>。前項撤銷權，自贈與人知有撤銷原因之時起，一年內不行使而消滅。<mark>贈與人對於受贈人已為宥恕之表示者，亦同。</mark></p>
+    <p><span class="lbl">白話</span>受贈人傷害贈與人或其家人，或該扶養卻不扶養，贈與人可以撤銷。但贈與人原諒了，撤銷權就消滅。</p>
+    <p><span class="lbl">例子</span>爸爸把房子送兒子，兒子後來打傷爸爸；爸爸要不要撤銷、要不要原諒，只有爸爸能決定。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第417條：第416條的例外</p>
+    <p class="orig">受贈人因故意不法之行為，<mark>致贈與人死亡或妨礙其為贈與之撤銷者，贈與人之繼承人，得撤銷其贈與</mark>。但其撤銷權自知有撤銷原因之時起，六個月間不行使而消滅。</p>
+    <p><span class="lbl">白話</span>只有在受贈人害死贈與人、或阻止他撤銷時，繼承人才能撤銷。立法者特別寫這個例外，表示第416條的撤銷權原則上不能繼承。</p>
+    <p><span class="lbl">例子</span>兒子把爸爸殺害，爸爸已無法撤銷，其他繼承人可以撤銷那筆贈與。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1148條第1項：繼承的範圍</p>
+    <p class="orig">繼承人自繼承開始時，除本法另有規定外，<mark>承受被繼承人財產上之一切權利、義務</mark>。但<mark>權利、義務專屬於被繼承人本身者，不在此限</mark>。</p>
+    <p><span class="lbl">白話</span>繼承人原則上接手死者所有財產上的權利義務，只有「專屬本人」的不能接手。</p>
+    <p><span class="lbl">例子</span>死者的存款、債務都會繼承；但死者自己才能決定要不要原諒別人這種權利，不會傳給繼承人。</p>
+  </div>
+  <details class="more">
+    <summary>其他用到的條文（點開）</summary>
+    <div class="lawcard">
+      <p class="no">民法第413條、第414條：附負擔贈與像有償契約</p>
+      <p class="orig">第413條：附有負擔之贈與，<mark>其贈與不足償其負擔者，受贈人僅於贈與之價值限度內，有履行其負擔之責任</mark>。第414條：附有負擔之贈與，其贈與之物或權利如有瑕疵，<mark>贈與人於受贈人負擔之限度內，負與出賣人同一之擔保責任</mark>。</p>
+      <p><span class="lbl">白話</span>附負擔的贈與，雙方都有義務，法律讓它準用買賣的規則，所以最高法院說它「類如雙務、有償契約」。</p>
+    </div>
+    <div class="lawcard">
+      <p class="no">民法第419條：撤銷的方法</p>
+      <p class="orig"><mark>贈與之撤銷，應向受贈人以意思表示為之。</mark>贈與撤銷後，贈與人得依關於不當得利之規定，請求返還贈與物。</p>
+      <p><span class="lbl">白話</span>丙寄撤銷通知給庚就可以，不必先打官司；撤銷後可以要求返還B地。</p>
+    </div>
+    <div class="lawcard">
+      <p class="no">民法第1138條：繼承人的順序</p>
+      <p class="orig">遺產繼承人，<mark>除配偶外</mark>，依左列順序定之：一、直系血親卑親屬。二、父母。三、兄弟姊妹。四、祖父母。</p>
+      <p><span class="lbl">白話</span>配偶丙一定是繼承人。戊沒有子女；題目沒有交代戊的父母、兄弟姊妹是否在世。</p>
+    </div>
+    <p class="count">以上條文均依全國法規資料庫現行條文核對（2026-11-14）。</p>
+  </details>
+</section>
+
+<section id="compare-table">
+  <h2>比較表：兩種撤銷贈與</h2>
+  <div class="table-wrap"><table>
+    <tr><th>比較</th><th>第412條 附負擔贈與</th><th>第416條 忘恩負義</th></tr>
+    <tr><td>撤銷理由</td><td>受贈人沒照約定做</td><td>受贈人傷害贈與人或其家人、不扶養贈與人</td></tr>
+    <tr><td>看什麼</td><td>客觀上有沒有履行，像交易</td><td>贈與人被背叛的感受</td></tr>
+    <tr><td>能否原諒而消滅</td><td>條文沒有規定</td><td>可以，宥恕就消滅（第2項）</td></tr>
+    <tr><td>能否由繼承人行使</td><td><strong>可以</strong>（111台上1900）</td><td><strong>原則不行</strong>；只有第417條情形例外</td></tr>
+  </table></div>
+  <p>最高法院111年度台上字第1900號判決把撤銷權分成兩類：</p>
+  <div class="table-wrap"><table>
+    <tr><th>可以繼承</th><th>專屬本人，不能繼承</th></tr>
+    <tr><td>暴利行為（§74）、錯誤（§88）、傳達錯誤（§89）、被詐欺或脅迫（§92）、詐害債權（§244）、<strong>附負擔贈與（§412）</strong></td><td>忘恩負義（§416）、受贈人害死贈與人等（§417，繼承人自己取得的權利）</td></tr>
+  </table></div>
+  <p class="count">判斷標準：這個撤銷權是不是因雙方特殊關係而產生、或涉及公益。是，就專屬本人；不是，就可以繼承。</p>
+</section>
+
+<section id="map">
+  <h2>答題地圖</h2>
+  <div class="map">丙得撤銷戊、庚間B地之贈與契約
+一、系爭約定為附負擔之贈與
+  定義（32上2575）→ 容忍C屋使用B地是負擔
+  依題意已給付 → 戊死後庚可歸責不履行 → §412Ⅰ
+二、撤銷權得否由丙繼承
+  （一）§1148Ⅰ：原則繼承，專屬者除外；丙為配偶
+  （二）§416專屬（宥恕、§417例外）
+  （三）§412非專屬（§413、§414；111台上1900）
+三、結論：§412Ⅰ、§1148Ⅰ，以意思表示撤銷（§419Ⅰ）</div>
+  <p class="count">標號層次：一、→（一）→1.。第一行直接寫結論，不再加題號「（二）」。</p>
+</section>
+
+<section id="official">
+  <h2>考選部評分要點與閱卷委員的話</h2>
+  <div class="table-wrap"><table>
+    <tr><th>評分要點</th><th>內容</th></tr>
+    <tr><td>1. 繼承之範圍</td><td>依第1138條戊之繼承人為丙；第1148條第1項承受財產上一切權利義務，但專屬者不在此限。</td></tr>
+    <tr><td>2. 附負擔贈與撤銷權</td><td>(1) 附負擔贈與之定義與第412條第1項撤銷（32上2575）。(2) 撤銷權不具專屬性：負擔與對價相似，類如雙務、有償契約（第413、414條）；贈與人生前未行使，或受贈人於贈與人死後始不履行，繼承人概括繼承贈與契約之權利義務，得撤銷（111台上1900）。</td></tr>
+    <tr><td>3. 結論</td><td>丙對庚行使撤銷贈與契約權利，為有理由。</td></tr>
+  </table></div>
+  <img class="crop" src="../assets/exam-113-civil-q1-2-scoring.png" alt="考選部113年評分要點第3至4頁節錄：第一題第（二）子題">
+  <p>閱卷委員的話：</p>
+  <ul>
+    <li>多數考生有提到第412條附負擔贈與，值得肯定。</li>
+    <li><strong>不少考生沒有討論受贈人在贈與人死後才不履行負擔、撤銷權並非專屬而可由繼承人丙行使</strong>（111台上1900），影響得分。</li>
+    <li>部分考生分析債權物權化、契約附保護第三人作用等周邊議題，沒有切中考點。</li>
+  </ul>
+  <img class="crop" src="../assets/exam-113-civil-q1-2-comments.png" alt="考選部113年評分要點第6頁閱卷委員的話節錄：第一題第（二）子題">
+  <p class="count">來源：考選部〈113年司法官、律師考試第二試法律專業科目評分要點與閱卷委員的話〉民法與民事訴訟法（一）第3、4、6頁，已轉成圖片逐頁核對。</p>
+</section>
+
+<section id="answer">
+  <h2>擬答</h2>
+  <div class="ainote">AI擬答，待教師驗證。擬答由兩個AI（Claude、Codex）各寫一版，結論相同，合併後依考選部評分要點定稿。條文已依全國法規資料庫核對，判決已開全文核對。</div>
+  <div class="card answer">
+    <h3>丙得撤銷戊、庚間B地之贈與契約。</h3>
+    <p class="h2">一、系爭約定為附負擔之贈與</p>
+    <p>附負擔之贈與，係贈與契約附有約款，使受贈人負擔應為一定給付之債務（32上2575）。戊將B地贈與庚，同時約定庚應容忍C屋使用B地至丙、戊終老，非單純贈與動機，屬附負擔之贈與。依題意戊已為給付；戊死後丙尚生存，負擔未履行完畢，庚旋即訴請拆屋還地，係可歸責地不履行其負擔，贈與人得依民法第412條第1項撤銷贈與。</p>
+    <p class="h2">二、撤銷權得否由丙繼承</p>
+    <p class="h3">（一）繼承人自繼承開始時，承受被繼承人財產上之一切權利義務，但專屬於被繼承人本身者，不在此限（第1148條第1項）。戊無子女，丙為其配偶，為繼承人（第1138條）。</p>
+    <p class="h3">（二）第416條之撤銷權因受贈人忘恩行為而生，並得因宥恕而消滅，具高度屬人性；繼承人僅於第417條情形始得撤銷，故屬專屬權。</p>
+    <p class="h3">（三）<span class="concl">附負擔之贈與，受贈人負有一定給付義務，類似有償契約（第413條、第414條）；第412條之撤銷，祇須受贈人就負擔之不履行有可歸責事由，無贈與人人格因素之考量，非專屬權。</span>受贈人於贈與人死後始不履行負擔者，繼承人概括承受贈與契約之權利義務，非僅繼承生前已發生之撤銷權，得撤銷贈與（111台上1900）。</p>
+    <p class="h2">三、結論</p>
+    <p>丙得依第412條第1項、第1148條第1項，向庚以意思表示撤銷贈與（第419條第1項）。</p>
+  </div>
+  <p class="count">擬答538字（含標題、標點與數字，不含空白，以程式計算）。</p>
+</section>
+
+<section id="limit">
+  <h2>字數上限：為什麼是561字</h2>
+  <div class="table-wrap"><table>
+    <tr><th>項目</th><th>數字</th></tr>
+    <tr><td>本小題可用時間</td><td>120分鐘 × 25/150 ＝ 20分鐘</td></tr>
+    <tr><td>讀題</td><td>約3分鐘，實際作答約17分鐘</td></tr>
+    <tr><td>打字速度</td><td>一般人中文打字約每分鐘33字（粗估）</td></tr>
+    <tr><td>上限</td><td>17分鐘 × 每分鐘約33字 ＝ 561字</td></tr>
+  </table></div>
+</section>
+
+<section id="compare">
+  <h2>互動：換一種撤銷理由，丙還能撤銷嗎？</h2>
+  <p>同樣是戊死後，換成不同的撤銷理由，結果不同。<strong>先自己想想，再點。</strong></p>
+  <div class="tabs" role="tablist">
+    <button type="button" class="tab" role="tab" id="tA" aria-selected="true" aria-controls="pane">本題：庚不履行負擔</button>
+    <button type="button" class="tab" role="tab" id="tB" aria-selected="false" aria-controls="pane">假設：庚生前打傷戊</button>
+    <button type="button" class="tab" role="tab" id="tC" aria-selected="false" aria-controls="pane">假設：庚故意害死戊</button>
+  </div>
+  <div class="card" id="pane" role="tabpanel" aria-live="polite"></div>
+  <p class="count">後兩個分頁是本頁為了對照所做的假設與推論，不是考選部評分要點的內容。<span class="own">本頁推論</span></p>
+</section>
+
+<section id="cases">
+  <h2>實務見解</h2>
+  <div class="table-wrap"><table>
+    <tr><th>字號</th><th>重點</th><th>怎麼用</th></tr>
+    <tr><td>最高法院32年上字第2575號判決（原為判例，效力同一般最高法院判決）</td><td>附有負擔之贈與，係指贈與契約附有約款，使受贈人負擔應為一定給付之債務；必其贈與契約附有此項約款，而受贈人於贈與人已為給付後不履行其負擔時，贈與人始得依第412條第1項撤銷贈與。</td><td>附負擔贈與的定義。法令判解系統核對。</td></tr>
+    <tr><td><a href="https://judgment.judicial.gov.tw/FJUD/data.aspx?ty=JD&amp;id=TPSV%2c111%2c%e5%8f%b0%e4%b8%8a%2c1900%2c20240417%2c1" target="_blank" rel="noopener">最高法院111年度台上字第1900號民事判決</a>（113年4月17日，部分廢棄發回）</td><td>最高法院自己整理撤銷權的繼承性：暴利、錯誤、誤傳、詐欺脅迫、詐害債權之撤銷權可繼承；第416條撤銷權高度屬人性、第417條為例外，均專屬；第412條附負擔贈與之撤銷「並無贈與人個人之人格因素考量」，贈與人生前未及行使或受贈人於贈與人死後始不履行負擔，繼承人概括繼承贈與契約之權利義務，即非不得撤銷。案情與本題幾乎相同（姪子受贈土地、允諾讓嬸嬸夫妻住到終老）。</td><td>本題核心依據。另提醒：須先釐清是附負擔贈與，還是另成立使用借貸。發回後更審（113年度上更一字第15號）調解成立，不能說最後撤銷成功。</td></tr>
+  </table></div>
+  <p class="count">111台上1900 已在司法院裁判書系統開全文並核對右側歷審（2026-11-14）；原文載有當事人姓名，本頁只用身分稱呼。</p>
+</section>
+
+<section id="pitfalls">
+  <h2>預想易錯點</h2>
+  <p class="count">以下是批改前預想的錯誤，還不是學生實際作答的統計。</p>
+  <div class="table-wrap"><table>
+    <tr><th>可能的錯誤</th><th>應該怎麼寫</th></tr>
+    <tr><td>只寫「是附負擔贈與，可以撤銷」</td><td>撤銷權是戊的，戊已過世；一定要討論能不能由丙繼承（閱卷委員點名）。</td></tr>
+    <tr><td>把第412條當成第416條，說撤銷權專屬、不能繼承</td><td>第416條才是專屬；第412條無人格因素，可以繼承。</td></tr>
+    <tr><td>寫債權物權化、契約附保護第三人作用</td><td>閱卷委員說偏離考點。</td></tr>
+    <tr><td>只說「繼承了戊生前的撤銷權」</td><td>庚是在戊死後才不履行，撤銷權在戊生前根本還沒發生；要寫丙概括承受整個契約。</td></tr>
+  </table></div>
+</section>
+
+<section id="think">
+  <h2>延伸思考</h2>
+  <div class="card">1. 如果戊的兄弟姊妹（庚的父母）還在世，他們和丙一起繼承，丙能不能一個人撤銷？（提示：第1151條遺產公同共有）<span class="own">本頁設問</span></div>
+  <div class="card">2. 如果戊和庚之間不是附負擔贈與，而是另外約定「免費借地給C屋使用到終老」（使用借貸），丙還能撤銷贈與嗎？可以改主張什麼？<span class="own">本頁設問</span></div>
+</section>
+
+<section id="refs">
+  <h2>參考資料</h2>
+  <ul>
+    <li>民法<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=412" target="_blank" rel="noopener">第412條</a>、<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=413" target="_blank" rel="noopener">第413條</a>、<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=414" target="_blank" rel="noopener">第414條</a>、<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=416" target="_blank" rel="noopener">第416條</a>、<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=417" target="_blank" rel="noopener">第417條</a>、<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=419" target="_blank" rel="noopener">第419條</a>、<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=1138" target="_blank" rel="noopener">第1138條</a>、<a href="https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=B0000001&amp;flno=1148" target="_blank" rel="noopener">第1148條</a>（全國法規資料庫，現行條文）</li>
+    <li>考選部113年司法官、律師考試第二試評分要點與閱卷委員的話，民法與民事訴訟法（一）第3、4、6頁</li>
+    <li>最高法院32年上字第2575號判決、111年度台上字第1900號民事判決（見上方實務見解）</li>
+  </ul>
+</section>
+
+<section>
+  <h2>歡迎指正</h2>
+  <div class="note">這是AI擬答，待教師驗證，不是考選部公布的標準答案。如果你有不同看法，或發現錯誤，歡迎來信指正：<a href="mailto:mjib007@gmail.com">mjib007@gmail.com</a>。</div>
+</section>
+
+<section>
+  <h2>相關連結</h2>
+  <p class="links">
+    <a href="../index.html">民法講義總覽</a>
+    <a href="exam-113-lawyer-civil-q1-1.html">同一題第（一）小題：詐害債權撤銷</a>
+    <a href="exam-113-lawyer-civil-q1-3.html">同一題第（三）小題：袋地通行權與權利瑕疵</a>
+    <a href="https://github.com/mjib007/civil-law-interpretation" target="_blank" rel="noopener">GitHub 原始檔</a>
+  </p>
+</section>
+
+<footer>
+  作者：錢世傑，在中正大學高階法律碩士在職專班、中原大學法律系、輔仁大學法律系、高雄空中大學法律系、中央大學資管系講授AI、AI Agent等課程。聯絡：mjib007@gmail.com｜臉書：<a href="https://www.facebook.com/mjib007" target="_blank" rel="noopener">facebook.com/mjib007</a><br>
+  本頁為教學用整理，不構成個案法律意見。
+</footer>
+
+</main>
+<script>
+(function () {
+  var data = {
+    tA: [
+      ['撤銷依據', '第412條第1項：受贈人不履行負擔。'],
+      ['專屬嗎', '<span class="verdict yes">不專屬</span>　沒有贈與人人格因素（111台上1900）。'],
+      ['丙能撤銷嗎', '<span class="verdict yes">可以</span>　丙概括承受贈與契約（第1148條第1項）。']
+    ],
+    tB: [
+      ['撤銷依據', '第416條第1項第1款：受贈人故意侵害贈與人。'],
+      ['專屬嗎', '<span class="verdict no">專屬</span>　要不要原諒只有戊能決定；戊生前沒撤銷就過世。'],
+      ['丙能撤銷嗎', '<span class="verdict no">原則不能</span>　不能繼承第416條的撤銷權。']
+    ],
+    tC: [
+      ['撤銷依據', '第417條：受贈人故意不法致贈與人死亡。'],
+      ['專屬嗎', '這是法律直接給繼承人的權利，不是從戊繼承來的。'],
+      ['丙能撤銷嗎', '<span class="verdict yes">可以</span>　但須自知有撤銷原因時起6個月內行使。']
+    ]
+  };
+  var pane = document.getElementById('pane');
+  var tabs = ['tA', 'tB', 'tC'].map(function (i) { return document.getElementById(i); });
+  function show(id) {
+    tabs.forEach(function (t) { t.setAttribute('aria-selected', t.id === id ? 'true' : 'false'); });
+    pane.innerHTML = '<ul class="steps">' + data[id].map(function (r) {
+      return '<li><span class="k">' + r[0] + '</span><span>' + r[1] + '</span></li>';
+    }).join('') + '</ul>';
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.id); }); });
+  show('tA');
+})();
+</script>
+</body>
+</html>
