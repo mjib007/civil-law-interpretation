@@ -76,6 +76,14 @@
   @media (max-width:600px){ .cover h1{font-size:1.6rem;} table{font-size:.85rem;} th,td{padding:7px 8px;} .card{padding:16px 16px;} .map{font-size:.9rem; padding:14px; white-space:pre-wrap;} .steps li{grid-template-columns:1fr;} }
   .verdict.yes{color:var(--green); border:2px solid var(--green);}
   .crop{display:block; width:100%; border:1px solid var(--border); border-radius:8px; margin:8px 0;}
+  .lawcard{background:var(--card); border:1px solid var(--border); border-left:4px solid var(--indigo); border-radius:10px; padding:16px 20px; margin-bottom:16px;}
+  .lawcard .no{font-family:"Noto Serif TC",serif; font-weight:700; color:var(--indigo); margin:0 0 6px;}
+  .lawcard .orig{font-family:"Noto Serif TC",serif; background:#f6f1e6; border-radius:6px; padding:8px 12px; margin:0 0 8px;}
+  .lawcard .orig mark{background:linear-gradient(transparent 55%, rgba(169,131,47,.35) 55%); color:inherit;}
+  .lawcard p{margin:4px 0;}
+  .lbl{display:inline-block; font-size:.78rem; font-weight:700; color:var(--paper-inner); background:var(--indigo); border-radius:4px; padding:0 6px; margin-right:6px;}
+  details.more{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:10px 18px;}
+  details.more summary{cursor:pointer; font-weight:700; color:var(--indigo);}
 </style>
 </head>
 <body>
@@ -156,6 +164,51 @@
   <div class="card"><strong>表示失權</strong>（民法第1145條第1項第5款）：繼承人對被繼承人有重大虐待或侮辱，而且被繼承人說了「你不能繼承」，這個人就失去繼承權。兩個條件缺一不可。例如：兒子長年不探望臥病的父親，父親生前對親友說「我的財產不給他」。</div>
   <div class="card"><strong>代位繼承</strong>（民法第1140條）：子女在繼承開始前死亡或喪失繼承權，由他的子女頂替他的位置，繼承他本來那一份。例如：丁失去繼承權，丁的兒子辛就站到丁的位置，拿丁那一份。</div>
   <p>本題的關鍵是第二個條件：甲是在<strong>代筆遺囑</strong>裡說的，而遺囑少了一位見證人簽名，無效（民法第1194條）。那句話還算不算數？</p>
+</section>
+
+<section id="laws">
+  <h2>本題用到的條文</h2>
+  <p class="count">先看核心條文。原文中畫底線的部分，就是本題用到的那一句。</p>
+
+  <div class="lawcard">
+    <p class="no">民法第1145條第1項第5款：表示失權</p>
+    <p class="orig">有左列各款情事之一者，喪失其繼承權：……五、<mark>對於被繼承人有重大之虐待或侮辱情事</mark>，<mark>經被繼承人表示其不得繼承者</mark>。</p>
+    <p><span class="lbl">白話</span>兩個條件都要有：一是重大虐待或侮辱，二是被繼承人說了「你不能繼承」。條文沒有規定要用什麼方式說。</p>
+    <p><span class="lbl">例子</span>丁辱罵甲、甲重病也不探望（重大虐待）；甲在遺囑裡寫不讓丁繼承（表示）。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1194條：代筆遺囑的方式</p>
+    <p class="orig">代筆遺囑，由遺囑人指定三人以上之見證人，由遺囑人口述遺囑意旨，使見證人中之一人筆記、宣讀、講解，經遺囑人認可後，記明年、月、日及代筆人之姓名，<mark>由見證人全體及遺囑人同行簽名</mark>，遺囑人不能簽名者，應按指印代之。</p>
+    <p><span class="lbl">白話</span>代筆遺囑要全部見證人都簽名，少一個，遺囑就無效。</p>
+    <p><span class="lbl">例子</span>本題少了一位見證人簽名，所以遺囑無效；爭點是遺囑裡「不讓丁繼承」那句話還算不算。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1140條：代位繼承</p>
+    <p class="orig">第一千一百三十八條所定第一順序之繼承人，有於繼承開始前死亡或<mark>喪失繼承權</mark>者，<mark>由其直系血親卑親屬代位繼承其應繼分</mark>。</p>
+    <p><span class="lbl">白話</span>子女先死或失去繼承權，由他的子女頂替他那一份。</p>
+    <p><span class="lbl">例子</span>丁喪失繼承權，丁的兒子辛代位繼承丁那一份。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1144條第1款：配偶的應繼分</p>
+    <p class="orig">配偶有相互繼承遺產之權，其應繼分，依左列各款定之：一、<mark>與第一千一百三十八條所定第一順序之繼承人同為繼承時，其應繼分與他繼承人平均</mark>。……</p>
+    <p><span class="lbl">白話</span>配偶和子女一起繼承時，大家平分。</p>
+    <p><span class="lbl">例子</span>乙和辛（或採第一說時的丁）各750萬元。</p>
+  </div>
+
+  <details class="more">
+    <summary>其他用到的條文（點開）</summary>
+    <div class="lawcard">
+    <p class="no">民法第1138條：繼承人順序</p>
+    <p class="orig">遺產繼承人，<mark>除配偶外</mark>，依左列順序定之：一、<mark>直系血親卑親屬</mark>。二、父母。三、兄弟姊妹。四、祖父母。</p>
+    <p><span class="lbl">白話</span>配偶乙一定是繼承人；第一順序是子女。媳婦戊是姻親，不在名單上。</p>
+    </div>
+    <div class="lawcard">
+    <p class="no">民法第1145條第2項：宥恕</p>
+    <p class="orig">前項第二款至第四款之規定，如經被繼承人宥恕者，其繼承權不喪失。</p>
+    <p><span class="lbl">白話</span>條文只規定第2款至第4款可因宥恕而不喪失；第5款本來就取決於被繼承人有沒有表示不得繼承。</p>
+    </div>
+    <p class="count">以上條文均依全國法規資料庫現行條文核對（2026-11-14）。</p>
+  </details>
 </section>
 
 <section id="map">

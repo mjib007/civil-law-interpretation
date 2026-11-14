@@ -76,6 +76,14 @@
   @media (max-width:600px){ .cover h1{font-size:1.6rem;} table{font-size:.85rem;} th,td{padding:7px 8px;} .card{padding:16px 16px;} .map{font-size:.9rem; padding:14px; white-space:pre-wrap;} .steps li{grid-template-columns:1fr;} }
   .verdict.yes{color:var(--green); border:2px solid var(--green);}
   .crop{display:block; width:100%; border:1px solid var(--border); border-radius:8px; margin:8px 0;}
+  .lawcard{background:var(--card); border:1px solid var(--border); border-left:4px solid var(--indigo); border-radius:10px; padding:16px 20px; margin-bottom:16px;}
+  .lawcard .no{font-family:"Noto Serif TC",serif; font-weight:700; color:var(--indigo); margin:0 0 6px;}
+  .lawcard .orig{font-family:"Noto Serif TC",serif; background:#f6f1e6; border-radius:6px; padding:8px 12px; margin:0 0 8px;}
+  .lawcard .orig mark{background:linear-gradient(transparent 55%, rgba(169,131,47,.35) 55%); color:inherit;}
+  .lawcard p{margin:4px 0;}
+  .lbl{display:inline-block; font-size:.78rem; font-weight:700; color:var(--paper-inner); background:var(--indigo); border-radius:4px; padding:0 6px; margin-right:6px;}
+  details.more{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:10px 18px;}
+  details.more summary{cursor:pointer; font-weight:700; color:var(--indigo);}
 </style>
 </head>
 <body>
@@ -156,6 +164,90 @@
   <div class="card"><strong>撫育視為認領</strong>（民法第1065條第1項後段）：沒有結婚生下的孩子，生父如果以父親的身分照顧、養育他，法律就當作生父已經認領。不用另外辦手續。例如：男友知道女友懷孕，按月給生活費、陪產檢，還寫好孩子跟他姓，就是以父親自居在養育孩子。</div>
   <div class="card"><strong>出養的父母同意</strong>（民法第1076條之1）：孩子要給別人收養，原則上要經過親生父母雙方同意。例如：媽媽想把孩子給哥哥嫂嫂養，已經認領孩子的爸爸也要同意。</div>
   <div class="card"><strong>酌定親權</strong>（民法第1069條之1準用第1055條）：爸媽不住在一起，誰來照顧孩子、替孩子做決定，談不攏就請法院決定。法院看的是孩子的最佳利益，不是誰先提出聲請。例如：分手後兩人都想帶孩子，法院會看誰比較能照顧、孩子跟誰比較親。</div>
+</section>
+
+<section id="laws">
+  <h2>本題用到的條文</h2>
+  <p class="count">先看核心條文。原文中畫底線的部分，就是本題用到的那一句。</p>
+
+  <div class="lawcard">
+    <p class="no">民法第1065條：認領與撫育</p>
+    <p class="orig"><mark>非婚生子女經生父認領者，視為婚生子女。其經生父撫育者，視為認領。</mark>非婚生子女與其生母之關係，視為婚生子女，無須認領。</p>
+    <p><span class="lbl">白話</span>沒結婚生的孩子，媽媽不用做什麼就是法律上的媽媽；爸爸要「認領」才是。爸爸如果以父親身分照顧、養育孩子（撫育），法律就當作已經認領。</p>
+    <p><span class="lbl">例子</span>庚知道丁懷孕，定期給生活費、照顧母子，還約定孩子跟他姓，就是撫育，視為認領。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1069條：認領溯及出生</p>
+    <p class="orig"><mark>非婚生子女認領之效力，溯及於出生時。</mark>但第三人已得之權利，不因此而受影響。</p>
+    <p><span class="lbl">白話</span>認領的效果往回算到孩子出生那天，所以從辛出生起，庚就是法律上的爸爸。</p>
+    <p><span class="lbl">例子</span>丁在辛1歲後出養時，庚早已是爸爸，和丁一起是辛的法定代理人（第1086條）。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1076條之2：未滿7歲由法定代理人代為</p>
+    <p class="orig"><mark>被收養者未滿七歲時，應由其法定代理人代為並代受意思表示。</mark>滿七歲以上之未成年人被收養時，應得其法定代理人之同意。被收養者之父母已依前二項規定以法定代理人之身分代為並代受意思表示或為同意時，得免依前條規定為同意。</p>
+    <p><span class="lbl">白話</span>孩子太小，收養契約由法定代理人替他簽。父母若已經用法定代理人身分簽了，就不用再另外表示「同意」。</p>
+    <p><span class="lbl">例子</span>辛1歲，要由法定代理人丁、庚一起替他簽；只有丁簽，就少了庚。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1076條之1第1項：父母同意</p>
+    <p class="orig"><mark>子女被收養時，應得其父母之同意。</mark>但有下列各款情形之一者，不在此限：一、父母之一方或雙方對子女未盡保護教養義務或有其他顯然不利子女之情事而拒絕同意。二、父母之一方或雙方事實上不能為意思表示。</p>
+    <p><span class="lbl">白話</span>孩子要給別人收養，原則上親生父母都要同意。評分要點說：不論庚是不是法定代理人，都要得到庚同意。</p>
+    <p><span class="lbl">例子</span>庚沒有虐待或不管辛，也不是不能表示意見，不符合但書，所以一定要他同意。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1079條之4（節錄）：違反就無效</p>
+    <p class="orig">收養子女，違反……<mark>第一千零七十六條之一、第一千零七十六條之二第一項</mark>……之規定者，<mark>無效</mark>。</p>
+    <p><span class="lbl">白話</span>少了父母同意、或該由法定代理人簽卻沒簽，收養直接無效；法院也應不予認可（第1079條第2項）。</p>
+    <p><span class="lbl">例子</span>丁一個人把辛出養給丙、戊，契約無效。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1069條之1：認領後準用離婚的親權規定</p>
+    <p class="orig">非婚生子女經認領者，關於未成年子女權利義務之行使或負擔，<mark>準用第一千零五十五條、第一千零五十五條之一</mark>及第一千零五十五條之二之規定。</p>
+    <p><span class="lbl">白話</span>爸媽沒結婚、孩子被認領後，誰照顧孩子，比照離婚夫妻的規定處理。</p>
+    <p><span class="lbl">例子</span>丁、庚分手，談不攏誰照顧辛，庚可以請法院決定。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1055條第1項：協議或法院酌定</p>
+    <p class="orig">夫妻離婚者，對於未成年子女權利義務之行使或負擔，依協議由一方或雙方共同任之。<mark>未為協議或協議不成者，法院得依夫妻之一方</mark>、主管機關、社會福利機構或其他利害關係人之<mark>請求</mark>或依職權<mark>酌定之</mark>。</p>
+    <p><span class="lbl">白話</span>先讓爸媽自己談；談不成，一方可以請法院決定。</p>
+    <p><span class="lbl">例子</span>準用之後，庚就相當於條文裡的「夫妻之一方」，可以向法院請求酌定。</p>
+  </div>
+  <div class="lawcard">
+    <p class="no">民法第1055條之1第1項（節錄）：子女最佳利益</p>
+    <p class="orig">法院為前條裁判時，<mark>應依子女之最佳利益，審酌一切情狀</mark>，尤應注意下列事項：一、子女之年齡、性別、人數及健康情形。二、子女之意願及人格發展之需要。三、父母之年齡、職業、品行、健康情形、經濟能力及生活狀況。……</p>
+    <p><span class="lbl">白話</span>法院不是看誰先聲請，而是看怎樣對孩子最好，可能由一方或雙方一起負責。</p>
+    <p><span class="lbl">例子</span>庚請求了，法院也不一定判給庚。</p>
+  </div>
+
+  <details class="more">
+    <summary>其他用到的條文（點開）</summary>
+    <div class="lawcard">
+    <p class="no">民法第1073條之1：近親收養禁止</p>
+    <p class="orig">下列親屬不得收養為養子女：一、直系血親。二、直系姻親。但夫妻之一方，收養他方之子女者，不在此限。三、旁系血親在六親等以內及旁系姻親在五親等以內，<mark>輩分不相當者</mark>。</p>
+    <p><span class="lbl">白話</span>舅舅、舅媽比辛高一輩，輩分相當，不違反第3款。</p>
+    </div>
+    <div class="lawcard">
+    <p class="no">民法第1074條：夫妻共同收養</p>
+    <p class="orig"><mark>夫妻收養子女時，應共同為之。</mark>但有下列各款情形之一者，得單獨收養：一、夫妻之一方收養他方之子女。二、夫妻之一方不能為意思表示或生死不明已逾三年。</p>
+    <p><span class="lbl">白話</span>丙、戊一起收養，沒有問題。</p>
+    </div>
+    <div class="lawcard">
+    <p class="no">民法第1079條：書面與法院認可</p>
+    <p class="orig">收養應以書面為之，並向法院聲請認可。<mark>收養有無效、得撤銷之原因或違反其他法律規定者，法院應不予認可。</mark></p>
+    <p><span class="lbl">白話</span>收養無效，法院就不能認可。</p>
+    </div>
+    <div class="lawcard">
+    <p class="no">民法第1086條第1項：父母是法定代理人</p>
+    <p class="orig"><mark>父母為其未成年子女之法定代理人。</mark></p>
+    <p><span class="lbl">白話</span>庚認領後，丁、庚都是辛的法定代理人。</p>
+    </div>
+    <div class="lawcard">
+    <p class="no">民法第1089條第1項（節錄）：父母共同行使</p>
+    <p class="orig">對於未成年子女之權利義務，除法律另有規定外，<mark>由父母共同行使或負擔之</mark>。……</p>
+    <p><span class="lbl">白話</span>重要的事要爸媽一起決定，丁不能一個人替辛決定出養。</p>
+    </div>
+    <p class="count">以上條文均依全國法規資料庫現行條文核對（2026-11-14）。</p>
+  </details>
 </section>
 
 <section id="map">
