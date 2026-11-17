@@ -35,6 +35,8 @@
   .question li.today{color:var(--ink); font-weight:700; border:2px solid var(--brass); border-radius:8px; padding:6px 10px 6px calc(3em + 10px); background:rgba(169,131,47,.08);}
   .today-tag{display:inline-block; text-indent:0; font-size:.78rem; font-weight:700; color:#fff; background:var(--seal); border-radius:99px; padding:1px 10px; margin-left:6px;}
   .question .src{font-size:.85rem; color:var(--ink-45); margin-top:8px;}
+  .video{position:relative; width:100%; aspect-ratio:16/9; background:#12161f; border-radius:10px; overflow:hidden;}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
   .video-wait{border:2px dashed var(--border); border-radius:10px; padding:28px 20px; text-align:center; color:var(--ink-45); background:var(--card);}
   .relation-wrap{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:10px; overflow-x:auto;}
   .relation-wrap svg{width:100%; min-width:560px; height:auto; display:block; max-width:680px; margin:0 auto;}
@@ -115,7 +117,10 @@
 
 <section id="video">
   <h2>影片說明</h2>
-  <div class="video-wait">影片即將上傳（約4分37秒），上傳後會放在這裡。</div>
+  <div class="video">
+    <iframe src="https://www.youtube-nocookie.com/embed/rprX07iLaNU" title="銀行明知卻沒說，還能抵銷嗎？113年律師二試民法申論題" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <p class="links"><a href="https://youtu.be/rprX07iLaNU" target="_blank" rel="noopener">在 YouTube 觀看（4分37秒）</a></p>
   <p class="count">影片依序示範：主播介紹、整題讀一遍並逐句畫出事實、三角關係圖、學弟學姊說明三步順序、第905條第2項、時間軸、丁的兩個身分與第299條第2項、長條相抵、兩則最高法院判決、兩說比較、三個易錯點，最後把擬答從頭看一遍。</p>
 </section>
 
