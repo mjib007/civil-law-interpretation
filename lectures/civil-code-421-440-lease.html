@@ -132,6 +132,8 @@ mark{background:var(--accent);color:var(--ink)}
 <p id="report-summary"></p>
 <div class="score-grid" id="report-score-grid" aria-hidden="true"></div>
 <p id="report-corrections"></p>
+<h3>前測逐題結果</h3>
+<ul id="report-pretest"></ul>
 <p id="report-comparison"></p>
 <ul class="diagnosis-topics" id="report-topics"></ul>
 <h3>下一步怎麼複習</h3>
@@ -237,6 +239,16 @@ function showReport(attempts, correct) {
     ? '需要訂正：第' + missed.join('、') + '題。'
     : '六題全對。';
   document.getElementById('report-summary').textContent = '答對 ' + correct + '／' + attempts.length + ' 題。';
+  const pretestList = document.getElementById('report-pretest');
+  const pretestItems = [['pre-repair', '修繕費'], ['pre-sale', '六年租約未公證']];
+  pretestList.replaceChildren(...pretestItems.map(([name, topic], index) => {
+    const answer = document.querySelector('input[name="' + name + '"]:checked');
+    const row = document.createElement('li');
+    const status = answer ? (answer.value === '1' ? '答對' : '答錯') : '未作答';
+    row.textContent = '第' + (index + 1) + '題（' + topic + '）' + status;
+    if (status === '答錯') row.style.color = '#c61432';
+    return row;
+  }));
   const before = document.querySelector('input[name="pre-sale"]:checked');
   document.getElementById('report-comparison').textContent = before
     ? '同題觀念比較（六年租約未公證）：前測' + (before.value === '1' ? '答對' : '答錯') +
