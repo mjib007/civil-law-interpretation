@@ -118,7 +118,7 @@ mark{background:var(--accent);color:var(--ink)}
 <h2>六、六題練習與學習診斷</h2>
 <p>六題答完，報告會指出哪些觀念需要複習。</p>
 <form id="lease-quiz" novalidate>
-<fieldset data-topic="修繕" data-answer="1"><legend>１．出租人應修的漏水，限期催告後仍未修，房客可怎麼做？</legend><label><input required type="radio" name="q1" value="1"> 自行修繕後請求償還費用，或從租金扣除</label><label><input type="radio" name="q1" value="0"> 只能等租期屆滿</label><p hidden>第430條也容許在要件具備時終止契約。</p></fieldset>
+<fieldset data-topic="修繕" data-answer="1"><legend>１．房客第一次通知房東公寓漏水，可以直接把修理費從租金扣掉嗎？</legend><label><input required type="radio" name="q1" value="1"> 先確認由房東負擔修繕，再定相當期限催告</label><label><input type="radio" name="q1" value="0"> 只要通知過，就可以直接扣除</label><p hidden>依第430條，應由出租人負擔的修繕，經限期催告仍未修時，承租人得終止，或自行修繕後請求費用或從租金扣除。</p></fieldset>
 <fieldset data-topic="修繕" data-answer="0"><legend>２．因不可歸責於房客的事故，租賃物一部滅失，剩餘部分仍可達租賃目的。</legend><label><input required type="radio" name="q2" value="0"> 可按滅失部分請求減租</label><label><input type="radio" name="q2" value="1"> 可直接依第435條終止租約</label><p hidden>第435條區分一部滅失的減租與剩餘部分已不能達租賃目的的終止。</p></fieldset>
 <fieldset data-topic="租金" data-answer="0"><legend>３．房屋租金積欠僅一個月，出租人能否依第440條終止？</legend><label><input required type="radio" name="q3" value="0"> 尚未達房屋欠租總額門檻</label><label><input type="radio" name="q3" value="1"> 一遲延即得終止</label><p hidden>第440條對房屋欠租另有兩個月租額的限制，也要檢查催告及租金給付時點。</p></fieldset>
 <fieldset data-topic="房屋讓與" data-answer="1"><legend>４．已交屋、房客仍占有，屋主出售出租的房屋。六年租約未公證。</legend><label><input required type="radio" name="q4" value="0"> 一律適用第425條第1項</label><label><input type="radio" name="q4" value="1"> 須檢查第425條第2項的例外</label><p hidden>逾五年且未公證的不動產租約，落入第425條第2項。</p></fieldset>
@@ -132,9 +132,8 @@ mark{background:var(--accent);color:var(--ink)}
 <p id="report-summary"></p>
 <div class="score-grid" id="report-score-grid" aria-hidden="true"></div>
 <p id="report-corrections"></p>
-<h3>前測逐題結果</h3>
-<ul id="report-pretest"></ul>
-<p id="report-comparison"></p>
+<h3>前後測逐題對照</h3>
+<ul class="diagnosis-topics" id="report-pretest"></ul>
 <ul class="diagnosis-topics" id="report-topics"></ul>
 <h3>下一步怎麼複習</h3>
 <ol id="report-review"></ol>
@@ -240,20 +239,23 @@ function showReport(attempts, correct) {
     : '六題全對。';
   document.getElementById('report-summary').textContent = '答對 ' + correct + '／' + attempts.length + ' 題。';
   const pretestList = document.getElementById('report-pretest');
-  const pretestItems = [['pre-repair', '修繕費'], ['pre-sale', '六年租約未公證']];
-  pretestList.replaceChildren(...pretestItems.map(([name, topic], index) => {
+  const pretestItems = [['pre-repair', '修繕費與催告', 1], ['pre-sale', '六年租約未公證', 4]];
+  pretestList.replaceChildren(...pretestItems.map(([name, topic, postNumber], index) => {
     const answer = document.querySelector('input[name="' + name + '"]:checked');
     const row = document.createElement('li');
     const status = answer ? (answer.value === '1' ? '答對' : '答錯') : '未作答';
-    row.textContent = '第' + (index + 1) + '題（' + topic + '）' + status;
-    if (status === '答錯') row.style.color = '#c61432';
+    const title = document.createElement('strong');
+    title.textContent = topic;
+    const preResult = document.createElement('div');
+    preResult.textContent = '前測第' + (index + 1) + '題 · ' + status;
+    if (status === '答錯') preResult.style.color = '#c61432';
+    const postResult = document.createElement('div');
+    const postCorrect = attempts[postNumber - 1].matches;
+    postResult.textContent = '後測第' + postNumber + '題 · ' + (postCorrect ? '答對' : '答錯');
+    postResult.style.color = postCorrect ? 'var(--blue)' : '#c61432';
+    row.append(title, preResult, postResult);
     return row;
   }));
-  const before = document.querySelector('input[name="pre-sale"]:checked');
-  document.getElementById('report-comparison').textContent = before
-    ? '同題觀念比較（六年租約未公證）：前測' + (before.value === '1' ? '答對' : '答錯') +
-      '，第4題' + (attempts[3].matches ? '答對' : '答錯') + '。'
-    : '前測未選答房屋讓與題，本次僅顯示事後練習結果。';
   topicsList.replaceChildren();
   reviewList.replaceChildren();
   attempts.forEach((item, index) => {
