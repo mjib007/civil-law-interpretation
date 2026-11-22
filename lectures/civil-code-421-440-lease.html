@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>民法租賃｜修繕、租金與房屋讓與</title>
+<style>
+:root{color-scheme:light;--ink:#142b47;--soft:#637287;--blue:#205cba;--paper:#ffffff;--line:#dde5ee;--white:#ffffff;--wash:#f3f6fa;--accent:#d9f36b}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.7 "Noto Sans TC","Microsoft JhengHei",sans-serif}
+main{max-width:1020px;margin:auto;padding:clamp(16px,5vw,50px)}header{border-bottom:1px solid var(--line);padding-bottom:1.3rem}
+h1,h2,h3{line-height:1.32;margin:0 0 .65rem}h1{font-size:clamp(2rem,6vw,3.7rem)}h2{font-size:1.5rem}h3{font-size:1.1rem}p{margin:.45rem 0 1rem}
+nav{display:flex;flex-wrap:wrap;gap:.35rem 1.15rem}a{color:var(--blue);text-underline-offset:.18em;overflow-wrap:anywhere}
+section{margin-top:2rem;scroll-margin-top:1rem}section+section{border-top:1px solid var(--line);padding-top:1.5rem}
+article,details{padding:1rem 1.15rem;background:var(--white);border:1px solid var(--line);border-radius:12px;margin:.7rem 0}
+article{box-shadow:0 12px 36px #142b4708}
+details{background:var(--wash)}details p{margin:.7rem 0 0}summary{cursor:pointer;font-weight:700;color:var(--blue)}
+.media{aspect-ratio:16/9;display:grid;place-items:center;background:var(--wash);border:2px dashed var(--line);border-radius:12px;color:var(--soft);overflow:hidden}
+.media iframe,.media video{width:100%;height:100%;border:0}
+.tag{color:var(--blue);font-weight:700}.route{padding-left:1.3em}.route li{margin:.55em 0}
+fieldset{min-width:0;border:1px solid var(--line);border-radius:12px;padding:.75rem 1rem;margin:1rem 0}
+legend{font-weight:700;padding:0 .3rem}label{display:block;padding:.45rem 0}
+button,select{font:inherit;color:var(--ink);padding:.35rem .65rem;border:1px solid var(--line);border-radius:6px;background:var(--white);max-width:100%}
+button{cursor:pointer;min-height:44px}button[type=submit]{background:var(--blue);color:white}
+output{display:block;margin:.6rem 0;color:var(--blue);font-weight:700}
+output:not(:empty){padding:.6rem .8rem;background:var(--wash);border-radius:8px}
+[data-feedback]::before{content:attr(data-feedback) "｜";font-weight:700;color:var(--blue)}
+mark{background:var(--accent);color:var(--ink)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="tag">民法・債編各論</p>
+<h1>租了房子，<br>出問題怎麼辦？</h1>
+<p>從一間漏水的公寓出發，練習判斷誰負責修、能否扣租，以及房子賣掉後租約如何處理。</p>
+<nav aria-label="講義目錄">
+<a href="#video">前測與影音</a><a href="#basics">基本觀念</a><a href="#repair">漏水與欠租</a><a href="#transfer">房屋讓與</a><a href="#past">歷屆題</a><a href="#laws">逐句讀法條</a><a href="#practice">練習與診斷</a>
+</nav>
+</header>
+<section id="video" aria-labelledby="video-title">
+<h2 id="video-title">先試兩題，再看影片</h2>
+<fieldset><legend>前測１｜修繕</legend><p>公寓漏水，房客第一次通知房東後，可以直接把修理費從租金扣掉嗎？</p><label><input type="radio" name="pre-repair" value="0"> 可以立即扣除</label><label><input type="radio" name="pre-repair" value="1"> 還要檢查修繕義務及催告</label></fieldset>
+<fieldset><legend>前測２｜房屋讓與</legend><p>已交付的房屋由房客占有中，六年租約未公證，屋主售屋後可依第425條對抗買受人嗎？</p><label><input type="radio" name="pre-sale" value="0"> 可以</label><label><input type="radio" name="pre-sale" value="1"> 落入第425條第2項的例外</label></fieldset>
+<div class="media" id="lesson-media">
+<!-- 影音上架後，以影片 iframe 或 video 元素取代下方提示。 -->
+<span>租賃教學影片預留區</span>
+</div>
+</section>
+<section id="basics">
+<h2>一、先確認租了什麼、約定怎麼用</h2>
+<p>甲把公寓租給乙住，每月收租。租賃契約成立後，甲要交付合於約定用途的房屋，並在租期內維持這個狀態。乙則依約使用、支付租金。解題時先找出兩人約定的用途，例如住宅或民宿，再問發生的事是否妨礙該用途。</p>
+<article><h3>口頭約定租兩年，有效嗎？</h3><p>民法第422條對逾一年的不動產租賃要求以字據訂立。沒有字據時，視為不定期限租賃。這個期限分類也會影響之後能否用第425條對抗買受人。</p></article>
+<p><a href="https://mojlaw.moj.gov.tw/LawContent.aspx?LSID=FL001351&amp;LawNo=421">查條文：民法第421、422、423條</a></p>
+</section>
+<section id="repair">
+<h2>二、公寓漏水，房客怎麼主張？</h2>
+<ol class="route">
+<li><strong>先問誰負修繕義務。</strong> 民法第429條原則上由出租人負擔，仍須確認契約、習慣及漏水原因。租賃物有應由出租人修繕的情形，承租人原則上應通知出租人（第437條）。</li>
+<li><strong>再問催告後發生什麼事。</strong> 依第430條，承租人可定相當期限催告。出租人期限內仍未修繕，承租人得終止契約，或自行修繕，請求出租人償還費用或從租金扣除。</li>
+<li><strong>最後分清楚在主張什麼。</strong> 扣抵修繕費與減少租金是不同問題。租期中因不可歸責於承租人的事由致租賃物一部滅失，第435條允許按滅失部分請求減租。存餘部分已不能達租賃目的時，可終止。漏水是否達到一部滅失或可類推的程度，須看具體事實。</li>
+</ol>
+<article><h3>換成房客欠租呢？</h3><p>從第439條的給付期限、第440條的定期催告與終止要件開始。房屋租賃另有欠租總額須達兩個月租額的門檻。租金約定每期開始時支付者，還要檢查是否遲延逾兩個月。題目若指定住宅租賃或特別法，再檢查有無其他適用規範。</p></article>
+<p><a href="https://mojlaw.moj.gov.tw/LawContent.aspx?LSID=FL001351&amp;LawNo=430">查條文：民法第429、430、435、437、439、440條</a></p>
+</section>
+<section id="transfer">
+<h2>三、房子賣了，原租約還在嗎？</h2>
+<article>
+<h3>換一個條件，看看答案怎麼變</h3>
+<p>教學假設：屋主就是出租人，已經交屋，售屋時房客仍占有。</p>
+<label for="lease-length">租賃期限</label><select id="lease-length"><option value="short">三年</option><option value="long">六年</option><option value="open">不定期限</option></select>
+<label><input type="checkbox" id="lease-notarized"> 租約已公證</label>
+<output id="lease-result" aria-live="polite">三年未公證的租約，符合第425條第1項的適用條件。</output>
+</article>
+<article><h3>已經有租約｜第425條</h3><p>先確認出租人何時交付、承租人在讓與時是否仍占有，以及是否由出租人讓與所有權。未經公證的不動產租約，如果逾五年或未定期限，第425條第1項不適用。若出租人和屋主不同，要另外論證有無類推適用的理由。</p></article>
+<article><h3>基地和房屋分開讓與｜第425條之1</h3><p>土地與地上房屋原同屬一人，讓與其中之一，或分別讓與不同人時，可依條文推定在房屋得使用期限內有租賃關係。租金先由當事人協議，不能協議時，可請法院定之。</p></article>
+<p><a href="https://mojlaw.moj.gov.tw/LawContent.aspx?LSID=FL001351&amp;LawNo=425">查條文：民法第425、425條之1</a></p>
+</section>
+<section id="past">
+<h2>四、同樣換了屋主，歷屆怎麼考？</h2>
+<article><h3>106年一（三）、（四）｜民宿租約</h3><p>先問觀星視野遭鄰樓遮蔽，是否影響約定使用或租金。再問原租約是否仍存續，以及受任人以自己名義出租時，是否能類推第425條對抗買受人。官方評分要點分租約已終止與仍存續兩種情形。</p><a href="https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?c=306&amp;code=106122&amp;q=1&amp;s=0203&amp;t=Q">106年原卷</a> · <a href="https://web.archive.org/web/20180220182603id_/http://wwwc.moex.gov.tw/main/news/wHandNews_File.ashx?news_id=3209&amp;serial_no=7">官方評分要點存檔</a></article>
+<article><h3>109年一（一）｜基地和未登記建物分別讓與</h3><p>判斷重點改成是否推定有租賃關係。官方評分要點採實務見解，將事實上處分權讓與納入第425條之1的適用範圍。確認租賃關係後，拆屋還地與不當得利都要重新檢查。</p><a href="https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?c=301&amp;code=109121&amp;q=1&amp;s=0203&amp;t=Q">109年原卷</a> · <a href="https://web.archive.org/web/20240321111726id_/https://wwwc.moex.gov.tw/main/controls/wHandEditorExtend_File.ashx?Fun=News&amp;menu_id=42&amp;item_id=4174&amp;file_id=10873">官方評分要點存檔</a></article>
+</section>
+<section id="laws">
+<h2>五、條文逐段讀</h2>
+<details><summary>第423條｜交付與維持</summary><p><mark>以合於所約定使用收益之租賃物</mark>。先找出契約約定的用途，再檢查交屋時與租期中是否都能照約定使用。</p></details>
+<details><summary>第430條｜催告與修繕費</summary><p><mark>定相當期限，催告出租人修繕</mark>。期限經過仍未修繕，才接著檢查終止或自行修繕後的費用請求。</p></details>
+<details><summary>第425條｜買賣不破租賃</summary><p><mark>租賃物交付後，承租人占有中</mark>。先核對讓與時點的交付與占有。再讀第2項，確認租期與公證。</p></details>
+<details><summary>第425條之1｜推定租賃</summary><p><mark>土地及其土地上之房屋同屬一人所有</mark>。從讓與前的所有權關係開始，接著看讓與後土地和房屋分屬何人。</p></details>
+<p><a href="https://mojlaw.moj.gov.tw/LawContent.aspx?LSID=FL001351&amp;LawNo=421">看完整條文</a></p>
+</section>
+<section id="practice">
+<h2>六、六題練習與學習診斷</h2>
+<form id="lease-quiz" novalidate>
+<fieldset data-topic="修繕" data-answer="1"><legend>１．出租人應修的漏水，限期催告後仍未修，房客可怎麼做？</legend><label><input required type="radio" name="q1" value="1"> 自行修繕後請求償還費用，或從租金扣除</label><label><input type="radio" name="q1" value="0"> 只能等租期屆滿</label><p hidden>第430條也容許在要件具備時終止契約。</p></fieldset>
+<fieldset data-topic="修繕" data-answer="0"><legend>２．因不可歸責於房客的事故，租賃物一部滅失，剩餘部分仍可達租賃目的。</legend><label><input required type="radio" name="q2" value="0"> 可按滅失部分請求減租</label><label><input type="radio" name="q2" value="1"> 可直接依第435條終止租約</label><p hidden>第435條區分一部滅失的減租與剩餘部分已不能達租賃目的的終止。</p></fieldset>
+<fieldset data-topic="租金" data-answer="0"><legend>３．房屋租金積欠僅一個月，出租人能否依第440條終止？</legend><label><input required type="radio" name="q3" value="0"> 尚未達房屋欠租總額門檻</label><label><input type="radio" name="q3" value="1"> 一遲延即得終止</label><p hidden>第440條對房屋欠租另有兩個月租額的限制，也要檢查催告及租金給付時點。</p></fieldset>
+<fieldset data-topic="房屋讓與" data-answer="1"><legend>４．已交屋、房客仍占有，屋主出售出租的房屋。六年租約未公證。</legend><label><input required type="radio" name="q4" value="0"> 一律適用第425條第1項</label><label><input type="radio" name="q4" value="1"> 須檢查第425條第2項的例外</label><p hidden>逾五年且未公證的不動產租約，落入第425條第2項。</p></fieldset>
+<fieldset data-topic="房屋讓與" data-answer="0"><legend>５．基地與地上房屋原同屬一人，之後各讓與不同人，先看哪一條？</legend><label><input required type="radio" name="q5" value="0"> 第425條之1的推定租賃</label><label><input type="radio" name="q5" value="1"> 從第425條認定原租約繼續存在</label><p hidden>這裡要判斷是否推定成立租賃關係。第425條則以既有租約為前提。</p></fieldset>
+<fieldset data-topic="房屋讓與" data-answer="1"><legend>６．受任人以自己名義出租，所有權人後來售屋，應先確認什麼？</legend><label><input required type="radio" name="q6" value="0"> 有公證就一定能對抗買方</label><label><input type="radio" name="q6" value="1"> 租約是否仍存續，以及出租人與讓與人不同的影響</label><p hidden>106年評分要點先分租約是否終止，再討論存續時有無類推第425條的空間。</p></fieldset>
+<button type="submit">檢查答案</button> <button type="reset">重新作答</button>
+<output id="lease-diagnosis" aria-live="polite"></output>
+</form>
+</section>
+</main>
+<script>
+const lengthControl = document.getElementById('lease-length');
+const notarized = document.getElementById('lease-notarized');
+const result = document.getElementById('lease-result');
+function updateTransfer() {
+  const exception = lengthControl.value !== 'short' && !notarized.checked;
+  result.textContent = exception
+    ? '落入第425條第2項。原租約無法依第1項對買受人繼續存在。'
+    : '依題設已交付且仍占有，原租約依第425條第1項對買受人繼續存在。';
+}
+lengthControl.addEventListener('change', updateTransfer);
+notarized.addEventListener('change', updateTransfer);
+const quiz = document.getElementById('lease-quiz');
+const diagnosis = document.getElementById('lease-diagnosis');
+quiz.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const review = new Set();
+  const questions = [...quiz.querySelectorAll('fieldset')];
+  let correct = 0;
+  let answered = 0;
+  const pending = [];
+  questions.forEach((question, index) => {
+    const answer = question.querySelector('input:checked');
+    const explanation = question.querySelector('p');
+    if (!answer) {
+      pending.push(index + 1);
+      explanation.hidden = true;
+      return;
+    }
+    answered++;
+    const matches = answer?.value === question.dataset.answer;
+    correct += Number(matches);
+    if (!matches) review.add(question.dataset.topic);
+    explanation.hidden = false;
+    explanation.dataset.feedback = matches ? '答對' : '再看一次';
+  });
+  const pretest = ['pre-repair', 'pre-sale'].map((name) => document.querySelector('input[name="' + name + '"]:checked'));
+  const before = pretest.every(Boolean) ? '前測 ' + pretest.filter((answer) => answer.value === '1').length + '／2。' : '';
+  const score = answered ? '已答題中答對 ' + correct + '／' + answered + '。' : '';
+  const remaining = pending.length ? '尚未作答：第 ' + pending.join('、') + ' 題。' : '';
+  const next = review.size ? '先複習：' + [...review].join('、') + '。'
+    : pending.length ? '' : '接著試做106年和109年的房屋讓與題。';
+  diagnosis.textContent = before + score + remaining + next;
+});
+quiz.addEventListener('reset', () => {
+  quiz.querySelectorAll('fieldset p').forEach((explanation) => { explanation.hidden = true; });
+  diagnosis.textContent = '';
+});
+</script>
+</body>
+</html>
