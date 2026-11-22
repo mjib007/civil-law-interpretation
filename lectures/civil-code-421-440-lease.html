@@ -26,6 +26,9 @@ output:not(:empty){padding:.6rem .8rem;background:var(--wash);border-radius:8px}
 [data-feedback]::before{content:attr(data-feedback) "｜";font-weight:700;color:var(--blue)}
 .confidence select{display:block;margin-top:.2rem}
 .diagnosis-card{border-top:4px solid var(--blue)}
+.score-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.35rem;max-width:24rem;margin:.65rem 0 1rem}
+.score-cell{height:1.2rem;border:1px solid #879ab5;border-radius:4px;background:#fff}
+.score-cell.correct{background:var(--blue);border-color:var(--blue)}
 .diagnosis-topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));gap:.65rem;padding:0;list-style:none}
 .diagnosis-topics li{padding:.65rem .85rem;background:var(--wash);border-radius:8px}
 .diagnosis-topics strong{display:block}
@@ -125,6 +128,7 @@ mark{background:var(--accent);color:var(--ink)}
 <article class="diagnosis-card" id="lease-report" aria-labelledby="lease-report-title" hidden>
 <h3 id="lease-report-title">學習診斷報告</h3>
 <p id="report-summary"></p>
+<div class="score-grid" id="report-score-grid" aria-hidden="true"></div>
 <p id="report-comparison"></p>
 <ul class="diagnosis-topics" id="report-topics"></ul>
 <h3>下一步怎麼複習</h3>
@@ -234,6 +238,12 @@ function showReport(attempts, correct) {
   const topics = new Map();
   const topicsList = document.getElementById('report-topics');
   const reviewList = document.getElementById('report-review');
+  const scoreGrid = document.getElementById('report-score-grid');
+  scoreGrid.replaceChildren(...attempts.map((_, index) => {
+    const cell = document.createElement('span');
+    cell.className = index < correct ? 'score-cell correct' : 'score-cell';
+    return cell;
+  }));
   const lowConfidence = attempts.filter((item) => item.matches && item.confidence === 'unsure').length;
   const unmarked = attempts.filter((item) => item.confidence === '').length;
   document.getElementById('report-summary').textContent = '答對 ' + correct + '／6 題。答對但不確定 ' +
