@@ -24,7 +24,6 @@ button{cursor:pointer;min-height:44px}button[type=submit]{background:var(--blue)
 output{display:block;margin:.6rem 0;color:var(--blue);font-weight:700}
 output:not(:empty){padding:.6rem .8rem;background:var(--wash);border-radius:8px}
 [data-feedback]::before{content:attr(data-feedback) "｜";font-weight:700;color:var(--blue)}
-.confidence select{display:block;margin-top:.2rem}
 .diagnosis-card{border-top:4px solid var(--blue)}
 .score-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.35rem;max-width:24rem;margin:.65rem 0 1rem}
 .score-cell{height:1.2rem;border:1px solid #879ab5;border-radius:4px;background:#fff}
@@ -114,7 +113,7 @@ mark{background:var(--accent);color:var(--ink)}
 </section>
 <section id="practice">
 <h2>六、六題練習與學習診斷</h2>
-<p>選答案後，也可以標記有沒有把握。六題答完，報告會指出哪些觀念需要複習。</p>
+<p>六題答完，報告會指出哪些觀念需要複習。</p>
 <form id="lease-quiz" novalidate>
 <fieldset data-topic="修繕" data-answer="1"><legend>１．出租人應修的漏水，限期催告後仍未修，房客可怎麼做？</legend><label><input required type="radio" name="q1" value="1"> 自行修繕後請求償還費用，或從租金扣除</label><label><input type="radio" name="q1" value="0"> 只能等租期屆滿</label><p hidden>第430條也容許在要件具備時終止契約。</p></fieldset>
 <fieldset data-topic="修繕" data-answer="0"><legend>２．因不可歸責於房客的事故，租賃物一部滅失，剩餘部分仍可達租賃目的。</legend><label><input required type="radio" name="q2" value="0"> 可按滅失部分請求減租</label><label><input type="radio" name="q2" value="1"> 可直接依第435條終止租約</label><p hidden>第435條區分一部滅失的減租與剩餘部分已不能達租賃目的的終止。</p></fieldset>
@@ -219,21 +218,6 @@ const reviewTargets = [
   ['#laws', '第425條之1的推定租賃'],
   ['#past', '106年題的出租人與屋主不同']
 ];
-questions.forEach((question, index) => {
-  const label = document.createElement('label');
-  label.className = 'confidence';
-  label.textContent = '第' + (index + 1) + '題把握程度';
-  const control = document.createElement('select');
-  control.name = 'confidence-' + (index + 1);
-  [['', '未標記'], ['sure', '有把握'], ['unsure', '不確定／用猜的']].forEach(([value, title]) => {
-    const option = document.createElement('option');
-    option.value = value;
-    option.textContent = title;
-    control.append(option);
-  });
-  label.append(control);
-  question.insertBefore(label, question.querySelector('p'));
-});
 function showReport(attempts, correct) {
   const topics = new Map();
   const topicsList = document.getElementById('report-topics');
@@ -244,10 +228,7 @@ function showReport(attempts, correct) {
     cell.className = index < correct ? 'score-cell correct' : 'score-cell';
     return cell;
   }));
-  const lowConfidence = attempts.filter((item) => item.matches && item.confidence === 'unsure').length;
-  const unmarked = attempts.filter((item) => item.confidence === '').length;
-  document.getElementById('report-summary').textContent = '答對 ' + correct + '／6 題。答對但不確定 ' +
-    lowConfidence + ' 題。未標記把握程度 ' + unmarked + ' 題。';
+  document.getElementById('report-summary').textContent = '答對 ' + correct + '／' + attempts.length + ' 題。';
   const before = document.querySelector('input[name="pre-sale"]:checked');
   document.getElementById('report-comparison').textContent = before
     ? '同題觀念比較（六年租約未公證）：前測' + (before.value === '1' ? '答對' : '答錯') +
@@ -260,9 +241,9 @@ function showReport(attempts, correct) {
     group.total++;
     group.correct += Number(item.matches);
     topics.set(item.topic, group);
-    if (item.matches && item.confidence !== 'unsure') return;
+    if (item.matches) return;
     const row = document.createElement('li');
-    row.textContent = '第' + (index + 1) + '題' + (item.matches ? '答對，但不確定。' : item.confidence === 'sure' ? '有把握但答錯。' : '答錯。');
+    row.textContent = '第' + (index + 1) + '題答錯。';
     const [href, title] = reviewTargets[index];
     const link = document.createElement('a');
     link.href = href;
@@ -305,7 +286,7 @@ quiz.addEventListener('submit', (event) => {
     }
     answered++;
     const matches = answer?.value === question.dataset.answer;
-    attempts.push({matches, topic:question.dataset.topic, confidence:question.querySelector('select').value});
+    attempts.push({matches, topic:question.dataset.topic});
     correct += Number(matches);
     if (!matches) review.add(question.dataset.topic);
     explanation.hidden = false;
