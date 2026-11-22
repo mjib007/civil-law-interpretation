@@ -24,6 +24,11 @@ button{cursor:pointer;min-height:44px}button[type=submit]{background:var(--blue)
 output{display:block;margin:.6rem 0;color:var(--blue);font-weight:700}
 output:not(:empty){padding:.6rem .8rem;background:var(--wash);border-radius:8px}
 [data-feedback]::before{content:attr(data-feedback) "｜";font-weight:700;color:var(--blue)}
+.confidence select{display:block;margin-top:.2rem}
+.diagnosis-card{border-top:4px solid var(--blue)}
+.diagnosis-topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));gap:.65rem;padding:0;list-style:none}
+.diagnosis-topics li{padding:.65rem .85rem;background:var(--wash);border-radius:8px}
+.diagnosis-topics strong{display:block}
 mark{background:var(--accent);color:var(--ink)}
 .law-controls{display:flex;flex-wrap:wrap;gap:.45rem;margin:.75rem 0}
 .law-controls button[aria-pressed=true]{background:var(--blue);color:white}
@@ -106,6 +111,7 @@ mark{background:var(--accent);color:var(--ink)}
 </section>
 <section id="practice">
 <h2>六、六題練習與學習診斷</h2>
+<p>選答案後，也可以標記有沒有把握。六題答完，報告會指出哪些觀念需要複習。</p>
 <form id="lease-quiz" novalidate>
 <fieldset data-topic="修繕" data-answer="1"><legend>１．出租人應修的漏水，限期催告後仍未修，房客可怎麼做？</legend><label><input required type="radio" name="q1" value="1"> 自行修繕後請求償還費用，或從租金扣除</label><label><input type="radio" name="q1" value="0"> 只能等租期屆滿</label><p hidden>第430條也容許在要件具備時終止契約。</p></fieldset>
 <fieldset data-topic="修繕" data-answer="0"><legend>２．因不可歸責於房客的事故，租賃物一部滅失，剩餘部分仍可達租賃目的。</legend><label><input required type="radio" name="q2" value="0"> 可按滅失部分請求減租</label><label><input type="radio" name="q2" value="1"> 可直接依第435條終止租約</label><p hidden>第435條區分一部滅失的減租與剩餘部分已不能達租賃目的的終止。</p></fieldset>
@@ -116,6 +122,14 @@ mark{background:var(--accent);color:var(--ink)}
 <button type="submit">檢查答案</button> <button type="reset">重新作答</button>
 <output id="lease-diagnosis" aria-live="polite"></output>
 </form>
+<article class="diagnosis-card" id="lease-report" aria-labelledby="lease-report-title" hidden>
+<h3 id="lease-report-title">學習診斷報告</h3>
+<p id="report-summary"></p>
+<p id="report-comparison"></p>
+<ul class="diagnosis-topics" id="report-topics"></ul>
+<h3>下一步怎麼複習</h3>
+<ol id="report-review"></ol>
+</article>
 </section>
 </main>
 <script>
@@ -191,10 +205,83 @@ lengthControl.addEventListener('change', updateTransfer);
 notarized.addEventListener('change', updateTransfer);
 const quiz = document.getElementById('lease-quiz');
 const diagnosis = document.getElementById('lease-diagnosis');
+const report = document.getElementById('lease-report');
+const questions = [...quiz.querySelectorAll('fieldset')];
+const reviewTargets = [
+  ['#repair', '第430條的催告與修繕費'],
+  ['#repair', '第435條的減租與終止'],
+  ['#repair', '第440條的欠租門檻'],
+  ['#transfer', '第425條的租期與公證'],
+  ['#laws', '第425條之1的推定租賃'],
+  ['#past', '106年題的出租人與屋主不同']
+];
+questions.forEach((question, index) => {
+  const label = document.createElement('label');
+  label.className = 'confidence';
+  label.textContent = '第' + (index + 1) + '題把握程度';
+  const control = document.createElement('select');
+  control.name = 'confidence-' + (index + 1);
+  [['', '未標記'], ['sure', '有把握'], ['unsure', '不確定／用猜的']].forEach(([value, title]) => {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = title;
+    control.append(option);
+  });
+  label.append(control);
+  question.insertBefore(label, question.querySelector('p'));
+});
+function showReport(attempts, correct) {
+  const topics = new Map();
+  const topicsList = document.getElementById('report-topics');
+  const reviewList = document.getElementById('report-review');
+  const lowConfidence = attempts.filter((item) => item.matches && item.confidence === 'unsure').length;
+  const unmarked = attempts.filter((item) => item.confidence === '').length;
+  document.getElementById('report-summary').textContent = '答對 ' + correct + '／6 題。答對但不確定 ' +
+    lowConfidence + ' 題。未標記把握程度 ' + unmarked + ' 題。';
+  const before = document.querySelector('input[name="pre-sale"]:checked');
+  document.getElementById('report-comparison').textContent = before
+    ? '同題觀念比較（六年租約未公證）：前測' + (before.value === '1' ? '答對' : '答錯') +
+      '，第4題' + (attempts[3].matches ? '答對' : '答錯') + '。'
+    : '前測未選答房屋讓與題，本次僅顯示事後練習結果。';
+  topicsList.replaceChildren();
+  reviewList.replaceChildren();
+  attempts.forEach((item, index) => {
+    const group = topics.get(item.topic) ?? {correct:0, total:0};
+    group.total++;
+    group.correct += Number(item.matches);
+    topics.set(item.topic, group);
+    if (item.matches && item.confidence !== 'unsure') return;
+    const row = document.createElement('li');
+    row.textContent = '第' + (index + 1) + '題' + (item.matches ? '答對，但不確定。' : item.confidence === 'sure' ? '有把握但答錯。' : '答錯。');
+    const [href, title] = reviewTargets[index];
+    const link = document.createElement('a');
+    link.href = href;
+    link.textContent = '回看' + title;
+    row.append(link);
+    reviewList.append(row);
+  });
+  topics.forEach((group, name) => {
+    const cell = document.createElement('li');
+    const label = document.createElement('strong');
+    label.textContent = name;
+    cell.append(label, '答對 ' + group.correct + '／' + group.total);
+    topicsList.append(cell);
+  });
+  if (!reviewList.children.length) {
+    const next = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = '#past';
+    link.textContent = '比對106年與109年的房屋讓與考法';
+    next.append(link);
+    reviewList.append(next);
+  }
+  report.hidden = false;
+}
+quiz.addEventListener('change', () => { report.hidden = true; diagnosis.textContent = ''; });
 quiz.addEventListener('submit', (event) => {
   event.preventDefault();
   const review = new Set();
-  const questions = [...quiz.querySelectorAll('fieldset')];
+  const attempts = [];
   let correct = 0;
   let answered = 0;
   const pending = [];
@@ -208,6 +295,7 @@ quiz.addEventListener('submit', (event) => {
     }
     answered++;
     const matches = answer?.value === question.dataset.answer;
+    attempts.push({matches, topic:question.dataset.topic, confidence:question.querySelector('select').value});
     correct += Number(matches);
     if (!matches) review.add(question.dataset.topic);
     explanation.hidden = false;
@@ -220,10 +308,13 @@ quiz.addEventListener('submit', (event) => {
   const next = review.size ? '先複習：' + [...review].join('、') + '。'
     : pending.length ? '' : '接著試做106年和109年的房屋讓與題。';
   diagnosis.textContent = before + score + remaining + next;
+  report.hidden = pending.length > 0;
+  if (!report.hidden) showReport(attempts, correct);
 });
 quiz.addEventListener('reset', () => {
   quiz.querySelectorAll('fieldset p').forEach((explanation) => { explanation.hidden = true; });
   diagnosis.textContent = '';
+  report.hidden = true;
 });
 </script>
 </body>
